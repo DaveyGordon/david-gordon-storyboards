@@ -461,3 +461,61 @@ footer { display: flex; justify-content: space-between; gap: 30px; padding: 17px
   .next-project { grid-template-columns: 1fr auto; }
   footer { flex-direction: column; }
 }
+/* LOGO CHIRON */
+
+.ticker {
+  height: 124px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.ticker-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: logoTicker 32s linear infinite;
+}
+
+.ticker-group {
+  display: flex;
+  align-items: center;
+  gap: 76px;
+  padding-right: 76px;
+}
+
+.ticker-group img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-height: 62px;
+  max-width: 220px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+@keyframes logoTicker {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 700px) {
+  .ticker {
+    height: 92px;
+  }
+
+  .ticker-group {
+    gap: 48px;
+    padding-right: 48px;
+  }
+
+  .ticker-group img {
+    max-height: 44px;
+    max-width: 170px;
+  }
+}
