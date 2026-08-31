@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Expressive advertising storyboards for agencies, directors, pitches and production by David Gordon.">
+  <meta name="theme-color" content="#f2efe8">
+  <title>David Gordon — Human Storyboards</title>
+  <link rel="canonical" href="https://www.davidgordonstoryboards.com/">
+  <link rel="stylesheet" href="assets/css/site-v0.4.css">
+  <style>
+    /* Featured W+K pair: keep both image bottoms on one baseline */
+    .featured-projects {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1.54fr 1fr;
+    }
+
+    .featured-projects .project-card {
+      grid-column: auto !important;
+      min-width: 0;
+    }
+
+    .featured-projects .project-link {
+      display: block;
+      height: auto;
+    }
+
+    .featured-projects .project-visual {
+      height: auto !important;
+      aspect-ratio: auto !important;
+    }
+
+    .featured-projects .project-visual img {
+      display: block;
+      width: 100%;
+      height: auto !important;
+      object-fit: contain !important;
+    }
+
+    .featured-projects:not(:has(.project-card:not([hidden]))) {
+      display: none;
+    }
+
+    /* Full-width production section */
+    .project-card.full-width-project {
+      grid-column: 1 / -1 !important;
+    }
+
+    .project-card.full-width-project .project-visual {
+      width: 100%;
+    }
+
+    .project-card.full-width-project .project-visual img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    /* YouTube + KFC row: slightly wider gutter between the two blocks */
+    .project-pair {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: clamp(38px, 2.7vw, 56px);
+    }
+
+    .project-pair .project-card {
+      grid-column: auto !important;
+      min-width: 0;
+    }
+
+    .project-pair:not(:has(.project-card:not([hidden]))) {
+      display: none;
+    }
+
+    @media (max-width: 760px) {
+      .featured-projects,
+      .project-pair {
+        grid-template-columns: 1fr;
+      }
+
+      .project-pair {
+        row-gap: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to work</a>
+<div class="site-shell">
+  <header class="topbar">
+    <a class="brand" href="index.html"><strong>David Gordon</strong><span>Storyboard artist / Department of Illustration</span></a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#work">Work</a>
+      <a href="#department">Departments</a>
+      <a href="#process">Process</a>
+      <a href="#field-notes">Funny Drawings</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="availability" href="#contact">Check availability</a>
+    <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+  </header>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="#work">Work</a>
+    <a href="#department">Departments</a>
+    <a href="#process">Process</a>
+    <a href="#field-notes">Funny Drawings</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy-wrap">
+        <div class="hero-copy">
+          <div>
+            <div class="eyebrow"><span>New York / Available worldwide</span></div>
+            <h1 id="hero-title">Human <em>storyboards.</em></h1>
+          </div>
+          <div class="hero-bottom">
+            <p class="intro">Expressive advertising storyboards for agencies, directors, pitches and production—drawn by a human being who understands where the camera goes and why the joke works.</p>
+            <div class="hero-contact">Direct line<br><a href="tel:+19176203089">917 620 3089</a><br><a href="https://www.davidgordonstoryboards.com/contact">Email / check availability ↘</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="evidence-rail" aria-label="Three selected storyboard images">
+        <figure class="rail-card rail-crowd">
+          <img src="assets/images/hero/pitch/pitch-158.jpg" alt="Color storyboard illustration of a large cheering crowd" fetchpriority="high">
+        </figure>
+        <figure class="rail-card rail-action">
+          <img src="assets/images/hero/pitch/pitch-027.jpg" alt="Storyboard frame of a person in a red cold-weather suit tumbling inside an aircraft" fetchpriority="high">
+        </figure>
+        <figure class="rail-card rail-gorilla">
+          <img src="assets/images/hero/pitch/pitch-039.jpg" alt="Art director sketch of a gorilla at a computer">
+        </figure>
+      </div>
+    </section>
+
+    <div class="ticker" aria-label="Selected clients and brands">
+  <div class="ticker-track">
+
+    <div class="ticker-group">
+      <img src="assets/images/logos/logo-yoplait.png" alt="Yoplait">
+      <img src="assets/images/logos/logo-kfc.png" alt="KFC">
+      <img src="assets/images/logos/logo-amtrak.png" alt="Amtrak">
+      <img src="assets/images/logos/logo-clorox.png" alt="Clorox">
+      <img src="assets/images/logos/logo-coke.png" alt="Coca-Cola">
+      <img src="assets/images/logos/logo-kraft-foods.png" alt="Kraft Foods">
+      <img src="assets/images/logos/logo-sprint.png" alt="Sprint">
+      <img src="assets/images/logos/logo-supercell.png" alt="Supercell">
+      <img src="assets/images/logos/logo-hilton.png" alt="Hilton">
+      <img src="assets/images/logos/logo-kayak.png" alt="Kayak">
+    </div>
+
+    <div class="ticker-group" aria-hidden="true">
+      <img src="assets/images/logos/logo-yoplait.png" alt="">
+      <img src="assets/images/logos/logo-kfc.png" alt="">
+      <img src="assets/images/logos/logo-amtrak.png" alt="">
+      <img src="assets/images/logos/logo-clorox.png" alt="">
+      <img src="assets/images/logos/logo-coke.png" alt="">
+      <img src="assets/images/logos/logo-kraft-foods.png" alt="">
+      <img src="assets/images/logos/logo-sprint.png" alt="">
+      <img src="assets/images/logos/logo-supercell.png" alt="">
+      <img src="assets/images/logos/logo-hilton.png" alt="">
+      <img src="assets/images/logos/logo-kayak.png" alt="">
+    </div>
+
+  </div>
+</div>
+    <section class="section" id="work">
+      <header class="section-head">
+        <div><div class="section-kicker">Selected assignments</div><h2>Proof of work.</h2></div>
+        <div class="section-number">01 / Portfolio</div>
+      </header>
+      <div class="filters" aria-label="Filter portfolio">
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter" type="button" data-filter="production" aria-pressed="false">Production</button>
+        <button class="filter" type="button" data-filter="pitch" aria-pressed="false">Pitch</button>
+        <button class="filter" type="button" data-filter="color" aria-pressed="false">Color</button>
+        <button class="filter" type="button" data-filter="comedy" aria-pressed="false">Comedy</button>
+      </div>
+      <div class="project-grid">
+        <div class="featured-projects">
+          <article class="project-card" data-category="pitch color">
+            <a class="project-link" href="campaigns/human-storyboards.html">
+              <div class="project-visual">
+                <img src="assets/images/hero/pitch/pitch-096.jpg" alt="Fisher-Price color pitch storyboard">
+              </div>
+              <div class="project-meta">
+                <span class="project-title">W+K/Fisher Price</span>
+              </div>
+            </a>
+          </article>
+
+          <article class="project-card" data-category="pitch color">
+            <a class="project-link" href="campaigns/human-storyboards.html">
+              <div class="project-visual">
+                <img src="assets/images/hero/pitch/pitch-152.jpg" alt="YouTube color pitch storyboard">
+              </div>
+              <div class="project-meta">
+                <span class="project-title">W+K Youtube</span>
+              </div>
+            </a>
+          </article>
+        </div>
+        <div class="project-pair">
+          <article class="project-card" data-category="pitch comedy">
+            <a class="project-link" href="campaigns/sketchy-storyboards.html">
+              <div class="project-visual"><img src="https://static.wixstatic.com/media/ecdb75_c07ee1bba790423799c6dd29de76c4e3~mv2.jpg/v1/fill/w_980%2Ch_558%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/comp_MaMa_YouTube-1.jpg" alt="Loose monochrome YouTube pitch storyboards" loading="lazy"></div>
+              <div class="project-meta"><span class="project-title">YouTube / W+K</span><span class="project-type">Pitch / sketch</span></div>
+            </a>
+          </article>
+
+          <article class="project-card" data-category="pitch">
+            <a class="project-link" href="campaigns/human-storyboards.html">
+              <div class="project-visual"><img src="assets/images/hero/pitch/pitch-005.jpg" alt="KFC pitch storyboard" loading="lazy"></div>
+              <div class="project-meta"><span class="project-title">W+K KFC</span></div>
+            </a>
+          </article>
+        </div>
+        <article class="project-card wide full-width-project" data-category="production comedy">
+          <a class="project-link" href="campaigns/human-storyboards.html">
+            <div class="project-visual"><img src="assets/images/hero/production/production-12.jpg" alt="Production storyboard sequence" loading="lazy"></div>
+            <div class="project-meta"><span class="project-title">SAP / Pizza Fist 100</span><span class="project-type">Production / comedy</span></div>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="department">
+      <header class="section-head">
+        <div><div class="section-kicker">Browse the department</div><h2>Filed by assignment.</h2></div>
+        <div class="section-number">02 / Departments</div>
+      </header>
+      <div class="department-grid">
+        <a class="dept-link" href="#work"><span class="dept-top"><span>Dept. 01</span><span>Camera / action</span></span><span class="dept-name">Production<br>boards</span><span class="dept-arrow">↗</span></a>
+        <a class="dept-link" href="#work"><span class="dept-top"><span>Dept. 02</span><span>Concept / sell</span></span><span class="dept-name">Pitch<br>boards</span><span class="dept-arrow">↗</span></a>
+        <a class="dept-link" href="#work"><span class="dept-top"><span>Dept. 03</span><span>Appetite / product</span></span><span class="dept-name">Food +<br>product</span><span class="dept-arrow">↗</span></a>
+        <a class="dept-link" href="#work"><span class="dept-top"><span>Dept. 04</span><span>People / feeling</span></span><span class="dept-name">Kids +<br>families</span><span class="dept-arrow">↗</span></a>
+      </div>
+    </section>
+
+    <section class="section process" id="process">
+      <div class="process-copy">
+        <div><div class="section-kicker">Production evidence</div><h3>The board is not decoration.</h3></div>
+        <p>It is a working document: performance, staging, lens logic, timing, clarity—and just enough life that everybody can see the commercial before the commercial exists.</p>
+        <div class="process-list">
+          <div><span>01 / Readable action</span><span>Fast</span></div>
+          <div><span>02 / Camera intention</span><span>Clear</span></div>
+          <div><span>03 / Human performance</span><span>Alive</span></div>
+          <div><span>04 / Revision survival</span><span>Battle-tested</span></div>
+        </div>
+      </div>
+      <div class="process-image"><img src="https://static.wixstatic.com/media/ecdb75_46c0280c079e48e0b3963f68ce766d5f~mv2.jpg/v1/fill/w_981%2Ch_709%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/comp_PackingUp.jpg" alt="Fisher-Price storyboard frames beside finished frames" loading="lazy"></div>
+    </section>
+
+    <section class="section" id="field-notes">
+      <header class="section-head">
+        <div><div class="section-kicker">Filed under: human behavior</div><h2>Funny art director drawings.</h2></div>
+        <div class="section-number">03 / Field notes</div>
+      </header>
+      <div class="field-grid">
+        <figure class="field-card"><img src="https://static.wixstatic.com/media/ecdb75_0c2945d6667f49fdad644faf6d92132a~mv2.jpg/v1/fill/w_322%2Ch_228%2Cq_90%2Cenc_avif%2Cquality_auto/ecdb75_0c2945d6667f49fdad644faf6d92132a~mv2.jpg" alt="Rough art director sketch about a confused father holding yogurt" loading="lazy"><figcaption>Exacting visual communication, executed under battlefield conditions.</figcaption></figure>
+        <figure class="field-card"><img src="https://static.wixstatic.com/media/ecdb75_363e1efc8b0445c783d82c5bb23d5340~mv2.jpg/v1/fill/w_250%2Ch_134%2Cq_90%2Cenc_avif%2Cquality_auto/ecdb75_363e1efc8b0445c783d82c5bb23d5340~mv2.jpg" alt="Rough art director sketch of a girl smiling at camera" loading="lazy"><figcaption>A complete emotional performance in seven blue lines.</figcaption></figure>
+        <figure class="field-card"><img src="https://static.wixstatic.com/media/ecdb75_8aac8b2e70c74842a727dc78f6f96491~mv2_d_3300_2550_s_4_2.jpg/v1/fill/w_485%2Ch_375%2Cq_90%2Cenc_avif%2Cquality_auto/ecdb75_8aac8b2e70c74842a727dc78f6f96491~mv2_d_3300_2550_s_4_2.jpg" alt="Rough drawing of a gorilla typing at a computer" loading="lazy"><figcaption>The briefing document has spoken. We now enter the gorilla-computer phase.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="section clients">
+      <div class="clients-title"><div class="section-kicker">Selected history</div><h3>Serious clients.<br>Very human drawings.</h3></div>
+      <div class="clients-copy"><strong>Wieden + Kennedy, TBWA\Chiat\Day, BBDO, McCann, FCB, Saatchi, Droga5, Grey and DDB</strong>—for brands including YouTube, McDonald’s, Samsung, Fisher-Price, Chobani, Yoplait, KFC, General Mills, Kraft, Hyundai, Skittles and ESPN.</div>
+    </section>
+
+    <section class="closing" id="contact">
+      <div class="closing-main"><div class="section-kicker">Current status: taking assignments</div><h2>Have boards.<br><em>Will travel.</em></h2></div>
+      <div class="closing-side">
+        <p>Pitch coming in hot? Production board growing tentacles? Tell me what you’re making, when you need it, and how finished the drawings need to be.</p>
+        <div class="contact-links">
+          <a href="tel:+19176203089"><span>Call</span><span>917 620 3089 ↗</span></a>
+          <a href="https://www.davidgordonstoryboards.com/contact"><span>Email</span><span>Check availability ↗</span></a>
+          <a href="campaigns/sketchy-storyboards.html"><span>Campaign page</span><span>Sketchy storyboards ↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>David Gordon / Storyboard Artist / Department of Illustration</span><span>Staging build v0.4 / <span data-current-year></span></span></footer>
+</div>
+<script src="assets/js/site-v0.4.js" defer></script>
+</body>
+</html>
