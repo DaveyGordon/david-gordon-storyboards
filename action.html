@@ -1,0 +1,1228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Action storyboards by David Gordon.">
+  <meta name="theme-color" content="#ffffff">
+  <title>David Gordon — Action</title>
+  <link rel="stylesheet" href="assets/css/site-v0.4.css">
+  <style>
+    :root {
+      --accent: #ff4a22;
+      --ink: #111111;
+      --rule: rgba(17,17,17,.18);
+      --bg: #ffffff;
+    }
+
+    html, body, .site-shell, main, .section, footer, .topbar, .mobile-nav {
+      background: var(--bg) !important;
+      background-color: var(--bg) !important;
+    }
+
+    .dept-page {
+      padding: 0 0 clamp(56px, 5vw, 90px);
+      border-top: 1px solid var(--rule);
+    }
+
+    .dept-hero-row {
+      display: grid;
+      grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1.55fr);
+      align-items: start;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .dept-intro {
+      position: static;
+      align-self: start;
+      padding: clamp(28px, 3vw, 46px);
+      border-right: 1px solid var(--rule);
+    }
+
+    .dept-kicker,
+    .section-label {
+      font-size: 0.96rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .dept-big {
+      font-size: clamp(3.5rem, 7vw, 7rem) !important;
+      line-height: 0.88 !important;
+      letter-spacing: -0.045em !important;
+      text-transform: uppercase;
+      margin: 0 0 1.5rem 0 !important;
+      color: var(--ink);
+    }
+
+    .dept-tagline {
+      font-size: 1.45rem;
+      line-height: 1.3;
+      margin: 0 0 1.4rem 0;
+      color: var(--ink);
+    }
+
+    .dept-copy {
+      max-width: 28rem;
+      font-size: 1.06rem;
+      line-height: 1.65;
+      margin: 0 0 2.2rem 0;
+      color: var(--ink);
+    }
+
+    .dept-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      border-top: 1px solid var(--rule);
+      padding-top: 1rem;
+      margin-top: 2.5rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .dept-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 2.4rem;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .dept-back:hover {
+      color: var(--accent);
+    }
+
+    .dept-meta-back {
+      color: var(--ink);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .dept-meta-back:hover {
+      color: var(--accent);
+    }
+
+    .pitch-gallery {
+      min-width: 0;
+      padding: clamp(22px, 2vw, 30px);
+    }
+
+    .feature-grid {
+      display: block;
+      margin: 0;
+    }
+
+    .feature-grid .gallery-card:not(.featured-card) {
+      display: none;
+    }
+
+    .gallery-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      min-width: 0;
+    }
+
+    .gallery-image {
+      display: block;
+      width: 100% !important;
+      height: auto !important;
+      min-height: 0 !important;
+      aspect-ratio: auto !important;
+      object-fit: contain !important;
+      border: 0;
+      background: #fff;
+    }
+
+    .gallery-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-top: 0.65rem;
+      color: var(--ink);
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .gallery-title {
+      font-weight: 700;
+    }
+
+    .gallery-type {
+      opacity: .65;
+    }
+
+    .gallery-card:hover .gallery-title {
+      color: var(--accent);
+    }
+
+    .more-work {
+      padding: clamp(24px, 2.2vw, 32px) 0 0;
+      margin-top: clamp(18px, 1.8vw, 26px);
+    }
+
+    .mini-head {
+      margin: 0 0 1.2rem 0;
+      color: var(--ink);
+      font-size: 1.05rem;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .thumb-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(20px, 2vw, 30px);
+      border-top: 1px solid var(--rule);
+      padding-top: clamp(24px, 2.4vw, 34px);
+    }
+
+    @media (max-width: 1100px) {
+      .dept-hero-row {
+        grid-template-columns: 1fr;
+      }
+
+      .dept-intro {
+        border-right: 0;
+        border-bottom: 1px solid var(--rule);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .thumb-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dept-intro,
+      .pitch-gallery,
+      .more-work {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .dept-big {
+        font-size: clamp(3rem, 19vw, 5.2rem) !important;
+      }
+    }
+
+    /* Click-to-open gallery / lightbox */
+    body.lightbox-open {
+      overflow: hidden;
+    }
+
+    .gallery-card {
+      cursor: zoom-in;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.94);
+    }
+
+    .lightbox.is-open {
+      display: flex;
+    }
+
+    .lightbox-stage {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(38px, 5vw, 76px) clamp(62px, 7vw, 110px);
+    }
+
+    .lightbox-image {
+      display: block;
+      max-width: 100%;
+      max-height: calc(100vh - 120px);
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .lightbox-close,
+    .lightbox-arrow {
+      position: absolute;
+      z-index: 2;
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+      font: inherit;
+      line-height: 1;
+    }
+
+    .lightbox-close {
+      top: 20px;
+      right: 24px;
+      font-size: clamp(30px, 3vw, 44px);
+      padding: 8px 12px;
+    }
+
+    .lightbox-arrow {
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: clamp(42px, 5vw, 72px);
+      padding: 18px;
+    }
+
+    .lightbox-prev {
+      left: 12px;
+    }
+
+    .lightbox-next {
+      right: 12px;
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 760px) {
+      .lightbox-stage {
+        padding: 54px 44px 64px;
+      }
+
+      .lightbox-arrow {
+        font-size: 42px;
+        padding: 10px;
+      }
+
+      .lightbox-prev {
+        left: 2px;
+      }
+
+      .lightbox-next {
+        right: 2px;
+      }
+
+      .lightbox-caption {
+        max-width: calc(100vw - 40px);
+        white-space: normal;
+        text-align: center;
+      }
+    }
+
+
+    /* Kill the remaining dead air under the featured image */
+    .dept-hero-row {
+      display: grid !important;
+      grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1.55fr) !important;
+      align-items: start !important;
+    }
+
+    .pitch-gallery {
+      display: flex !important;
+      flex-direction: column !important;
+      align-self: start !important;
+      height: auto !important;
+      min-height: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    .feature-grid {
+      display: block !important;
+      height: auto !important;
+      min-height: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .feature-grid .gallery-card.featured-card,
+    .feature-grid .gallery-card.featured-card img {
+      height: auto !important;
+      min-height: 0 !important;
+      margin-bottom: 0 !important;
+    }
+
+    .more-work {
+      display: block !important;
+      position: static !important;
+      height: auto !important;
+      min-height: 0 !important;
+      margin: 18px 0 0 !important;
+      padding: 0 !important;
+    }
+
+    .mini-head {
+      margin: 0 0 14px !important;
+    }
+
+    .thumb-grid {
+      margin: 0 !important;
+      min-height: 0 !important;
+    }
+
+    @media (max-width: 1100px) {
+      .dept-hero-row {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+
+    /* Masonry-style pitch gallery */
+    .mosaic-wrap {
+      width: 100%;
+      padding: clamp(18px, 1.8vw, 28px);
+      border-top: 1px solid var(--rule);
+    }
+
+    .mosaic-grid {
+      column-count: 3;
+      column-gap: clamp(10px, 1vw, 16px);
+    }
+
+    .mosaic-card {
+      display: inline-block !important;
+      width: 100% !important;
+      margin: 0 0 clamp(14px, 1.2vw, 20px) !important;
+      break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+      page-break-inside: avoid;
+      vertical-align: top;
+    }
+
+    .mosaic-card .gallery-image {
+      display: block;
+      width: 100% !important;
+      height: auto !important;
+      object-fit: contain !important;
+      margin: 0 !important;
+    }
+
+    /* Use the landing-page title/meta styling */
+    .mosaic-card .project-meta,
+    .pitch-gallery .project-meta {
+      margin-top: 0 !important;
+      padding-top: 8px !important;
+      padding-bottom: 0 !important;
+      background: #fff !important;
+    }
+
+    /* Give the featured Action-05 caption a little breathing room below. */
+    .pitch-gallery .featured-card .project-meta {
+      padding-bottom: 12px !important;
+    }
+
+    .mosaic-card .project-title,
+    .pitch-gallery .project-title {
+      font: inherit;
+    }
+
+    .gallery-meta {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: baseline !important;
+      gap: 12px !important;
+    }
+
+    @media (max-width: 1100px) {
+      .mosaic-grid {
+        column-count: 2;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .mosaic-grid {
+        column-count: 1;
+      }
+
+      .mosaic-wrap {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+    }
+
+
+    /* Smaller mosaic captions */
+    .mosaic-card .project-title,
+    .pitch-gallery .project-title {
+      font-size: 0.78rem !important;
+      letter-spacing: 0.07em !important;
+    }
+
+    .mosaic-card .project-type,
+    .pitch-gallery .project-type {
+      font-size: 0.72rem !important;
+      letter-spacing: 0.07em !important;
+    }
+
+
+    /* Polish pass: smaller department heading + tiny landing-page-style captions */
+    .dept-big {
+      font-size: clamp(2.625rem, 5.25vw, 5.25rem) !important;
+      line-height: 0.9 !important;
+    }
+
+    .mosaic-card .project-title,
+    .pitch-gallery .project-title {
+      font-size: 0.62rem !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+    }
+
+    .mosaic-card .project-type,
+    .pitch-gallery .project-type {
+      font-size: 0.58rem !important;
+      letter-spacing: 0.08em !important;
+      text-transform: uppercase !important;
+    }
+
+    @media (max-width: 760px) {
+      .dept-big {
+        font-size: clamp(2.25rem, 14vw, 3.9rem) !important;
+      }
+    }
+
+
+    /* Give the title more breathing room from the featured image */
+    .pitch-gallery {
+      padding-left: clamp(34px, 3vw, 52px) !important;
+      padding-right: clamp(18px, 1.5vw, 28px) !important;
+    }
+
+    .pitch-gallery .featured-card {
+      max-width: 94%;
+      margin-left: auto;
+    }
+
+    .pitch-gallery .featured-card .gallery-image {
+      width: 100% !important;
+      height: auto !important;
+    }
+
+
+    /* Lightbox polish: white, cleaner, more contemporary */
+    .lightbox {
+      background: rgba(255, 255, 255, 0.98) !important;
+    }
+
+    .lightbox-stage {
+      padding: clamp(44px, 5vw, 72px) clamp(64px, 7vw, 112px) !important;
+    }
+
+    .lightbox-image {
+      background: #fff !important;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+
+    .lightbox-close,
+    .lightbox-arrow {
+      color: #111 !important;
+      background: rgba(255,255,255,0.92) !important;
+      border: 1px solid rgba(17,17,17,0.18) !important;
+      border-radius: 999px !important;
+      width: 46px !important;
+      height: 46px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 0 !important;
+      font-family: Arial, Helvetica, sans-serif !important;
+      font-weight: 300 !important;
+      line-height: 1 !important;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .lightbox-close:hover,
+    .lightbox-arrow:hover {
+      transform: scale(1.06);
+      border-color: rgba(17,17,17,0.5) !important;
+      background: #fff !important;
+    }
+
+    .lightbox-close {
+      top: 22px !important;
+      right: 24px !important;
+      font-size: 26px !important;
+    }
+
+    .lightbox-arrow {
+      top: 50% !important;
+      font-size: 34px !important;
+    }
+
+    .lightbox-prev {
+      left: 20px !important;
+    }
+
+    .lightbox-next {
+      right: 20px !important;
+    }
+
+    .lightbox-caption {
+      color: #111 !important;
+      font-size: 0.72rem !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase !important;
+      bottom: 18px !important;
+    }
+
+    @media (max-width: 760px) {
+      .lightbox-stage {
+        padding: 58px 52px 66px !important;
+      }
+
+      .lightbox-close,
+      .lightbox-arrow {
+        width: 40px !important;
+        height: 40px !important;
+      }
+
+      .lightbox-close {
+        top: 14px !important;
+        right: 14px !important;
+        font-size: 22px !important;
+      }
+
+      .lightbox-prev {
+        left: 6px !important;
+      }
+
+      .lightbox-next {
+        right: 6px !important;
+      }
+    }
+
+
+    /* Production page: give the long heading a little more room */
+    .dept-big {
+      font-size: clamp(2.35rem, 4.6vw, 4.6rem) !important;
+    }
+
+    @media (max-width: 760px) {
+      .dept-big {
+        font-size: clamp(2.1rem, 12.5vw, 3.5rem) !important;
+      }
+    }
+
+
+  </style>
+
+<style id="dg-site-footer-styles">
+  .dg-site-footer {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: flex-end !important;
+    justify-content: space-between !important;
+    gap: 32px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: clamp(34px, 4.2vw, 68px) clamp(18px, 2.8vw, 46px) clamp(30px, 3.8vw, 60px) !important;
+    border-top: 1px solid rgba(17,17,17,.18) !important;
+    border-bottom: 1px solid rgba(17,17,17,.18) !important;
+    background: #fff !important;
+    color: #111 !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: .70rem !important;
+    line-height: 1.3 !important;
+    letter-spacing: .095em !important;
+    text-transform: uppercase !important;
+    position: relative !important;
+    z-index: 1 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  .dg-site-footer__left {
+    color: #111 !important;
+  }
+  .dg-site-footer__role {
+    color: #ff3b1f !important;
+    margin-left: .16em;
+  }
+  .dg-site-footer__right {
+    display:flex !important;
+    flex-wrap:wrap;
+    min-width:0;
+    max-width:100%;
+    margin-left:auto;
+    align-items:center !important;
+  }
+  .dg-site-footer__left {
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: break-word;
+    font-family: var(--display, Arial, Helvetica, sans-serif) !important;
+    font-size: clamp(2.5rem, 4vw, 5.25rem) !important;
+    font-weight: 800 !important;
+    line-height: .88 !important;
+    letter-spacing: -.05em !important;
+  }
+  .dg-site-footer__right {
+    justify-content:flex-end !important;
+    gap:clamp(20px,2.4vw,38px) !important;
+    white-space:nowrap;
+    padding-bottom:.25em;
+  }
+  .dg-site-footer a { color:#111 !important; text-decoration:none !important; }
+  .dg-site-footer a:hover, .dg-site-footer a:focus-visible { color:#ff3b1f !important; }
+  @media (max-width:900px) {
+    .dg-site-footer {
+      flex-direction:column !important;
+      align-items:flex-start !important;
+      gap:26px !important;
+    }
+    .dg-site-footer__left {
+      white-space:normal;
+      font-size:clamp(2.4rem,10vw,4.6rem) !important;
+    }
+    .dg-site-footer__right {
+      width:100%;
+      margin-left:0;
+      justify-content:flex-start !important;
+      flex-wrap:wrap !important;
+      gap:10px 24px !important;
+      white-space:normal;
+      padding-bottom:0;
+    }
+  }
+</style>
+
+<!-- Responsive header: keep the complete desktop navigation at medium widths,
+     then switch cleanly to the menu button before the header gets cramped. -->
+<style id="dg-responsive-header-fix">
+  @media (min-width: 981px) and (max-width: 1280px) {
+    .topbar {
+      grid-template-columns: auto minmax(0, 1fr) auto !important;
+    }
+
+    .topbar .brand {
+      min-width: 0 !important;
+    }
+
+    .topbar .brand strong,
+    .topbar .brand span {
+      white-space: nowrap !important;
+    }
+
+    .topbar .nav {
+      display: flex !important;
+      align-items: stretch !important;
+      justify-content: flex-end !important;
+      min-width: 0 !important;
+    }
+
+    .topbar .nav > a {
+      display: flex !important;
+      align-items: center !important;
+      white-space: nowrap !important;
+      padding-left: clamp(8px, 1vw, 14px) !important;
+      padding-right: clamp(8px, 1vw, 14px) !important;
+      font-size: clamp(.62rem, .72vw, .72rem) !important;
+    }
+
+    .topbar .availability {
+      display: flex !important;
+      white-space: nowrap !important;
+      padding-left: clamp(16px, 1.6vw, 24px) !important;
+      padding-right: clamp(16px, 1.6vw, 24px) !important;
+    }
+
+    .topbar .menu-button,
+    .mobile-nav {
+      display: none !important;
+    }
+  }
+
+  @media (min-width: 761px) and (max-width: 980px) {
+    .topbar {
+      grid-template-columns: minmax(0, 1fr) auto auto !important;
+    }
+
+    .topbar .brand {
+      min-width: 0 !important;
+    }
+
+    .topbar .brand strong,
+    .topbar .brand span {
+      white-space: nowrap !important;
+    }
+
+    .topbar .nav {
+      display: none !important;
+    }
+
+    .topbar .availability {
+      display: flex !important;
+      white-space: nowrap !important;
+    }
+
+    .topbar .menu-button {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    .mobile-nav {
+      display: none !important;
+    }
+
+    .topbar:has(.menu-button[aria-expanded="true"]) + .mobile-nav {
+      display: grid !important;
+    }
+  }
+</style>
+
+
+<!-- Half-width browser: show the stacked navigation automatically (no hamburger). -->
+<style id="dg-halfwidth-stacked-nav">
+  @media (min-width: 761px) and (max-width: 980px) {
+    .topbar {
+      grid-template-columns: minmax(0, 1fr) auto !important;
+    }
+
+    .topbar .menu-button {
+      display: none !important;
+    }
+
+    .mobile-nav {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+    }
+
+    .mobile-nav a {
+      display: block !important;
+      font-family: var(--display, Arial, Helvetica, sans-serif) !important;
+      font-size: 1rem !important;
+      font-weight: 800 !important;
+      line-height: 1.15 !important;
+      letter-spacing: -0.02em !important;
+    }
+
+    /* Align stacked mid-width menu with the D in DAVID GORDON. */
+    .mobile-nav {
+      padding-left: var(--pad) !important;
+      padding-right: var(--pad) !important;
+    }
+  }
+</style>
+
+
+<!-- Standardized department heading: match ACTION across every department page. -->
+<style id="dg-department-heading-standard">
+  .dept-intro {
+    min-width: 0 !important;
+  }
+
+  .dept-intro .dept-big {
+    font-family: var(--display, Arial, Helvetica, sans-serif) !important;
+    font-size: clamp(2.35rem, 4.6vw, 4.6rem) !important;
+    font-weight: 800 !important;
+    line-height: .90 !important;
+    letter-spacing: -.045em !important;
+    text-transform: uppercase !important;
+    margin: 0 0 1.5rem 0 !important;
+    max-width: calc(100% - .35rem) !important;
+  }
+
+  @media (max-width: 760px) {
+    .dept-intro .dept-big {
+      font-size: clamp(2.1rem, 12.5vw, 3.5rem) !important;
+      line-height: .92 !important;
+      max-width: 100% !important;
+    }
+  }
+</style>
+
+<style id="dg-action-mobile-match">
+  /* Mobile only: match the featured-image sizing on the other department pages,
+     keep it centered, and align the wrapped footer title flush left. */
+  @media (max-width: 760px) {
+    .pitch-gallery {
+      padding-left: 18px !important;
+      padding-right: 18px !important;
+      padding-top: 8px !important;
+      padding-bottom: 22px !important;
+    }
+
+    .pitch-gallery .featured-card {
+      width: 100% !important;
+      max-width: 100% !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    .pitch-gallery .featured-card .gallery-image {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .dg-site-footer__role {
+      margin-left: 0 !important;
+    }
+  }
+</style>
+
+<link rel="canonical" href="https://www.davidgordonstoryboards.com/action.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="David Gordon Storyboards">
+<meta property="og:title" content="David Gordon — Action">
+<meta property="og:description" content="Action storyboards by David Gordon.">
+<meta property="og:url" content="https://www.davidgordonstoryboards.com/action.html">
+<meta property="og:image" content="https://www.davidgordonstoryboards.com/assets/social/action.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="615">
+<meta name="twitter:card" content="summary_large_image">
+
+<style id="dg-desktop-punch-fixes">
+  /* Desktop QA pass: keep the intro divider connected to the hero baseline. */
+  @media (min-width: 1101px) {
+    .dept-hero-row { align-items: stretch !important; }
+    .dept-intro { align-self: stretch !important; }
+  }
+
+  /* At squeezed desktop widths, keep the metadata/back link inside its column. */
+  @media (min-width: 1101px) and (max-width: 1420px) {
+    .dept-meta {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      gap: 12px !important;
+    }
+    .dept-meta-back,
+    .dept-meta .dept-back {
+      white-space: normal !important;
+      text-align: left !important;
+      justify-self: start !important;
+      max-width: 100% !important;
+    }
+  }
+
+  /* Match lightbox controls site-wide: white control discs, dark glyphs. */
+  .lightbox-close,
+  .lightbox-arrow,
+  .lightbox-prev,
+  .lightbox-next {
+    background: rgba(255,255,255,.96) !important;
+    color: #111 !important;
+    border: 1px solid rgba(17,17,17,.18) !important;
+    border-radius: 999px !important;
+    box-shadow: 0 4px 18px rgba(0,0,0,.08) !important;
+  }
+</style>
+
+<style id="dg-mobile-polish-pass-1">
+  /* Mobile-only polish: keep iOS from coloring the hamburger like a native control. */
+  @media (max-width: 760px) {
+    .topbar .menu-button,
+    .menu-button {
+      color: #111 !important;
+      -webkit-text-fill-color: #111 !important;
+      -webkit-appearance: none !important;
+      appearance: none !important;
+      font-family: Arial, Helvetica, sans-serif !important;
+    }
+
+    /* Keep navigation/contact arrows typographic and restrained on phones. */
+    .dept-arrow {
+      font-family: Arial, Helvetica, sans-serif !important;
+      font-size: 1.75rem !important;
+      line-height: 1 !important;
+      font-weight: 400 !important;
+    }
+
+    .dept-meta-back,
+    .contact-row-arrow,
+    .contact-row-reveal,
+    .dg-site-footer__right a {
+      font-family: var(--mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace) !important;
+    }
+  }
+
+  /* Landing hero only: fit STORYBOARDS cleanly inside an iPhone viewport. */
+  @media (max-width: 620px) {
+    #hero-title {
+      font-size: clamp(2.62rem, 11vw, 3.35rem) !important;
+      line-height: .88 !important;
+      letter-spacing: -.058em !important;
+      max-width: 100% !important;
+    }
+  }
+</style>
+
+<style id="dg-final-action-mobile-meta">
+@media (max-width:760px) {
+  .dept-meta { font-size:.68rem !important; letter-spacing:.065em !important; gap:8px !important; align-items:flex-start !important; }
+  .dept-meta > span { min-width:0; }
+  .dept-meta-back { font-size:inherit !important; letter-spacing:inherit !important; white-space:normal !important; text-align:right; flex-shrink:0; }
+}
+</style>
+</head>
+<body id="top">
+<a class="skip-link" href="#main">Skip to action boards</a>
+<div class="site-shell">
+  <header class="topbar">
+    <a class="brand" href="index.html"><strong>David Gordon</strong><span>Storyboard artist</span></a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#departments-start" aria-current="page">Departments</a>
+      <a href="board-to-spot.html">Board to Spot</a>
+      <a href="process.html">Process</a>
+      <a href="funny-art-director-drawings.html">Funny Drawings</a>
+    </nav>
+    <a class="availability" href="contact.html">Check availability</a>
+    <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+  </header>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html#work">Work</a>
+    <a href="index.html#departments-start" aria-current="page">Departments</a>
+    <a href="board-to-spot.html">Board to Spot</a>
+    <a href="process.html">Process</a>
+    <a href="funny-art-director-drawings.html">Funny Drawings</a>
+  </nav>
+
+  <main id="main">
+    <!-- ACTION GALLERY: source files live in assets/images/hero/action/ -->
+    <section class="dept-page" aria-labelledby="dept-title">
+      <div class="dept-hero-row">
+        <aside class="dept-intro">
+          <div class="dept-kicker">Department 04</div>
+          <h1 id="dept-title" class="dept-big dept-name">Action</h1>
+          <p class="dept-tagline">Movement that reads in a glance.</p>
+          <p class="dept-copy">
+            Chases, crashes, fights, falls, reveals and complicated blocking — drawn fast enough to move, clear enough to shoot.
+          </p>
+
+          <div class="dept-meta">
+            <span>Movement+Timing</span>
+            <a class="dept-meta-back" href="index.html#departments-start">↖︎&nbsp; Back to departments</a>
+          </div>
+        </aside>
+
+        <div class="pitch-gallery">
+          <a class="gallery-card featured-card" href="#">
+            <img loading="lazy" class="gallery-image" src="assets/images/hero/action/action-5.jpg.webp" alt="TBWA Chiat/JB Weld action storyboard">
+            <div class="project-meta gallery-meta">
+              <span class="project-title gallery-title">TBWA Chiat/JB Weld</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="mosaic-wrap">
+        <div class="mosaic-grid">
+          <a class="gallery-card mosaic-card" href="#">
+            <img loading="lazy" class="gallery-image" src="assets/images/hero/action/action-14.jpg.webp" alt="W+K/KFC action storyboard">
+            <div class="project-meta gallery-meta"><span class="project-title gallery-title">W+K/KFC</span></div>
+          </a>
+          <a class="gallery-card mosaic-card" href="#">
+            <img loading="lazy" class="gallery-image" src="assets/images/hero/action/action-13.jpg" alt="W+K/Fisher Price action storyboard">
+            <div class="project-meta gallery-meta"><span class="project-title gallery-title">W+K/Fisher Price</span></div>
+          </a>
+          <a class="gallery-card mosaic-card" href="#">
+            <img loading="lazy" class="gallery-image" src="assets/images/hero/action/mama-bosch-camera-swing.jpg" alt="MaMa/Bosch action storyboard with camera swing notation">
+            <div class="project-meta gallery-meta"><span class="project-title gallery-title">MaMa/Bosch</span></div>
+          </a>
+
+          <a class="gallery-card mosaic-card" href="#">
+            <img loading="lazy" class="gallery-image" src="assets/images/hero/action/action-20.jpg.webp" alt="Y&R/Visa action storyboard">
+            <div class="project-meta gallery-meta"><span class="project-title gallery-title">Y&amp;R/Visa</span></div>
+          </a>
+          <a class="gallery-card mosaic-card" href="#">
+            <img loading="lazy" class="gallery-image" src="assets/images/hero/action/action-15.jpg.webp" alt="W+K/KFC action storyboard">
+            <div class="project-meta gallery-meta"><span class="project-title gallery-title">W+K/KFC</span></div>
+          </a>
+          <a class="gallery-card mosaic-card" href="#">
+            <img loading="lazy" class="gallery-image" src="assets/images/hero/action/action-3.jpg" alt="W+K/Youtube action storyboard">
+            <div class="project-meta gallery-meta"><span class="project-title gallery-title">W+K/Youtube</span></div>
+          </a>
+          <a class="gallery-card mosaic-card" href="#">
+            <img loading="lazy" class="gallery-image" src="assets/images/hero/action/action-9.jpg.webp" alt="Imagine Brands/State Farm action storyboard">
+            <div class="project-meta gallery-meta"><span class="project-title gallery-title">Imagine Brands/State Farm</span></div>
+          </a>
+          <a class="gallery-card mosaic-card" href="#">
+            <img loading="lazy" class="gallery-image" src="assets/images/hero/action/action-7.jpg.webp" alt="Imagine Brands/State Farm action storyboard">
+            <div class="project-meta gallery-meta"><span class="project-title gallery-title">Imagine Brands/State Farm</span></div>
+          </a>
+          <a class="gallery-card mosaic-card" href="#">
+            <img loading="lazy" class="gallery-image" src="assets/images/hero/action/action-11.jpg.webp" alt="MaMa/FCB/Clorox action storyboard">
+            <div class="project-meta gallery-meta"><span class="project-title gallery-title">MaMa/FCB/Clorox</span></div>
+          </a>
+          <a class="gallery-card mosaic-card" href="#">
+            <img loading="lazy" class="gallery-image" src="assets/images/hero/action/mama-texas-pete.jpg" alt="MaMa/Texas Pete action storyboard">
+            <div class="project-meta gallery-meta"><span class="project-title gallery-title">MaMa/Texas Pete</span></div>
+          </a>
+
+          <a class="gallery-card mosaic-card" href="#">
+            <img loading="lazy" class="gallery-image" src="assets/images/hero/action/action-4.jpg.webp" alt="MaMa/Death Wish Coffee action storyboard">
+            <div class="project-meta gallery-meta"><span class="project-title gallery-title">MaMa/Death Wish Coffee</span></div>
+          </a>
+          <a class="gallery-card mosaic-card" href="#">
+            <img loading="lazy" class="gallery-image" src="assets/images/hero/action/action-8.jpg.webp" alt="W+K/KFC action storyboard">
+            <div class="project-meta gallery-meta"><span class="project-title gallery-title">W+K/KFC</span></div>
+          </a>
+          <a class="gallery-card mosaic-card" href="#">
+            <img loading="lazy" class="gallery-image" src="assets/images/hero/action/action-21.jpg.webp" alt="BFG/Hyundai action storyboard">
+            <div class="project-meta gallery-meta"><span class="project-title gallery-title">BFG/Hyundai</span></div>
+          </a>
+          <a class="gallery-card mosaic-card" href="#">
+            <img loading="lazy" class="gallery-image" src="assets/images/hero/action/action-030.jpg.webp" alt="MaMa/Servpro action storyboard">
+            <div class="project-meta gallery-meta"><span class="project-title gallery-title">MaMa/Servpro</span></div>
+          </a>
+          <a class="gallery-card mosaic-card" href="#">
+            <img loading="lazy" class="gallery-image" src="assets/images/hero/action/mama-bosch-camera-tilt.jpg" alt="MaMa/Bosch action storyboard with camera tilt notation">
+            <div class="project-meta gallery-meta"><span class="project-title gallery-title">MaMa/Bosch</span></div>
+          </a>
+
+          <a class="gallery-card mosaic-card" href="#">
+            <img loading="lazy" class="gallery-image" src="assets/images/hero/action/action-23.jpg.webp" alt="W+K/KFC action storyboard">
+            <div class="project-meta gallery-meta"><span class="project-title gallery-title">W+K/KFC</span></div>
+          </a>
+          <a class="gallery-card mosaic-card" href="#">
+            <img loading="lazy" class="gallery-image" src="assets/images/hero/action/action-22.jpg.webp" alt="TBWA Chiat/Pizza Hut action storyboard">
+            <div class="project-meta gallery-meta"><span class="project-title gallery-title">TBWA Chiat/Pizza Hut</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+<div class="dg-site-footer" role="contentinfo" aria-label="Site footer">
+  <div class="dg-site-footer__left">DAVID GORDON <span class="dg-site-footer__role">STORYBOARD ARTIST</span></div>
+  <div class="dg-site-footer__right">
+    <span>© 2026 DAVID GORDON</span>
+    <a href="mailto:dave@davidgordonstoryboards.com">EMAIL ↗︎</a>
+    <a href="#top">TOP ↑︎</a>
+  </div>
+</div>
+</div>
+
+  <div class="lightbox" id="action-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Action storyboard gallery">
+    <div class="lightbox-stage">
+      <button class="lightbox-close" type="button" aria-label="Close gallery">×</button>
+      <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Previous image">‹</button>
+      <img class="lightbox-image" src="" alt="">
+      <button class="lightbox-arrow lightbox-next" type="button" aria-label="Next image">›</button>
+      <div class="lightbox-caption" aria-live="polite"></div>
+    </div>
+  </div>
+
+<script src="assets/js/site-v0.4.js" defer></script>
+
+<script>
+(function () {
+  const cards = Array.from(document.querySelectorAll('.gallery-card'));
+  const items = cards
+    .map(card => {
+      const img = card.querySelector('img');
+      const title = card.querySelector('.gallery-title');
+      return img ? {
+        src: img.getAttribute('src'),
+        alt: img.getAttribute('alt') || '',
+        title: title ? title.textContent.trim() : ''
+      } : null;
+    })
+    .filter(Boolean);
+
+  const lightbox = document.getElementById('action-lightbox');
+  if (!lightbox || !items.length) return;
+
+  const stage = lightbox.querySelector('.lightbox-stage');
+  const image = lightbox.querySelector('.lightbox-image');
+  const caption = lightbox.querySelector('.lightbox-caption');
+  const closeBtn = lightbox.querySelector('.lightbox-close');
+  const prevBtn = lightbox.querySelector('.lightbox-prev');
+  const nextBtn = lightbox.querySelector('.lightbox-next');
+
+  let current = 0;
+
+  function show(index) {
+    current = (index + items.length) % items.length;
+    const item = items[current];
+    image.src = item.src;
+    image.alt = item.alt;
+    caption.textContent = (item.title ? item.title + '  ·  ' : '') + (current + 1) + ' / ' + items.length;
+  }
+
+  function openAt(index) {
+    show(index);
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lightbox-open');
+    closeBtn.focus();
+  }
+
+  function close() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lightbox-open');
+  }
+
+  cards.forEach((card, index) => {
+    card.addEventListener('click', function (event) {
+      event.preventDefault();
+      openAt(index);
+    });
+  });
+
+  prevBtn.addEventListener('click', function (event) {
+    event.stopPropagation();
+    show(current - 1);
+  });
+
+  nextBtn.addEventListener('click', function (event) {
+    event.stopPropagation();
+    show(current + 1);
+  });
+
+  closeBtn.addEventListener('click', function (event) {
+    event.stopPropagation();
+    close();
+  });
+
+  lightbox.addEventListener('click', function (event) {
+    if (event.target === lightbox || event.target === stage) close();
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (!lightbox.classList.contains('is-open')) return;
+
+    if (event.key === 'Escape') close();
+    if (event.key === 'ArrowLeft') show(current - 1);
+    if (event.key === 'ArrowRight') show(current + 1);
+  });
+})();
+</script>
+
+
+
+
+</body>
+</html>

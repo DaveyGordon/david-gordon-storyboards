@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Storyboard frames alongside the finished commercials they helped shape.">
+  <meta name="theme-color" content="#ffffff">
+  <title>David Gordon — Board to Spot</title>
+  <link rel="stylesheet" href="assets/css/site-v0.4.css">
+
+  <style>
+    :root {
+      --accent: #ff3b1f;
+      --ink: #111;
+      --rule: rgba(17,17,17,.18);
+      --bg: #fff;
+    }
+
+    html,
+    body,
+    .site-shell,
+    .topbar,
+    .mobile-nav,
+    main,
+    footer {
+      background: #fff !important;
+      background-color: #fff !important;
+    }
+
+    .spot-hero {
+      display: grid;
+      grid-template-columns: minmax(300px, .62fr) minmax(0, 1.38fr);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      align-items: stretch;
+    }
+
+    .spot-hero-copy {
+      padding: clamp(30px, 3vw, 48px);
+      border-right: 1px solid var(--rule);
+    }
+
+    .spot-kicker {
+      color: var(--accent);
+      font-size: .74rem;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .spot-title {
+      margin: 0 0 22px;
+      color: var(--ink);
+      font: 800 clamp(66px, 5.8vw, 98px)/.82 var(--display);
+      letter-spacing: -.068em;
+      text-transform: uppercase;
+    }
+
+    .spot-title em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .spot-intro {
+      max-width: 28rem;
+      margin: 0;
+      color: var(--ink);
+      font-size: 1.08rem;
+      line-height: 1.6;
+    }
+
+    .spot-back {
+      display: inline-block;
+      margin-top: 28px;
+      color: var(--ink);
+      font-size: .70rem;
+      font-weight: 700;
+      letter-spacing: .10em;
+      line-height: 1.5;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .spot-back:hover,
+    .spot-back:focus-visible {
+      color: var(--accent);
+    }
+
+    .spot-hero-board {
+      padding: 0;
+      display: block;
+      overflow: hidden;
+      background: #f3f3f3;
+    }
+
+    .spot-hero-board img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .spot-list {
+      width: min(calc(100% - clamp(36px, 5vw, 84px)), 1500px);
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .spot-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding: 0 0 clamp(42px, 4vw, 66px);
+      margin-bottom: clamp(52px, 5vw, 78px);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    /* Every case study follows the same rhythm: wide spot, then wide boards. */
+    .spot-row .video-side {
+      order: 1;
+      width: 100%;
+    }
+
+    .spot-row .board-side {
+      order: 2;
+      width: 100%;
+      margin-top: clamp(18px, 2vw, 28px);
+    }
+
+    .spot-media {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #fff;
+    }
+
+    .spot-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: baseline;
+      padding-top: 8px;
+      font-size: .62rem;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .spot-name {
+      font-weight: 700;
+    }
+
+    .spot-type {
+      opacity: .58;
+    }
+
+    .vimeo-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #f3f3f3;
+      border: 1px solid rgba(17,17,17,.12);
+      overflow: hidden;
+    }
+
+    .vimeo-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .vimeo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      color: var(--ink);
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.88), rgba(243,243,243,.92));
+    }
+
+    .play-button {
+      width: 64px;
+      height: 64px;
+      border: 1px solid rgba(17,17,17,.28);
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 15px;
+      font-size: 22px;
+      line-height: 1;
+      padding-left: 3px;
+    }
+
+    .vimeo-placeholder-copy {
+      text-align: center;
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .spot-note {
+      margin: 10px 0 0;
+      color: var(--ink);
+      font-size: .92rem;
+      line-height: 1.5;
+      max-width: 34rem;
+    }
+
+    .dept-footer {
+      border-top: 1px solid rgba(17,17,17,.22);
+      background: #fff;
+      padding: clamp(34px, 4vw, 64px) clamp(24px, 3vw, 46px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
+      gap: clamp(36px, 5vw, 80px);
+      align-items: end;
+    }
+
+    .dept-footer-kicker {
+      color: var(--accent);
+      font-size: .72rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .dept-footer-title {
+      margin: 0;
+      color: #111;
+      font-size: clamp(3rem, 6.4vw, 7.6rem);
+      line-height: .88;
+      letter-spacing: -.045em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .dept-footer-title em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .dept-footer-side {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .dept-footer-side p {
+      margin: 0 0 28px;
+      max-width: 30rem;
+      color: #111;
+      font-size: 1rem;
+      line-height: 1.55;
+    }
+
+    .dept-footer-links {
+      border-top: 1px solid rgba(17,17,17,.22);
+    }
+
+    .dept-footer-links a {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(17,17,17,.16);
+      color: #111;
+      text-decoration: none;
+      font-size: .7rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .dept-footer-links a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 900px) {
+      .spot-hero,
+      .spot-row,
+      .dept-footer {
+        grid-template-columns: 1fr;
+      }
+
+      .spot-hero-copy {
+        border-right: 0;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .spot-row .video-side {
+        order: 1;
+      }
+
+      .spot-row .board-side {
+        order: 2;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .spot-title {
+        font-size: clamp(3rem, 17vw, 5.1rem);
+      }
+
+      .spot-hero-copy,
+      .spot-hero-board,
+      .spot-list {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .spot-hero-board img {
+        width: 100%;
+      }
+
+      .spot-row {
+        gap: 18px;
+      }
+
+      .dept-footer-title {
+        font-size: clamp(2.8rem, 14vw, 5.6rem);
+      }
+    }
+
+    /* Featured Board-to-Spot example: video stacked over boards */
+    .spot-stack {
+      width: min(calc(100% - clamp(36px, 5vw, 84px)), 1500px);
+      margin: clamp(30px, 3.5vw, 56px) auto clamp(52px, 5vw, 78px);
+      padding-bottom: clamp(42px, 4vw, 66px);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .spot-stack .vimeo-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+
+    .spot-stack-board {
+      margin-top: clamp(18px, 2vw, 28px);
+    }
+
+    .spot-stack-board img {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #fff;
+    }
+
+    .spot-stack .spot-meta {
+      padding-left: 2px;
+      padding-right: 2px;
+    }
+
+    /* Pass 11: all Board-to-Spot case studies use the Texas Pete stack pattern. */
+    .spot-list .vimeo-frame,
+    .spot-list .spot-media {
+      width: 100%;
+    }
+
+
+
+
+
+  </style>
+
+<style id="dg-site-footer-styles">
+  .dg-site-footer {
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: space-between !important;
+    gap: 32px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: clamp(34px, 4.2vw, 68px) clamp(18px, 2.8vw, 46px) clamp(30px, 3.8vw, 60px) !important;
+    border-top: 1px solid rgba(17,17,17,.18) !important;
+    background: #fff !important;
+    color: #111 !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: .70rem !important;
+    line-height: 1.3 !important;
+    letter-spacing: .095em !important;
+    text-transform: uppercase !important;
+    position: relative !important;
+    z-index: 1 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  .dg-site-footer__left {
+    color: #111 !important;
+  }
+  .dg-site-footer__role {
+    color: #ff3b1f !important;
+    margin-left: .16em;
+  }
+  .dg-site-footer__right {
+    display:flex !important;
+    align-items:center !important;
+  }
+  .dg-site-footer__left {
+    white-space: nowrap;
+    font-family: var(--display, Arial, Helvetica, sans-serif) !important;
+    font-size: clamp(2.5rem, 4vw, 5.25rem) !important;
+    font-weight: 800 !important;
+    line-height: .88 !important;
+    letter-spacing: -.05em !important;
+  }
+  .dg-site-footer__right {
+    justify-content:flex-end !important;
+    gap:clamp(20px,2.4vw,38px) !important;
+    white-space:nowrap;
+    padding-bottom:.25em;
+  }
+  .dg-site-footer a { color:#111 !important; text-decoration:none !important; }
+  .dg-site-footer a:hover, .dg-site-footer a:focus-visible { color:#ff3b1f !important; }
+  @media (max-width:900px) {
+    .dg-site-footer {
+      flex-direction:column !important;
+      align-items:flex-start !important;
+      gap:26px !important;
+    }
+    .dg-site-footer__left {
+      white-space:normal;
+      font-size:clamp(2.4rem,10vw,4.6rem) !important;
+    }
+    .dg-site-footer__right {
+      width:100%;
+      justify-content:flex-start !important;
+      flex-wrap:wrap !important;
+      gap:10px 24px !important;
+      white-space:normal;
+      padding-bottom:0;
+    }
+  }
+</style>
+
+<!-- Responsive header: keep the complete desktop navigation at medium widths,
+     then switch cleanly to the menu button before the header gets cramped. -->
+<style id="dg-responsive-header-fix">
+  @media (min-width: 981px) and (max-width: 1280px) {
+    .topbar {
+      grid-template-columns: auto minmax(0, 1fr) auto !important;
+    }
+
+    .topbar .brand {
+      min-width: 0 !important;
+    }
+
+    .topbar .brand strong,
+    .topbar .brand span {
+      white-space: nowrap !important;
+    }
+
+    .topbar .nav {
+      display: flex !important;
+      align-items: stretch !important;
+      justify-content: flex-end !important;
+      min-width: 0 !important;
+    }
+
+    .topbar .nav > a {
+      display: flex !important;
+      align-items: center !important;
+      white-space: nowrap !important;
+      padding-left: clamp(8px, 1vw, 14px) !important;
+      padding-right: clamp(8px, 1vw, 14px) !important;
+      font-size: clamp(.62rem, .72vw, .72rem) !important;
+    }
+
+    .topbar .availability {
+      display: flex !important;
+      white-space: nowrap !important;
+      padding-left: clamp(16px, 1.6vw, 24px) !important;
+      padding-right: clamp(16px, 1.6vw, 24px) !important;
+    }
+
+    .topbar .menu-button,
+    .mobile-nav {
+      display: none !important;
+    }
+  }
+
+  @media (min-width: 761px) and (max-width: 980px) {
+    .topbar {
+      grid-template-columns: minmax(0, 1fr) auto auto !important;
+    }
+
+    .topbar .brand {
+      min-width: 0 !important;
+    }
+
+    .topbar .brand strong,
+    .topbar .brand span {
+      white-space: nowrap !important;
+    }
+
+    .topbar .nav {
+      display: none !important;
+    }
+
+    .topbar .availability {
+      display: flex !important;
+      white-space: nowrap !important;
+    }
+
+    .topbar .menu-button {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    .mobile-nav {
+      display: none !important;
+    }
+
+    .topbar:has(.menu-button[aria-expanded="true"]) + .mobile-nav {
+      display: grid !important;
+    }
+  }
+</style>
+
+
+<!-- Half-width browser: show the stacked navigation automatically (no hamburger). -->
+<style id="dg-halfwidth-stacked-nav">
+  @media (min-width: 761px) and (max-width: 980px) {
+    .topbar {
+      grid-template-columns: minmax(0, 1fr) auto !important;
+    }
+
+    .topbar .menu-button {
+      display: none !important;
+    }
+
+    .mobile-nav {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+    }
+
+    .mobile-nav a {
+      display: block !important;
+      font-family: var(--display, Arial, Helvetica, sans-serif) !important;
+      font-size: 1rem !important;
+      font-weight: 800 !important;
+      line-height: 1.15 !important;
+      letter-spacing: -0.02em !important;
+    }
+
+    /* Align stacked mid-width menu with the D in DAVID GORDON. */
+    .mobile-nav {
+      padding-left: var(--pad) !important;
+      padding-right: var(--pad) !important;
+    }
+  }
+</style>
+
+<link rel="canonical" href="https://www.davidgordonstoryboards.com/board-to-spot.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="David Gordon Storyboards">
+<meta property="og:title" content="David Gordon — Board to Spot">
+<meta property="og:description" content="Storyboard frames alongside the finished commercials they helped shape.">
+<meta property="og:url" content="https://www.davidgordonstoryboards.com/board-to-spot.html">
+<meta property="og:image" content="https://www.davidgordonstoryboards.com/assets/social/board-to-spot.jpg">
+<meta property="og:image:width" content="764">
+<meta property="og:image:height" content="1200">
+<meta name="twitter:card" content="summary_large_image">
+
+<style id="dg-mobile-polish-pass-1">
+  /* Mobile-only polish: keep iOS from coloring the hamburger like a native control. */
+  @media (max-width: 760px) {
+    .topbar .menu-button,
+    .menu-button {
+      color: #111 !important;
+      -webkit-text-fill-color: #111 !important;
+      -webkit-appearance: none !important;
+      appearance: none !important;
+      font-family: Arial, Helvetica, sans-serif !important;
+    }
+
+    /* Keep navigation/contact arrows typographic and restrained on phones. */
+    .dept-arrow {
+      font-family: Arial, Helvetica, sans-serif !important;
+      font-size: 1.75rem !important;
+      line-height: 1 !important;
+      font-weight: 400 !important;
+    }
+
+    .dept-meta-back,
+    .contact-row-arrow,
+    .contact-row-reveal,
+    .dg-site-footer__right a {
+      font-family: var(--mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace) !important;
+    }
+  }
+
+  /* Landing hero only: fit STORYBOARDS cleanly inside an iPhone viewport. */
+  @media (max-width: 620px) {
+    #hero-title {
+      font-size: clamp(2.62rem, 11vw, 3.35rem) !important;
+      line-height: .88 !important;
+      letter-spacing: -.058em !important;
+      max-width: 100% !important;
+    }
+  }
+</style>
+
+</head>
+
+<body id="top">
+<a class="skip-link" href="#main">Skip to work</a>
+
+<div class="site-shell">
+  <header class="topbar">
+    <a class="brand" href="index.html"><strong>David Gordon</strong><span>Storyboard artist</span></a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#departments-start">Departments</a>
+      <a href="board-to-spot.html" aria-current="page">Board to Spot</a>
+      <a href="process.html">Process</a>
+      <a href="funny-art-director-drawings.html">Funny Drawings</a>
+    </nav>
+
+    <a class="availability" href="contact.html">Check availability</a>
+    <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+  </header>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html#work">Work</a>
+    <a href="index.html#departments-start">Departments</a>
+    <a href="board-to-spot.html" aria-current="page">Board to Spot</a>
+    <a href="process.html">Process</a>
+    <a href="funny-art-director-drawings.html">Funny Drawings</a>
+  </nav>
+
+  <main id="main">
+    <section class="spot-hero" aria-labelledby="spot-title">
+      <div class="spot-hero-copy">
+        <div class="spot-kicker">Boards →︎ Broadcast</div>
+        <h1 id="spot-title" class="spot-title">From board<br>to <em>spot.</em></h1>
+        <p class="spot-intro">A few finished commercials next to the boards that helped get them there.</p>
+        <a class="spot-back" href="index.html#departments-start"><span aria-hidden="true">←︎</span> Back to Departments</a>
+      </div>
+
+      <div class="spot-hero-board">
+        <img src="assets/images/hero/board-to-spot/texas-pete-hero.jpg" width="1920" height="1080" alt="Texas Pete storyboard frame showing a cowboy holding a bottle, with red camera-direction arrows">
+      </div>
+    </section>
+
+    <section class="spot-stack" aria-label="Texas Pete board to spot example">
+      <div class="video-side">
+        <div class="vimeo-frame" data-vimeo-url="https://vimeo.com/1049732083">
+          <div class="vimeo-placeholder">
+            <div>
+              <div class="play-button">▶</div>
+              <div class="vimeo-placeholder-copy">Texas Pete / Finished spot</div>
+            </div>
+          </div>
+        </div>
+        <div class="spot-meta">
+          <span class="spot-name">Texas Pete</span>
+          <span class="spot-type">Finished commercial</span>
+        </div>
+      </div>
+
+      <div class="spot-stack-board">
+        <img class="spot-media" src="assets/images/hero/production/newtexaspetecompfornewsite.jpg.webp" alt="Texas Pete storyboard frames">
+        <div class="spot-meta">
+          <span class="spot-name">Texas Pete</span>
+          <span class="spot-type">Production boards</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="spot-list" aria-label="Board to spot examples">
+      <article class="spot-row">
+        <div class="board-side">
+          <img class="spot-media" src="assets/images/hero/production/newboschcomp.jpg.webp" alt="Bosch storyboard frames">
+          <div class="spot-meta">
+            <span class="spot-name">Bosch</span>
+            <span class="spot-type">Production boards</span>
+          </div>
+        </div>
+
+        <div class="video-side">
+          <div class="vimeo-frame" data-vimeo-url="https://vimeo.com/1113616852">
+            <div class="vimeo-placeholder">
+              <div>
+                <div class="play-button">▶</div>
+                <div class="vimeo-placeholder-copy">Bosch / Finished spot</div>
+              </div>
+            </div>
+          </div>
+          <div class="spot-meta">
+            <span class="spot-name">Bosch</span>
+            <span class="spot-type">Finished commercial</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="spot-row">
+        <div class="board-side">
+          <img class="spot-media" src="assets/images/hero/production/newsapcomp.jpg.webp" alt="SAP storyboard frames">
+          <div class="spot-meta">
+            <span class="spot-name">SAP</span>
+            <span class="spot-type">Production boards</span>
+          </div>
+        </div>
+
+        <div class="video-side">
+          <div class="vimeo-frame" data-vimeo-url="https://vimeo.com/872190606?autoplay=1&amp;muted=1&amp;stream_id=Y2xpcHN8NDA2NzQzMHxpZDpkZXNjfFtd">
+            <div class="vimeo-placeholder">
+              <div>
+                <div class="play-button">▶</div>
+                <div class="vimeo-placeholder-copy">SAP / Finished spot</div>
+              </div>
+            </div>
+          </div>
+          <div class="spot-meta">
+            <span class="spot-name">SAP</span>
+            <span class="spot-type">Finished commercial</span>
+          </div>
+        </div>
+      </article>
+
+
+      <article class="spot-row">
+        <div class="board-side">
+          <img class="spot-media" src="assets/images/hero/production/production-20.jpg" alt="Jim Beam storyboard frames">
+          <div class="spot-meta">
+            <span class="spot-name">Jim Beam</span>
+            <span class="spot-type">Production boards</span>
+          </div>
+        </div>
+
+        <div class="video-side">
+          <div class="vimeo-frame" data-vimeo-url="https://vimeo.com/1219380602">
+            <div class="vimeo-placeholder">
+              <div>
+                <div class="play-button">▶</div>
+                <div class="vimeo-placeholder-copy">Jim Beam / Finished spot</div>
+              </div>
+            </div>
+          </div>
+          <div class="spot-meta">
+            <span class="spot-name">Jim Beam</span>
+            <span class="spot-type">Finished commercial</span>
+          </div>
+        </div>
+      </article>
+
+</section>
+
+    <section class="dept-footer">
+      <div>
+        <div class="dept-footer-kicker">Next assignment</div>
+        <h2 class="dept-footer-title">Let’s make<br><em>the spot.</em></h2>
+      </div>
+
+      <div class="dept-footer-side">
+        <p>Pitch, production, or somewhere in between — tell me what you’re making and when you need it.</p>
+        <div class="dept-footer-links">
+          <a href="contact.html"><span>Start a project</span><span>Check availability ↗︎</span></a>
+          <a href="tel:+19176203089"><span>Call direct</span><span>917 620 3089 ↗︎</span></a>
+          <a href="index.html#departments-start"><span>Keep browsing</span><span>Departments ↖︎</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="assets/js/site-v0.4.js" defer></script>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+  (function () {
+    const frames = document.querySelectorAll('.vimeo-frame[data-vimeo-url]');
+
+    frames.forEach(frame => {
+      const url = (frame.dataset.vimeoUrl || '').trim();
+      if (!url) return;
+
+      const match = url.match(/vimeo\.com\/(?:video\/)?(\d+)/i);
+      if (!match) return;
+
+      const id = match[1];
+      frame.innerHTML = '<iframe src="https://player.vimeo.com/video/' + id +
+        '?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+      const iframe = frame.querySelector('iframe');
+      // On completion return to the unopened player, rather than Vimeo recommendations.
+      if (window.Vimeo && window.Vimeo.Player) {
+        const player = new window.Vimeo.Player(iframe);
+        player.on('ended', () => { iframe.src = iframe.src; });
+      }
+    });
+  })();
+</script>
+
+<div class="dg-site-footer" role="contentinfo" aria-label="Site footer">
+  <div class="dg-site-footer__left">DAVID GORDON <span class="dg-site-footer__role">STORYBOARD ARTIST</span></div>
+  <div class="dg-site-footer__right">
+    <span>© 2026 DAVID GORDON</span>
+    <a href="mailto:dave@davidgordonstoryboards.com">EMAIL ↗︎</a>
+    <a href="#top">TOP ↑︎</a>
+  </div>
+</div>
+
+</body>
+</html>

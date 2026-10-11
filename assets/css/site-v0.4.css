@@ -519,3 +519,6 @@ footer { display: flex; justify-content: space-between; gap: 30px; padding: 17px
     max-width: 170px;
   }
 }
+
+/* Final polish: subtle blue browser tap highlight instead of solid red. */
+a, button, [data-master-gallery], .gallery-card { -webkit-tap-highlight-color: rgba(100, 165, 205, .13); }

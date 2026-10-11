@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How David Gordon moves a storyboard assignment from brief to roughs to final boards and finished spot.">
+  <meta name="theme-color" content="#ffffff">
+  <title>David Gordon — Process</title>
+  <link rel="stylesheet" href="assets/css/site-v0.4.css">
+  <style>
+    :root {
+      --accent: #ff3b1f;
+      --ink: #111;
+      --rule: rgba(17,17,17,.18);
+      --paper: #fff;
+    }
+
+    html, body, .site-shell, .topbar, .mobile-nav, main, footer {
+      background: var(--paper) !important;
+      background-color: var(--paper) !important;
+    }
+
+    .process-page {
+      border-top: 1px solid var(--rule);
+    }
+
+    .process-hero {
+      display: grid;
+      grid-template-columns: minmax(300px,.72fr) minmax(0,1.28fr);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .process-hero-copy {
+      padding: clamp(34px,4vw,64px) clamp(28px,3.3vw,52px);
+      border-right: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 510px;
+    }
+
+    .process-kicker,
+    .step-kicker,
+    .image-label {
+      color: var(--accent);
+      font-size: .72rem;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .process-title {
+      margin: 20px 0 26px;
+      color: var(--ink);
+      font: 800 clamp(64px,6.2vw,108px)/.82 var(--display);
+      letter-spacing: -.068em;
+      text-transform: uppercase;
+    }
+
+    .process-title em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .process-intro {
+      max-width: 31rem;
+      margin: 0;
+      font-size: clamp(1.05rem,1.45vw,1.35rem);
+      line-height: 1.55;
+    }
+
+    .process-hero-note {
+      margin-top: 38px;
+      padding-top: 14px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: .68rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .process-hero-image {
+      padding: clamp(26px,3vw,48px);
+      display: flex;
+      align-items: center;
+    }
+
+    .process-hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .steps {
+      width: 100%;
+    }
+
+    .process-step {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+      border-bottom: 1px solid var(--rule);
+      min-height: 440px;
+    }
+
+    .process-step:nth-child(even) .step-copy {
+      order: 2;
+      border-right: 0;
+      border-left: 1px solid var(--rule);
+    }
+
+    .process-step:nth-child(even) .step-image {
+      order: 1;
+    }
+
+    .step-copy {
+      padding: clamp(30px,3.4vw,54px);
+      border-right: 1px solid var(--rule);
+      display: grid;
+      align-content: space-between;
+      gap: 44px;
+    }
+
+    .step-number {
+      font: 800 clamp(82px,9vw,160px)/.72 var(--display);
+      letter-spacing: -.075em;
+      color: var(--ink);
+      margin-bottom: 34px;
+    }
+
+    .step-title {
+      margin: 10px 0 18px;
+      color: var(--ink);
+      font: 800 clamp(38px,4vw,68px)/.88 var(--display);
+      letter-spacing: -.052em;
+      text-transform: uppercase;
+    }
+
+    .step-title em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .step-copy p {
+      max-width: 31rem;
+      margin: 0;
+      font-size: clamp(1rem,1.25vw,1.18rem);
+      line-height: 1.58;
+    }
+
+    .step-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 12px;
+      border-top: 1px solid var(--rule);
+      font-size: .68rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .step-image {
+      padding: clamp(24px,3vw,48px);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step-image figure {
+      width: 100%;
+      margin: 0;
+      position: relative;
+    }
+
+    .step-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #f4f4f2;
+    }
+
+    .image-label {
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      background: rgba(255,255,255,.92);
+      color: var(--ink);
+      padding: 7px 9px 6px;
+      border: 1px solid rgba(17,17,17,.16);
+      z-index: 2;
+    }
+
+    .step-image figure.figure-label-above {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .step-image figure.figure-label-above .image-label {
+      position: static;
+      display: inline-block;
+      left: auto;
+      top: auto;
+      margin: 0;
+    }
+
+    .step-image figure.figure-label-above img {
+      border: 1px solid rgba(17,17,17,.28);
+      box-sizing: border-box;
+    }
+
+    .process-end {
+      display: grid;
+      grid-template-columns: minmax(0,1.25fr) minmax(300px,.75fr);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .process-end-main,
+    .process-end-side {
+      padding: clamp(36px,4vw,66px) clamp(28px,3.4vw,54px);
+    }
+
+    .process-end-main {
+      border-right: 1px solid var(--rule);
+    }
+
+    .process-end h2 {
+      margin: 12px 0 0;
+      font: 800 clamp(58px,7vw,118px)/.82 var(--display);
+      letter-spacing: -.068em;
+      text-transform: uppercase;
+    }
+
+    .process-end h2 em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .process-end-side {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 26px;
+    }
+
+    .process-end-side p {
+      margin: 0;
+      max-width: 31rem;
+      font-size: 1.03rem;
+      line-height: 1.55;
+    }
+
+    .process-cta {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      text-decoration: none;
+      color: var(--ink);
+      font-size: .72rem;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    .process-cta:hover { color: var(--accent); }
+
+    @media (max-width: 900px) {
+      .process-hero,
+      .process-step,
+      .process-end {
+        grid-template-columns: 1fr;
+      }
+
+      .process-hero-copy,
+      .step-copy,
+      .process-end-main {
+        border-right: 0;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .process-step:nth-child(even) .step-copy {
+        order: 1;
+        border-left: 0;
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .process-step:nth-child(even) .step-image { order: 2; }
+      .process-hero-copy { min-height: auto; }
+    }
+
+    @media (max-width: 760px) {
+      .process-title { font-size: clamp(58px,18vw,84px); }
+      .step-number { font-size: clamp(78px,25vw,118px); }
+      .step-title { font-size: clamp(38px,12vw,58px); }
+      .process-hero-copy,
+      .process-hero-image,
+      .step-copy,
+      .step-image,
+      .process-end-main,
+      .process-end-side { padding-left: 18px; padding-right: 18px; }
+    }
+
+    .process-end-title-link {
+      color: inherit;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .process-end-title-link:hover h2,
+    .process-end-title-link:focus-visible h2 {
+      opacity: .72;
+    }
+
+
+  </style>
+
+<style id="dg-site-footer-styles">
+  .dg-site-footer {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: flex-end !important;
+    justify-content: space-between !important;
+    gap: 32px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: clamp(34px, 4.2vw, 68px) clamp(18px, 2.8vw, 46px) clamp(30px, 3.8vw, 60px) !important;
+    border-top: 1px solid rgba(17,17,17,.18) !important;
+    border-bottom: 1px solid rgba(17,17,17,.18) !important;
+    background: #fff !important;
+    color: #111 !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: .70rem !important;
+    line-height: 1.3 !important;
+    letter-spacing: .095em !important;
+    text-transform: uppercase !important;
+    position: relative !important;
+    z-index: 1 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  .dg-site-footer__left {
+    color: #111 !important;
+  }
+  .dg-site-footer__role {
+    color: #ff3b1f !important;
+    margin-left: .16em;
+  }
+  .dg-site-footer__right {
+    display:flex !important;
+    flex-wrap:wrap;
+    min-width:0;
+    max-width:100%;
+    margin-left:auto;
+    align-items:center !important;
+  }
+  .dg-site-footer__left {
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: break-word;
+    font-family: var(--display, Arial, Helvetica, sans-serif) !important;
+    font-size: clamp(2.5rem, 4vw, 5.25rem) !important;
+    font-weight: 800 !important;
+    line-height: .88 !important;
+    letter-spacing: -.05em !important;
+  }
+  .dg-site-footer__right {
+    justify-content:flex-end !important;
+    gap:clamp(20px,2.4vw,38px) !important;
+    white-space:nowrap;
+    padding-bottom:.25em;
+  }
+  .dg-site-footer a { color:#111 !important; text-decoration:none !important; }
+  .dg-site-footer a:hover, .dg-site-footer a:focus-visible { color:#ff3b1f !important; }
+  @media (max-width:900px) {
+    .dg-site-footer {
+      flex-direction:column !important;
+      align-items:flex-start !important;
+      gap:26px !important;
+    }
+    .dg-site-footer__left {
+      white-space:normal;
+      font-size:clamp(2.4rem,10vw,4.6rem) !important;
+    }
+    .dg-site-footer__right {
+      width:100%;
+      margin-left:0;
+      justify-content:flex-start !important;
+      flex-wrap:wrap !important;
+      gap:10px 24px !important;
+      white-space:normal;
+      padding-bottom:0;
+    }
+  }
+</style>
+
+<!-- Responsive header: keep the complete desktop navigation at medium widths,
+     then switch cleanly to the menu button before the header gets cramped. -->
+<style id="dg-responsive-header-fix">
+  @media (min-width: 981px) and (max-width: 1280px) {
+    .topbar {
+      grid-template-columns: auto minmax(0, 1fr) auto !important;
+    }
+
+    .topbar .brand {
+      min-width: 0 !important;
+    }
+
+    .topbar .brand strong,
+    .topbar .brand span {
+      white-space: nowrap !important;
+    }
+
+    .topbar .nav {
+      display: flex !important;
+      align-items: stretch !important;
+      justify-content: flex-end !important;
+      min-width: 0 !important;
+    }
+
+    .topbar .nav > a {
+      display: flex !important;
+      align-items: center !important;
+      white-space: nowrap !important;
+      padding-left: clamp(8px, 1vw, 14px) !important;
+      padding-right: clamp(8px, 1vw, 14px) !important;
+      font-size: clamp(.62rem, .72vw, .72rem) !important;
+    }
+
+    .topbar .availability {
+      display: flex !important;
+      white-space: nowrap !important;
+      padding-left: clamp(16px, 1.6vw, 24px) !important;
+      padding-right: clamp(16px, 1.6vw, 24px) !important;
+    }
+
+    .topbar .menu-button,
+    .mobile-nav {
+      display: none !important;
+    }
+  }
+
+  @media (min-width: 761px) and (max-width: 980px) {
+    .topbar {
+      grid-template-columns: minmax(0, 1fr) auto auto !important;
+    }
+
+    .topbar .brand {
+      min-width: 0 !important;
+    }
+
+    .topbar .brand strong,
+    .topbar .brand span {
+      white-space: nowrap !important;
+    }
+
+    .topbar .nav {
+      display: none !important;
+    }
+
+    .topbar .availability {
+      display: flex !important;
+      white-space: nowrap !important;
+    }
+
+    .topbar .menu-button {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    .mobile-nav {
+      display: none !important;
+    }
+
+    .topbar:has(.menu-button[aria-expanded="true"]) + .mobile-nav {
+      display: grid !important;
+    }
+  }
+</style>
+
+
+<!-- Half-width browser: show the stacked navigation automatically (no hamburger). -->
+<style id="dg-halfwidth-stacked-nav">
+  @media (min-width: 761px) and (max-width: 980px) {
+    .topbar {
+      grid-template-columns: minmax(0, 1fr) auto !important;
+    }
+
+    .topbar .menu-button {
+      display: none !important;
+    }
+
+    .mobile-nav {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+    }
+
+    .mobile-nav a {
+      display: block !important;
+      font-family: var(--display, Arial, Helvetica, sans-serif) !important;
+      font-size: 1rem !important;
+      font-weight: 800 !important;
+      line-height: 1.15 !important;
+      letter-spacing: -0.02em !important;
+    }
+
+    /* Align stacked mid-width menu with the D in DAVID GORDON. */
+    .mobile-nav {
+      padding-left: var(--pad) !important;
+      padding-right: var(--pad) !important;
+    }
+  }
+</style>
+
+<link rel="canonical" href="https://www.davidgordonstoryboards.com/process.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="David Gordon Storyboards">
+<meta property="og:title" content="David Gordon — Process">
+<meta property="og:description" content="How David Gordon moves a storyboard assignment from brief to roughs to final boards and finished spot.">
+<meta property="og:url" content="https://www.davidgordonstoryboards.com/process.html">
+<meta property="og:image" content="https://www.davidgordonstoryboards.com/assets/social/process.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="545">
+<meta name="twitter:card" content="summary_large_image">
+
+<style id="dg-mobile-polish-pass-1">
+  /* Mobile-only polish: keep iOS from coloring the hamburger like a native control. */
+  @media (max-width: 760px) {
+    .topbar .menu-button,
+    .menu-button {
+      color: #111 !important;
+      -webkit-text-fill-color: #111 !important;
+      -webkit-appearance: none !important;
+      appearance: none !important;
+      font-family: Arial, Helvetica, sans-serif !important;
+    }
+
+    /* Keep navigation/contact arrows typographic and restrained on phones. */
+    .dept-arrow {
+      font-family: Arial, Helvetica, sans-serif !important;
+      font-size: 1.75rem !important;
+      line-height: 1 !important;
+      font-weight: 400 !important;
+    }
+
+    .dept-meta-back,
+    .contact-row-arrow,
+    .contact-row-reveal,
+    .dg-site-footer__right a {
+      font-family: var(--mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace) !important;
+    }
+  }
+
+  /* Landing hero only: fit STORYBOARDS cleanly inside an iPhone viewport. */
+  @media (max-width: 620px) {
+    #hero-title {
+      font-size: clamp(2.62rem, 11vw, 3.35rem) !important;
+      line-height: .88 !important;
+      letter-spacing: -.058em !important;
+      max-width: 100% !important;
+    }
+  }
+</style>
+
+</head>
+<body id="top">
+<a class="skip-link" href="#main">Skip to process</a>
+<div class="site-shell">
+  <header class="topbar">
+    <a class="brand" href="index.html"><strong>David Gordon</strong><span>Storyboard artist</span></a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#departments-start">Departments</a>
+      <a href="board-to-spot.html">Board to Spot</a>
+      <a href="process.html">Process</a>
+      <a href="funny-art-director-drawings.html">Funny Drawings</a>
+    </nav>
+    <a class="availability" href="index.html#contact">Check availability</a>
+    <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+  </header>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html#work">Work</a>
+    <a href="index.html#departments-start">Departments</a>
+    <a href="board-to-spot.html">Board to Spot</a>
+    <a href="process.html">Process</a>
+    <a href="funny-art-director-drawings.html">Funny Drawings</a>
+  </nav>
+
+  <main id="main" class="process-page">
+    <section class="steps" aria-label="Storyboard process">
+      <article class="process-step">
+        <div class="step-copy">
+          <div>
+            <div class="step-number">01</div>
+            <div class="step-kicker">Start anywhere</div>
+            <h2 class="step-title">Send me<br><em>the thing.</em></h2>
+            <p>Script, deck, director treatment, existing boards, reference, napkin sketch, frantic email. I don’t need the brief to be beautiful. I need to understand what we’re making and what the boards have to accomplish.</p>
+          </div>
+          <div class="step-meta"><span>Input / Brief</span><span>Decode fast</span></div>
+        </div>
+        <div class="step-image">
+          <figure>
+            <span class="image-label">Script / Input</span>
+            <img src="assets/images/hero/process/process-1.png.webp" alt="Bosch script excerpt used as the input for the storyboard process">
+          </figure>
+        </div>
+      </article>
+
+      <article class="process-step">
+        <div class="step-copy">
+          <div>
+            <div class="step-number">02</div>
+            <div class="step-kicker">Find the shot</div>
+            <h2 class="step-title">Rough it<br><em>out.</em></h2>
+            <p>Loose drawings first. We solve composition, staging, camera, action and the joke before anybody spends time polishing the wrong idea. Roughs are where the useful thinking happens.</p>
+          </div>
+          <div class="step-meta"><span>Roughs / Thumbnails</span><span>Think before polish</span></div>
+        </div>
+        <div class="step-image">
+          <figure class="figure-label-above">
+            <span class="image-label">Rough / Thumbnail</span>
+            <img src="assets/images/hero/process/process-2-rough-faces.jpg" alt="Rough storyboard drawing used to work out the shot">
+          </figure>
+        </div>
+      </article>
+
+      <article class="process-step">
+        <div class="step-copy">
+          <div>
+            <div class="step-number">03</div>
+            <div class="step-kicker">Everybody gets notes</div>
+            <h2 class="step-title">Make it<br><em>better.</em></h2>
+            <p>Move the camera. Change the expression. Lose the llama. Put the llama back. Notes are part of the job, and the drawings are built to survive them without the whole thing turning into archaeological reconstruction.</p>
+          </div>
+          <div class="step-meta"><span>Notes / Revisions</span><span>Flexible by design</span></div>
+        </div>
+        <div class="step-image">
+          <figure>
+            <span class="image-label">Revision / Refine</span>
+            <img src="assets/images/hero/process/process-3.jpg" alt="Refined storyboard frame after notes and revision">
+          </figure>
+        </div>
+      </article>
+
+      <article class="process-step">
+        <div class="step-copy">
+          <div>
+            <div class="step-number">04</div>
+            <div class="step-kicker">Commit</div>
+            <h2 class="step-title">Final<br><em>boards.</em></h2>
+            <p>Clean enough to sell the idea. Specific enough to guide the shoot. Loose enough to stay alive. The final board should communicate instantly—even to the person who just joined the call thirty seconds ago.</p>
+          </div>
+          <div class="step-meta"><span>Final / Delivery</span><span>Clear + alive</span></div>
+        </div>
+        <div class="step-image">
+          <figure>
+            <span class="image-label">Final Boards</span>
+            <img src="assets/images/hero/process/process-4.png.webp" alt="Final Bosch storyboard boards presented on a desk">
+          </figure>
+        </div>
+      </article>
+
+      <article class="process-step">
+        <div class="step-copy">
+          <div>
+            <div class="step-number">05</div>
+            <div class="step-kicker">Then somebody points a camera at it</div>
+            <h2 class="step-title">Shoot <em>it.</em></h2>
+            <p>The best part: seeing the finished commercial and recognizing the decisions that were already there in the boards. That’s the whole point—make the spot visible before the spot exists.</p>
+          </div>
+          <div class="step-meta"><span>Boards →︎ Broadcast</span><span>Evidence</span></div>
+        </div>
+        <div class="step-image">
+          <figure>
+            <span class="image-label">On Set / Shoot</span>
+            <img src="assets/images/hero/process/process-5.png.webp?v=2" alt="Bosch storyboard boards displayed on set during the commercial shoot">
+          </figure>
+        </div>
+      </article>
+    </section>
+
+    <section class="process-end">
+      <div class="process-end-main">
+        <div class="process-kicker">See what happened next</div>
+        <a class="process-end-title-link" href="board-to-spot.html"><h2>From board<br>to <em>spot.</em></h2></a>
+      </div>
+      <div class="process-end-side">
+        <p>Finished commercials next to the drawings that helped get them there.</p>
+        <a class="process-cta" href="board-to-spot.html"><span>Board to Spot</span><span>View the evidence ↗︎</span></a>
+      </div>
+    </section>
+  </main>
+
+<div class="dg-site-footer" role="contentinfo" aria-label="Site footer">
+  <div class="dg-site-footer__left">DAVID GORDON <span class="dg-site-footer__role">STORYBOARD ARTIST</span></div>
+  <div class="dg-site-footer__right">
+    <span>© 2026 DAVID GORDON</span>
+    <a href="mailto:dave@davidgordonstoryboards.com">EMAIL ↗︎</a>
+    <a href="#top">TOP ↑︎</a>
+  </div>
+</div>
+</div>
+<script src="assets/js/site-v0.4.js" defer></script>
+
+
+
+</body>
+</html>

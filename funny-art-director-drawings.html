@@ -1,0 +1,1091 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Funny art director drawings from the Department of Illustration permanent collection.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Funny Art Director Drawings — David Gordon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site-v0.4.css">
+  <style>
+    :root {
+      --museum-ink: #111;
+      --museum-muted: #6c6860;
+      --museum-rule: rgba(17,17,17,.16);
+      --museum-paper: #f7f4ed;
+      --museum-accent: #ff3b1f;
+    }
+
+    html, body, .site-shell, .topbar, .mobile-nav, main, footer { background:#fff !important; }
+    body { color:var(--museum-ink); }
+
+    .museum-page { background:#fff; }
+
+    .museum-hero {
+      min-height: clamp(430px, 58vw, 780px);
+      display:grid;
+      grid-template-columns:minmax(0,1.22fr) minmax(260px,.78fr);
+      border-bottom:1px solid var(--museum-rule);
+    }
+
+    .museum-hero-copy {
+      padding:clamp(42px,6vw,92px) clamp(24px,5vw,76px);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      border-right:1px solid var(--museum-rule);
+    }
+
+    .museum-kicker,
+    .plaque-kicker,
+    .collection-number {
+      font-size:.7rem;
+      letter-spacing:.13em;
+      text-transform:uppercase;
+    }
+
+    .museum-kicker { color:var(--museum-accent); margin-bottom:20px; }
+
+    .museum-title {
+      margin:0;
+      font-family:var(--display);
+      font-size:clamp(4rem,8.2vw,9.8rem);
+      line-height:.82;
+      letter-spacing:-.065em;
+      font-weight:900;
+      max-width:9ch;
+    }
+
+    .museum-title em {
+      color:var(--museum-accent);
+      font-weight:400;
+      font-family:'Permanent Marker', 'Brush Script MT', cursive;
+      font-style:normal;
+      letter-spacing:-.02em;
+      display:block;
+      line-height:.92;
+      margin-top:.08em;
+    }
+
+    .museum-intro {
+      max-width:38rem;
+      margin:36px 0 0;
+      font-size:clamp(1.04rem,1.55vw,1.42rem);
+      line-height:1.42;
+    }
+
+    .museum-hero-note {
+      padding:clamp(34px,5vw,72px);
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      gap:24px;
+    }
+
+    .museum-hero-note p {
+      max-width:30rem;
+      margin:0;
+      font-family:Georgia, 'Times New Roman', serif;
+      font-size:clamp(1.15rem,1.9vw,1.72rem);
+      line-height:1.35;
+    }
+
+    .museum-hero-thumb {
+      display:block;
+      width:100%;
+      max-width:620px;
+      height:auto;
+      margin:0 auto auto;
+      align-self:center;
+    }
+
+    .museum-meta {
+      padding-top:20px;
+      border-top:1px solid var(--museum-rule);
+      display:grid;
+      gap:8px;
+      font-size:.72rem;
+      text-transform:uppercase;
+      letter-spacing:.09em;
+    }
+
+    .gallery {
+      padding:clamp(46px,7vw,108px) clamp(18px,4vw,64px) clamp(70px,8vw,128px);
+      background:#fff;
+    }
+
+    .collection-head {
+      max-width:1480px;
+      margin:0 auto clamp(58px,7vw,110px);
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:30px;
+      padding-bottom:18px;
+      border-bottom:1px solid var(--museum-rule);
+    }
+
+    .collection-head h2 {
+      margin:5px 0 0;
+      font-size:clamp(2.2rem,4.5vw,5rem);
+      line-height:.9;
+      letter-spacing:-.045em;
+    }
+
+    .exhibit {
+      max-width:1480px;
+      margin:0 auto clamp(88px,10vw,170px);
+      display:grid;
+      grid-template-columns:minmax(0,2.15fr) minmax(260px,.85fr);
+      gap:clamp(34px,5vw,82px);
+      align-items:center;
+    }
+
+    .exhibit:last-child { margin-bottom:0; }
+
+    .artwork {
+      min-width:0;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .artwork img {
+      display:block;
+      max-width:100%;
+      width:auto;
+      height:auto;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    .exhibit.hero-exhibit {
+      grid-template-columns:minmax(0,1.7fr) minmax(320px,.76fr);
+      gap:clamp(22px,3vw,46px);
+      align-items:center;
+    }
+
+    .exhibit.hero-exhibit .artwork {
+      justify-content:center;
+    }
+
+    .exhibit.hero-exhibit .artwork img {
+      width:100%;
+      max-width:1080px;
+    }
+
+    .wall-hung-art {
+      filter:none;
+      box-shadow:none;
+    }
+
+    .plaque {
+      background:linear-gradient(145deg,#faf8f2,#f1eee6);
+      padding:clamp(22px,2.5vw,38px);
+      box-shadow:0 12px 20px rgba(0,0,0,.16), 0 2px 3px rgba(0,0,0,.12);
+      border:1px solid rgba(0,0,0,.045);
+      transform:translateY(-2px);
+      font-family:Georgia, 'Times New Roman', serif;
+    }
+
+    .plaque-kicker {
+      font-family:Arial, Helvetica, sans-serif;
+      color:var(--museum-muted);
+      margin-bottom:13px;
+    }
+
+    .plaque h3 {
+      font-size:clamp(1.55rem,2.3vw,2.7rem);
+      line-height:1.03;
+      margin:0 0 16px;
+      font-weight:700;
+    }
+
+    .plaque .credit {
+      font-size:clamp(.95rem,1.15vw,1.12rem);
+      line-height:1.45;
+      margin-bottom:18px;
+    }
+
+    .plaque-rule { border-top:1px solid #333; margin:17px 0 18px; }
+
+    .plaque p {
+      margin:0 0 17px;
+      font-size:clamp(.98rem,1.18vw,1.14rem);
+      line-height:1.42;
+    }
+
+    .plaque p:last-child { margin-bottom:0; }
+    .plaque strong { font-weight:700; }
+    .plaque em { font-style:italic; }
+
+    .museum-image-only {
+      max-width:1480px;
+      margin:0 auto clamp(88px,10vw,150px);
+    }
+
+    .museum-image-only img {
+      display:block;
+      width:100%;
+      height:auto;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    .museum-footer {
+      border-top:1px solid var(--museum-rule);
+      padding:clamp(38px,5vw,70px) clamp(24px,5vw,76px);
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:40px;
+      align-items:end;
+      background:#fff;
+    }
+
+    .museum-footer h2 {
+      margin:0;
+      font-size:clamp(2.7rem,5vw,6rem);
+      line-height:.9;
+      letter-spacing:-.05em;
+    }
+
+    .museum-footer h2 em { color:var(--museum-accent); font-weight:400; }
+
+    .museum-footer-links { display:grid; }
+    .museum-footer-links a {
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      padding:12px 0;
+      border-bottom:1px solid var(--museum-rule);
+      color:#111;
+      text-decoration:none;
+      font-size:.7rem;
+      letter-spacing:.1em;
+      text-transform:uppercase;
+    }
+    .museum-footer-links a:hover { color:var(--museum-accent); }
+
+    @media (max-width: 900px) {
+      .museum-hero-thumb {
+        width:min(100%, 520px);
+        max-width:none;
+        margin:0 auto 24px;
+        align-self:center;
+      }
+      .museum-hero,
+      .exhibit,
+      .exhibit.hero-exhibit,
+      .museum-footer { grid-template-columns:1fr; }
+      .museum-hero-copy { border-right:0; border-bottom:1px solid var(--museum-rule); }
+      .museum-hero { min-height:0; }
+      .museum-title { max-width:none; }
+      .plaque { max-width:680px; }
+    }
+
+    @media (max-width: 760px) {
+      .museum-title { font-size:clamp(3.6rem,17vw,6rem); }
+      .gallery { padding-left:18px; padding-right:18px; }
+      .collection-head { align-items:flex-start; flex-direction:column; }
+      .exhibit { margin-bottom:88px; gap:26px; }
+      .plaque { padding:24px; }
+    }
+
+    /* More Drawings / lightbox gallery */
+    .more-drawings {
+      max-width:1480px;
+      margin:0 auto clamp(88px,10vw,160px);
+      padding-top:clamp(20px,3vw,42px);
+    }
+
+    .more-drawings-head {
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:24px;
+      padding:0 clamp(18px,2vw,28px) 18px clamp(28px,4vw,60px);
+      border-bottom:1px solid #111;
+    }
+
+    .more-drawings-head h2 {
+      margin:5px 0 0;
+      font-size:clamp(2.2rem,4.5vw,5rem);
+      line-height:.9;
+      letter-spacing:-.045em;
+    }
+
+    .more-drawings-note {
+      max-width:28rem;
+      font-family:Georgia, 'Times New Roman', serif;
+      font-size:clamp(.95rem,1.1vw,1.08rem);
+      line-height:1.4;
+      text-align:right;
+    }
+
+    .more-grid {
+      display:grid;
+      grid-template-columns:repeat(5, minmax(0,1fr));
+      width:100%;
+      box-sizing:border-box;
+      border-left:1px solid #111;
+      border-top:1px solid #111;
+      border-right:1px solid #111;
+    }
+
+    .more-cell:nth-child(5n) {
+      border-right:0;
+    }
+
+    .more-cell {
+      appearance:none;
+      -webkit-appearance:none;
+      border:0;
+      border-right:1px solid #111;
+      border-bottom:1px solid #111;
+      background:#fff;
+      padding:clamp(14px,1.6vw,26px);
+      aspect-ratio:1 / 1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:zoom-in;
+      overflow:hidden;
+      box-sizing:border-box;
+    }
+
+    .more-cell img {
+      display:block;
+      max-width:88%;
+      max-height:88%;
+      width:auto;
+      height:auto;
+      margin-left:auto;
+      margin-right:auto;
+      object-fit:contain;
+      transition:transform .16s ease;
+    }
+
+    .more-cell:hover img,
+    .more-cell:focus-visible img {
+      transform:scale(1.035);
+    }
+
+    .more-cell:focus-visible {
+      outline:3px solid var(--museum-accent);
+      outline-offset:-3px;
+    }
+
+    .lightbox {
+      position:fixed;
+      inset:0;
+      z-index:9999;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:clamp(18px,4vw,56px);
+      background:rgba(17,17,17,.72);
+    }
+
+    .lightbox.is-open { display:flex; }
+
+    .lightbox-panel {
+      position:relative;
+      width:min(980px,88vw);
+      height:min(820px,86vh);
+      background:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 22px 70px rgba(0,0,0,.32);
+      padding:clamp(30px,5vw,68px);
+    }
+
+    .lightbox-image {
+      display:block;
+      max-width:100%;
+      max-height:100%;
+      width:auto;
+      height:auto;
+      object-fit:contain;
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      appearance:none;
+      -webkit-appearance:none;
+      border:0;
+      background:transparent;
+      color:#111;
+      cursor:pointer;
+      position:absolute;
+      font-family:Arial, Helvetica, sans-serif;
+      line-height:1;
+    }
+
+    .lightbox-close {
+      top:14px;
+      right:18px;
+      font-size:2.1rem;
+      font-weight:300;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+      top:50%;
+      transform:translateY(-50%);
+      font-size:3.2rem;
+      padding:12px;
+    }
+
+    .lightbox-prev { left:8px; }
+    .lightbox-next { right:8px; }
+
+    .lightbox-close:focus-visible,
+    .lightbox-prev:focus-visible,
+    .lightbox-next:focus-visible {
+      outline:2px solid var(--museum-accent);
+      outline-offset:2px;
+    }
+
+    body.lightbox-open { overflow:hidden; }
+
+    @media (max-width:900px) {
+      .more-grid { grid-template-columns:repeat(3, minmax(0,1fr)); }
+      .more-cell:nth-child(5n) { border-right:1px solid #111; }
+      .more-cell:nth-child(3n) { border-right:0; }
+      .more-drawings-head { align-items:flex-start; flex-direction:column; padding-left:clamp(20px,4vw,42px); }
+      .more-drawings-note { text-align:left; }
+    }
+
+    @media (max-width:620px) {
+      .more-drawings-head {
+        border-bottom:1px solid var(--museum-rule);
+      }
+      .more-grid {
+        grid-template-columns:repeat(2, minmax(0,1fr));
+        border:0;
+      }
+      .more-cell,
+      .more-cell:nth-child(5n),
+      .more-cell:nth-child(3n),
+      .more-cell:nth-child(2n) {
+        border:0;
+      }
+      .more-cell { padding:12px; }
+      .lightbox-panel {
+        width:94vw;
+        height:78vh;
+        padding:42px 34px;
+      }
+      .lightbox-prev,
+      .lightbox-next { font-size:2.6rem; }
+    }
+
+  
+    .next-department-link {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .next-department-link:hover em {
+      text-decoration: underline;
+      text-decoration-thickness: .04em;
+      text-underline-offset: .08em;
+    }
+
+    .mobile-back-departments {
+      display:none;
+    }
+
+    @media (max-width:620px) {
+      .museum-footer {
+        padding-top:clamp(30px,8vw,44px);
+      }
+
+      .museum-footer-department h2 {
+        display:none;
+      }
+
+      .mobile-back-departments {
+        display:inline-block;
+        color:#111;
+        text-decoration:none;
+        font-family:Arial, Helvetica, sans-serif;
+        font-size:.7rem;
+        line-height:1.2;
+        letter-spacing:.1em;
+        text-transform:uppercase;
+      }
+    }
+
+
+  </style>
+
+<style id="dg-site-footer-styles">
+  .dg-site-footer {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: flex-end !important;
+    justify-content: space-between !important;
+    gap: 32px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: clamp(34px, 4.2vw, 68px) clamp(18px, 2.8vw, 46px) clamp(30px, 3.8vw, 60px) !important;
+    border-top: 1px solid rgba(17,17,17,.18) !important;
+    border-bottom: 1px solid rgba(17,17,17,.18) !important;
+    background: #fff !important;
+    color: #111 !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: .70rem !important;
+    line-height: 1.3 !important;
+    letter-spacing: .095em !important;
+    text-transform: uppercase !important;
+    position: relative !important;
+    z-index: 1 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  .dg-site-footer__left {
+    color: #111 !important;
+  }
+  .dg-site-footer__role {
+    color: #ff3b1f !important;
+    margin-left: .16em;
+  }
+  .dg-site-footer__right {
+    display:flex !important;
+    flex-wrap:wrap;
+    min-width:0;
+    max-width:100%;
+    margin-left:auto;
+    align-items:center !important;
+  }
+  .dg-site-footer__left {
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: break-word;
+    font-family: var(--display, Arial, Helvetica, sans-serif) !important;
+    font-size: clamp(2.5rem, 4vw, 5.25rem) !important;
+    font-weight: 800 !important;
+    line-height: .88 !important;
+    letter-spacing: -.05em !important;
+  }
+  .dg-site-footer__right {
+    justify-content:flex-end !important;
+    gap:clamp(20px,2.4vw,38px) !important;
+    white-space:nowrap;
+    padding-bottom:.25em;
+  }
+  .dg-site-footer a { color:#111 !important; text-decoration:none !important; }
+  .dg-site-footer a:hover, .dg-site-footer a:focus-visible { color:#ff3b1f !important; }
+  @media (max-width:900px) {
+    .dg-site-footer {
+      flex-direction:column !important;
+      align-items:flex-start !important;
+      gap:26px !important;
+    }
+    .dg-site-footer__left {
+      white-space:normal;
+      font-size:clamp(2.4rem,10vw,4.6rem) !important;
+    }
+    .dg-site-footer__right {
+      width:100%;
+      margin-left:0;
+      justify-content:flex-start !important;
+      flex-wrap:wrap !important;
+      gap:10px 24px !important;
+      white-space:normal;
+      padding-bottom:0;
+    }
+  }
+</style>
+
+<!-- Responsive header: keep the complete desktop navigation at medium widths,
+     then switch cleanly to the menu button before the header gets cramped. -->
+<style id="dg-responsive-header-fix">
+  @media (min-width: 981px) and (max-width: 1280px) {
+    .topbar {
+      grid-template-columns: auto minmax(0, 1fr) auto !important;
+    }
+
+    .topbar .brand {
+      min-width: 0 !important;
+    }
+
+    .topbar .brand strong,
+    .topbar .brand span {
+      white-space: nowrap !important;
+    }
+
+    .topbar .nav {
+      display: flex !important;
+      align-items: stretch !important;
+      justify-content: flex-end !important;
+      min-width: 0 !important;
+    }
+
+    .topbar .nav > a {
+      display: flex !important;
+      align-items: center !important;
+      white-space: nowrap !important;
+      padding-left: clamp(8px, 1vw, 14px) !important;
+      padding-right: clamp(8px, 1vw, 14px) !important;
+      font-size: clamp(.62rem, .72vw, .72rem) !important;
+    }
+
+    .topbar .availability {
+      display: flex !important;
+      white-space: nowrap !important;
+      padding-left: clamp(16px, 1.6vw, 24px) !important;
+      padding-right: clamp(16px, 1.6vw, 24px) !important;
+    }
+
+    .topbar .menu-button,
+    .mobile-nav {
+      display: none !important;
+    }
+  }
+
+  @media (min-width: 761px) and (max-width: 980px) {
+    .topbar {
+      grid-template-columns: minmax(0, 1fr) auto auto !important;
+    }
+
+    .topbar .brand {
+      min-width: 0 !important;
+    }
+
+    .topbar .brand strong,
+    .topbar .brand span {
+      white-space: nowrap !important;
+    }
+
+    .topbar .nav {
+      display: none !important;
+    }
+
+    .topbar .availability {
+      display: flex !important;
+      white-space: nowrap !important;
+    }
+
+    .topbar .menu-button {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    .mobile-nav {
+      display: none !important;
+    }
+
+    .topbar:has(.menu-button[aria-expanded="true"]) + .mobile-nav {
+      display: grid !important;
+    }
+  }
+</style>
+
+
+<!-- Half-width browser: show the stacked navigation automatically (no hamburger). -->
+<style id="dg-halfwidth-stacked-nav">
+  @media (min-width: 761px) and (max-width: 980px) {
+    .topbar {
+      grid-template-columns: minmax(0, 1fr) auto !important;
+    }
+
+    .topbar .menu-button {
+      display: none !important;
+    }
+
+    .mobile-nav {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+    }
+
+    .mobile-nav a {
+      display: block !important;
+      font-family: var(--display, Arial, Helvetica, sans-serif) !important;
+      font-size: 1rem !important;
+      font-weight: 800 !important;
+      line-height: 1.15 !important;
+      letter-spacing: -0.02em !important;
+    }
+
+    /* Align stacked mid-width menu with the D in DAVID GORDON. */
+    .mobile-nav {
+      padding-left: var(--pad) !important;
+      padding-right: var(--pad) !important;
+    }
+  }
+</style>
+
+<link rel="canonical" href="https://www.davidgordonstoryboards.com/funny-art-director-drawings.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="David Gordon Storyboards">
+<meta property="og:title" content="Funny Art Director Drawings — David Gordon">
+<meta property="og:description" content="Funny art director drawings from the Department of Illustration permanent collection.">
+<meta property="og:url" content="https://www.davidgordonstoryboards.com/funny-art-director-drawings.html">
+<meta property="og:image" content="https://www.davidgordonstoryboards.com/assets/social/funny-art-director-drawings.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="900">
+<meta name="twitter:card" content="summary_large_image">
+
+<style id="dg-funny-footer-punch">
+  .museum-footer-department h2, .museum-footer-department h2 a {
+    font-family: var(--display, Arial, Helvetica, sans-serif) !important;
+    font-weight: 800 !important;
+    letter-spacing: -.055em !important;
+    line-height: .88 !important;
+    text-transform: uppercase !important;
+  }
+  .museum-footer-department h2 em {
+    color: var(--museum-accent) !important;
+    font-style: normal !important;
+    font-weight: 800 !important;
+  }
+  .lightbox-close, .lightbox-prev, .lightbox-next {
+    background: rgba(255,255,255,.96) !important;
+    color: #111 !important;
+    border: 1px solid rgba(17,17,17,.18) !important;
+    border-radius: 999px !important;
+    box-shadow: 0 4px 18px rgba(0,0,0,.08) !important;
+  }
+  .dg-site-footer__role { color:#ff3b1f !important; margin-left:.16em; }
+</style>
+
+<style id="dg-mobile-polish-pass-1">
+  /* Mobile-only polish: keep iOS from coloring the hamburger like a native control. */
+  @media (max-width: 760px) {
+    .topbar .menu-button,
+    .menu-button {
+      color: #111 !important;
+      -webkit-text-fill-color: #111 !important;
+      -webkit-appearance: none !important;
+      appearance: none !important;
+      font-family: Arial, Helvetica, sans-serif !important;
+    }
+
+    /* Keep navigation/contact arrows typographic and restrained on phones. */
+    .dept-arrow {
+      font-family: Arial, Helvetica, sans-serif !important;
+      font-size: 1.75rem !important;
+      line-height: 1 !important;
+      font-weight: 400 !important;
+    }
+
+    .dept-meta-back,
+    .contact-row-arrow,
+    .contact-row-reveal,
+    .dg-site-footer__right a {
+      font-family: var(--mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace) !important;
+    }
+  }
+
+  /* Landing hero only: fit STORYBOARDS cleanly inside an iPhone viewport. */
+  @media (max-width: 620px) {
+    #hero-title {
+      font-size: clamp(2.62rem, 11vw, 3.35rem) !important;
+      line-height: .88 !important;
+      letter-spacing: -.058em !important;
+      max-width: 100% !important;
+    }
+  }
+</style>
+
+<style>@media (max-width:760px) { .museum-kicker-keep { white-space:nowrap; } }</style>
+</head>
+<body id="top">
+<a class="skip-link" href="#main">Skip to collection</a>
+<div class="site-shell">
+  <header class="topbar">
+    <a class="brand" href="index.html"><strong>David Gordon</strong><span>Storyboard artist</span></a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#departments-start">Departments</a>
+      <a href="board-to-spot.html">Board to Spot</a>
+      <a href="process.html">Process</a>
+      <a href="funny-art-director-drawings.html" aria-current="page">Funny Drawings</a>
+    </nav>
+    <a class="availability" href="contact.html">Check availability</a>
+    <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+  </header>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html#work">Work</a>
+    <a href="index.html#departments-start">Departments</a>
+    <a href="board-to-spot.html">Board to Spot</a>
+    <a href="process.html">Process</a>
+    <a href="funny-art-director-drawings.html" aria-current="page">Funny Drawings</a>
+    <a href="contact.html">Check availability</a>
+  </nav>
+
+  <main id="main" class="museum-page">
+    <section class="museum-hero">
+      <div class="museum-hero-copy">
+        <div>
+          <div class="museum-kicker">Permanent Collection / The Secret <span class="museum-kicker-keep">Genius of Art</span></div>
+          <h1 class="museum-title">Funny art director <em>drawings.</em></h1>
+        </div>
+        <p class="museum-intro">Before a storyboard can become a storyboard, somebody has to explain the idea. Sometimes they draw it.</p>
+      </div>
+      <div class="museum-hero-note">
+        <img class="museum-hero-thumb" src="assets/images/hero/funny/ChatGPT%20Image%20Sep%2016,%202026%20at%2008_21_46%20PM.png.webp" alt="Funny art director drawing of a gorilla eating yogurt">
+        <p>A survey of important works produced in conference rooms, on phone calls and under conditions of extreme deadline pressure.</p>
+        <div class="museum-meta">
+          <span>Collection / Ongoing</span>
+          <span>Media / Whatever was nearby</span>
+          <span>Conservation status / Miraculously extant</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery" aria-label="Funny art director drawing collection">
+      <header class="collection-head">
+        <div>
+          <div class="museum-kicker">On view</div>
+          <h2>Selected works.</h2>
+        </div>
+      </header>
+
+      <article class="exhibit hero-exhibit">
+        <div class="artwork">
+          <img class="wall-hung-art" src="assets/images/hero/funny/funnyGorillaMuseum.jpg.webp" alt="Ornately framed art director drawing of a man in a gorilla suit interfering with another man's computer" loading="eager">
+        </div>
+        <aside class="plaque" aria-label="Museum didactic for A Man in a Gorilla Suit Starts Messing With the Man's Computer">
+          <div class="plaque-kicker">Collection highlight</div>
+          <h3>A Man in a Gorilla Suit Starts Messing With the Man’s Computer</h3>
+          <div class="credit">Anonymous Art Director, c. 2000s<br>Ink on office paper<br>Department of Illustration Collection</div>
+          <div class="plaque-rule"></div>
+          <p>In this unusually lucid example of early twenty-first-century commercial iconography, the artist depicts a man in a gorilla suit interfering with another man’s computer. The precise nature of the interference is left unresolved.</p>
+          <p>Scholars remain divided as to whether the gorilla represents <strong>chaos, technology, the subconscious, or simply a man in a gorilla suit messing with a computer.</strong></p>
+          <p><strong>Artist’s instruction:</strong><br><em>“A man in a gorilla suit starts messing with the man’s computer.”</em></p>
+        </aside>
+      </article>
+
+      <article class="exhibit">
+        <div class="artwork">
+          <img src="assets/images/hero/funny/funnyFlipboard.jpg" alt="Ornately framed pencil drawing showing a man racing a flip board and the grave of a man" loading="lazy">
+        </div>
+        <aside class="plaque">
+          <div class="plaque-kicker">Study in two movements</div>
+          <h3>Guy on Laptop Is Racing Flip Board / Grave of Guy</h3>
+          <div class="credit">Anonymous Art Director, c. 2000s<br>Graphite on office paper<br>Department of Illustration Collection</div>
+          <div class="plaque-rule"></div>
+          <p>A compact two-panel narrative spanning competition, consequence and mortality. The second panel resolves the first with unusual decisiveness.</p>
+          <p><strong>Notable detail:</strong> the deceased is identified simply as “John Henry.”</p>
+        </aside>
+      </article>
+
+      <article class="exhibit">
+        <div class="artwork">
+          <img src="assets/images/hero/funny/funnyStrawberry2.jpg" alt="Ornately framed red marker drawing labeled Strawberry" loading="lazy">
+        </div>
+        <aside class="plaque">
+          <div class="plaque-kicker">Fruit studies</div>
+          <h3>Strawberry</h3>
+          <div class="credit">Anonymous Art Director, c. 2000s<br>Red marker on office paper<br>Department of Illustration Collection</div>
+          <div class="plaque-rule"></div>
+          <p>The fruit appears at right. The figure appears at left. The word <em>STRAWBERRY</em> anchors the composition and eliminates any remaining ambiguity.</p>
+        </aside>
+      </article>
+
+<article class="exhibit">
+        <div class="artwork">
+          <img src="assets/images/hero/funny/funnyBikeSkateboard2.jpg" alt="Ornately framed office sketch labeled Bike, skateboard, scooter and rollerblades around a box" loading="lazy">
+        </div>
+        <aside class="plaque">
+          <div class="plaque-kicker">Mobility studies</div>
+          <h3>Bike / Skateboard / Scooter / Rollerblades</h3>
+          <div class="credit">Anonymous Art Director<br>Ballpoint pen on office paper<br>Department of Illustration Collection</div>
+          <div class="plaque-rule"></div>
+          <p>Four modes of transportation orbit a monumental cube. The cube itself is not identified.</p>
+          <p>Its silence is generally considered intentional.</p>
+        </aside>
+      </article>
+
+      <article class="exhibit">
+        <div class="artwork">
+          <img src="assets/images/hero/funny/funnyUpsideDown2.jpg.webp" alt="Dark antique framed drawing of legs with an upside-down head" loading="lazy">
+        </div>
+        <aside class="plaque">
+          <div class="plaque-kicker">Figurative work</div>
+          <h3>Untitled (Head, Inverted)</h3>
+          <div class="credit">Anonymous Art Director<br>Marker on office paper<br>Department of Illustration Collection</div>
+          <div class="plaque-rule"></div>
+          <p>The figure’s body remains upright. Its head does not.</p>
+          <p>Scholars have been unable to establish whether this is an accident, a camera direction or a highly specific performance note.</p>
+        </aside>
+      </article>
+    </section>
+
+
+    <section class="more-drawings" aria-labelledby="more-drawings-title">
+      <header class="more-drawings-head">
+        <div>
+          <div class="museum-kicker">Department archive</div>
+          <h2 id="more-drawings-title">More drawings.</h2>
+        </div>
+        <div class="more-drawings-note">No didactics. No scholarship. Just more evidence.</div>
+      </header>
+
+      <div class="more-grid" aria-label="Additional funny art director drawings">
+        <button class="more-cell" type="button" data-lightbox-index="0" aria-label="Open Additional framed art director drawing 1 in lightbox">
+          <img src="assets/images/hero/funny/ChatGPT%20Image%20Sep%206,%202026%20at%2003_59_01%20PM.png.webp" alt="Additional framed art director drawing 1" loading="lazy">
+        </button>
+        <button class="more-cell" type="button" data-lightbox-index="1" aria-label="Open Additional framed art director drawing 2 in lightbox">
+          <img src="assets/images/hero/funny/ChatGPT%20Image%20Sep%206,%202026%20at%2003_59_08%20PM.png.webp" alt="Additional framed art director drawing 2" loading="lazy">
+        </button>
+        <button class="more-cell" type="button" data-lightbox-index="2" aria-label="Open Additional framed art director drawing 3 in lightbox">
+          <img src="assets/images/hero/funny/ChatGPT%20Image%20Sep%206,%202026%20at%2003_59_14%20PM.png.webp" alt="Additional framed art director drawing 3" loading="lazy">
+        </button>
+        <button class="more-cell" type="button" data-lightbox-index="3" aria-label="Open Additional framed art director drawing 4 in lightbox">
+          <img src="assets/images/hero/funny/ChatGPT%20Image%20Sep%206,%202026%20at%2003_59_27%20PM.png.webp" alt="Additional framed art director drawing 4" loading="lazy">
+        </button>
+        <button class="more-cell" type="button" data-lightbox-index="4" aria-label="Open Additional framed art director drawing 5 in lightbox">
+          <img src="assets/images/hero/funny/ChatGPT%20Image%20Sep%206,%202026%20at%2003_59_34%20PM.png.webp" alt="Additional framed art director drawing 5" loading="lazy">
+        </button>
+        <button class="more-cell" type="button" data-lightbox-index="5" aria-label="Open Additional framed art director drawing 6 in lightbox">
+          <img src="assets/images/hero/funny/ChatGPT%20Image%20Sep%206,%202026%20at%2003_59_41%20PM.png.webp" alt="Additional framed art director drawing 6" loading="lazy">
+        </button>
+        <button class="more-cell" type="button" data-lightbox-index="6" aria-label="Open Additional framed art director drawing 7 in lightbox">
+          <img src="assets/images/hero/funny/ChatGPT%20Image%20Sep%206,%202026%20at%2003_59_48%20PM.png.webp" alt="Additional framed art director drawing 7" loading="lazy">
+        </button>
+        <button class="more-cell" type="button" data-lightbox-index="7" aria-label="Open Additional framed art director drawing 8 in lightbox">
+          <img src="assets/images/hero/funny/ChatGPT%20Image%20Sep%206,%202026%20at%2003_59_56%20PM.png.webp" alt="Additional framed art director drawing 8" loading="lazy">
+        </button>
+        <button class="more-cell" type="button" data-lightbox-index="8" aria-label="Open Additional framed art director drawing 9 in lightbox">
+          <img src="assets/images/hero/funny/ChatGPT%20Image%20Sep%206,%202026%20at%2004_00_05%20PM.png.webp" alt="Additional framed art director drawing 9" loading="lazy">
+        </button>
+        <button class="more-cell" type="button" data-lightbox-index="9" aria-label="Open Additional framed art director drawing 10 in lightbox">
+          <img src="assets/images/hero/funny/ChatGPT%20Image%20Sep%2018,%202026%20at%2009_35_22%20AM%20(1).png.webp" alt="Additional framed art director drawing 10" loading="lazy">
+        </button>
+        <button class="more-cell" type="button" data-lightbox-index="10" aria-label="Open Additional framed art director drawing 11 in lightbox">
+          <img src="assets/images/hero/funny/ChatGPT%20Image%20Sep%2018,%202026%20at%2009_35_23%20AM%20(2).png.webp" alt="Additional framed art director drawing 11" loading="lazy">
+        </button>
+        <button class="more-cell" type="button" data-lightbox-index="11" aria-label="Open Additional framed art director drawing 12 in lightbox">
+          <img src="assets/images/hero/funny/ChatGPT%20Image%20Sep%2018,%202026%20at%2009_35_23%20AM%20(3).png.webp" alt="Additional framed art director drawing 12" loading="lazy">
+        </button>
+        <button class="more-cell" type="button" data-lightbox-index="12" aria-label="Open Additional framed art director drawing 13 in lightbox">
+          <img src="assets/images/hero/funny/ChatGPT%20Image%20Sep%2018,%202026%20at%2009_35_23%20AM%20(4).png.webp" alt="Additional framed art director drawing 13" loading="lazy">
+        </button>
+        <button class="more-cell" type="button" data-lightbox-index="13" aria-label="Open Additional framed art director drawing 14 in lightbox">
+          <img src="assets/images/hero/funny/ChatGPT%20Image%20Sep%2018,%202026%20at%2009_35_24%20AM%20(5).png.webp" alt="Additional framed art director drawing 14" loading="lazy">
+        </button>
+        <button class="more-cell" type="button" data-lightbox-index="14" aria-label="Open Additional framed art director drawing 15 in lightbox">
+          <img src="assets/images/hero/funny/ChatGPT%20Image%20Sep%2018,%202026%20at%2009_35_24%20AM%20(6).png.webp" alt="Additional framed art director drawing 15" loading="lazy">
+        </button>
+        <button class="more-cell" type="button" data-lightbox-index="15" aria-label="Open Additional framed art director drawing 16 in lightbox">
+          <img src="assets/images/hero/funny/ChatGPT%20Image%20Sep%2018,%202026%20at%2009_35_24%20AM%20(7).png.webp" alt="Additional framed art director drawing 16" loading="lazy">
+        </button>
+        <button class="more-cell" type="button" data-lightbox-index="16" aria-label="Open Additional framed art director drawing 17 in lightbox">
+          <img src="assets/images/hero/funny/ChatGPT%20Image%20Sep%2018,%202026%20at%2009_35_24%20AM%20(8).png.webp" alt="Additional framed art director drawing 17" loading="lazy">
+        </button>
+        <button class="more-cell" type="button" data-lightbox-index="17" aria-label="Open Additional framed art director drawing 18 in lightbox">
+          <img src="assets/images/hero/funny/ChatGPT%20Image%20Sep%2018,%202026%20at%2012_03_15%20PM%20(1).png.webp" alt="Additional framed art director drawing 18" loading="lazy">
+        </button>
+        <button class="more-cell" type="button" data-lightbox-index="18" aria-label="Open Additional framed art director drawing 19 in lightbox">
+          <img src="assets/images/hero/funny/ChatGPT%20Image%20Sep%2018,%202026%20at%2012_03_15%20PM%20(2).png.webp" alt="Additional framed art director drawing 19" loading="lazy">
+        </button>
+        <button class="more-cell" type="button" data-lightbox-index="19" aria-label="Open Additional framed art director drawing 20 in lightbox">
+          <img src="assets/images/hero/funny/ChatGPT%20Image%20Sep%2018,%202026%20at%2003_14_01%20PM.png.webp" alt="Additional framed art director drawing 20" loading="lazy">
+        </button>
+      </div>
+    </section>
+
+    <div class="lightbox" id="drawing-lightbox" role="dialog" aria-modal="true" aria-label="Drawing lightbox" aria-hidden="true">
+      <div class="lightbox-panel">
+        <button class="lightbox-close" type="button" aria-label="Close lightbox">×</button>
+        <button class="lightbox-prev" type="button" aria-label="Previous drawing">‹</button>
+        <img class="lightbox-image" src="" alt="">
+        <button class="lightbox-next" type="button" aria-label="Next drawing">›</button>
+      </div>
+    </div>
+
+    <section class="museum-footer">
+      <div class="museum-footer-department">
+        <h2><a class="next-department-link" href="index.html#departments-start">Back to<br><em>departments.</em></a></h2>
+        <a class="mobile-back-departments" href="index.html#departments-start">↖︎&nbsp;&nbsp;Back to Departments</a>
+      </div>
+      <div class="museum-footer-links">
+        <a href="index.html#work"><span>Return</span><span>Selected work ↗︎</span></a>
+        <a href="board-to-spot.html"><span>Next gallery</span><span>Board to Spot ↗︎</span></a>
+        <a href="contact.html"><span>Assignments</span><span>Check availability ↗︎</span></a>
+      </div>
+    </section>
+  </main>
+<div class="dg-site-footer" role="contentinfo" aria-label="Site footer">
+  <div class="dg-site-footer__left">DAVID GORDON <span class="dg-site-footer__role">STORYBOARD ARTIST</span></div>
+  <div class="dg-site-footer__right">
+    <span>© 2026 DAVID GORDON</span>
+    <a href="mailto:dave@davidgordonstoryboards.com">EMAIL ↗︎</a>
+    <a href="#top">TOP ↑︎</a>
+  </div>
+</div>
+
+</div>
+<script src="assets/js/site-v0.4.js" defer></script>
+
+<script>
+(() => {
+  const cells = Array.from(document.querySelectorAll('.more-cell'));
+  const lightbox = document.getElementById('drawing-lightbox');
+  if (!cells.length || !lightbox) return;
+
+  const image = lightbox.querySelector('.lightbox-image');
+  const close = lightbox.querySelector('.lightbox-close');
+  const prev = lightbox.querySelector('.lightbox-prev');
+  const next = lightbox.querySelector('.lightbox-next');
+  let current = 0;
+  let lastFocused = null;
+
+  const show = (index) => {
+    current = (index + cells.length) % cells.length;
+    const thumb = cells[current].querySelector('img');
+    image.src = thumb.src;
+    image.alt = thumb.alt;
+  };
+
+  const open = (index) => {
+    lastFocused = document.activeElement;
+    show(index);
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lightbox-open');
+    close.focus();
+  };
+
+  const shut = () => {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lightbox-open');
+    image.src = '';
+    if (lastFocused) lastFocused.focus();
+  };
+
+  cells.forEach((cell, i) => cell.addEventListener('click', () => open(i)));
+  close.addEventListener('click', shut);
+  prev.addEventListener('click', () => show(current - 1));
+  next.addEventListener('click', () => show(current + 1));
+
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) shut();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (event.key === 'Escape') shut();
+    if (event.key === 'ArrowLeft') show(current - 1);
+    if (event.key === 'ArrowRight') show(current + 1);
+  });
+})();
+</script>
+
+
+</body>
+</html>

@@ -1,14 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Expressive advertising storyboards for agencies, directors, pitches and production by David Gordon.">
-  <meta name="theme-color" content="#f2efe8">
-  <title>David Gordon — Human Storyboards</title>
-  <link rel="canonical" href="https://www.davidgordonstoryboards.com/">
-  <link rel="stylesheet" href="assets/css/site-v0.4.css">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Expressive advertising storyboards for agencies, directors, pitches and production by David Gordon." name="description"/>
+<meta content="#ffffff" name="theme-color"/>
+<title>David Gordon — Human Storyboards</title>
+<link href="assets/css/site-v0.4.css" rel="stylesheet"/>
+<style>
     /* Featured W+K pair: keep both image bottoms on one baseline */
     .featured-projects {
       grid-column: 1 / -1;
@@ -45,6 +45,11 @@
     /* Full-width production section */
     .project-card.full-width-project {
       grid-column: 1 / -1 !important;
+      border-bottom: 0 !important;
+    }
+
+    .project-card.full-width-project .project-link {
+      border-bottom: 0 !important;
     }
 
     .project-card.full-width-project .project-visual {
@@ -64,12 +69,90 @@
       margin: 0 !important;
     }
 
+    /* Additional landing-page work pair below MaMa/Bosch: proportional framed boxes, equal height */
+    .landing-comedy-pair {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: 0;
+      margin-top: clamp(14px, 1.1vw, 20px);
+      align-items: stretch;
+      border-top: 1px solid #111;
+      border-bottom: 1px solid #111;
+      background: #fff;
+    }
+
+    .landing-comedy-pair .project-card {
+      grid-column: auto !important;
+      min-width: 0;
+      display: flex;
+      align-self: stretch;
+      align-items: center;
+      padding: clamp(22px, 1.9vw, 30px) clamp(16px, 1.35vw, 24px);
+    }
+
+    .landing-comedy-pair .project-card:first-child {
+      border-right: 1px solid #111;
+      padding-right: clamp(18px, 1.5vw, 28px);
+    }
+
+    .landing-comedy-pair .project-card:last-child {
+      padding-left: clamp(18px, 1.5vw, 28px);
+    }
+
+    .landing-comedy-pair .project-link {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+    }
+
+    .landing-comedy-pair .project-visual {
+      width: 100%;
+      height: auto !important;
+      aspect-ratio: auto !important;
+      display: flex;
+      flex: 0 0 auto;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      overflow: hidden;
+      padding: 0;
+      border: 0;
+      background: #fff;
+    }
+
+    .landing-comedy-pair .project-visual img {
+      display: block;
+      width: 100% !important;
+      height: auto !important;
+      max-height: 100% !important;
+      object-fit: contain !important;
+      object-position: center center !important;
+      margin: auto !important;
+    }
+
     /* YouTube + KFC row: slightly wider gutter between the two blocks */
     .project-pair {
       grid-column: 1 / -1;
       display: grid;
       grid-template-columns: 1fr 1fr;
       column-gap: clamp(38px, 2.7vw, 56px);
+      position: relative;
+    }
+
+    /* One continuous divider under the YouTube / KFC pair — no gap or broken segment. */
+    .project-pair::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 1px;
+      background: #111;
+      pointer-events: none;
     }
 
     .project-pair .project-card {
@@ -83,217 +166,1395 @@
 
     @media (max-width: 760px) {
       .featured-projects,
-      .project-pair {
+      .project-pair,
+      .landing-comedy-pair {
         grid-template-columns: 1fr;
       }
 
       .project-pair {
         row-gap: 24px;
       }
+
     }
-  </style>
+
+    /* Overall mutation: pure white site background */
+    html,
+    body,
+    .site-shell,
+    .topbar,
+    .mobile-nav,
+    main,
+    .hero,
+    .section,
+    .project-grid,
+    .project-card,
+    .project-link,
+    .project-meta,
+    .department-grid,
+    .dept-link,
+    .process,
+    .process-copy,
+    .field-grid,
+    .field-card,
+    .clients,
+    .closing,
+    footer {
+      background-color: #fff !important;
+    }
+
+    /* White-background cleanup + restore closing-section contrast */
+    .hero-copy-wrap,
+    .hero-copy,
+    .hero-bottom,
+    .closing-main,
+    .closing-side,
+    .closing-side .contact-links,
+    .closing-side .contact-links a {
+      background: #fff !important;
+      background-color: #fff !important;
+    }
+
+    .closing,
+    .closing-main,
+    .closing-side,
+    .closing h2,
+    .closing h2 em,
+    .closing p,
+    .closing a,
+    .closing span {
+      opacity: 1 !important;
+      filter: none !important;
+    }
+
+    .closing h2 {
+      color: #111 !important;
+    }
+
+    .closing h2 em,
+    .closing .section-kicker {
+      color: #ff3b1f !important;
+    }
+
+    .closing-side,
+    .closing-side p,
+    .closing-side a,
+    .closing-side span {
+      color: #111 !important;
+    }
+
+    /* Process section mutation: more air between headline block and image */
+    .process {
+      column-gap: clamp(28px, 2.5vw, 44px) !important;
+      gap: clamp(28px, 2.5vw, 44px) !important;
+    }
+
+    /* Process image cleanup: remove black frame/mat and let image hit the divider */
+    .process {
+      column-gap: 0 !important;
+      gap: 0 !important;
+    }
+
+    .process-image {
+      background: #fff !important;
+      background-color: #fff !important;
+      border: 0 !important;
+      outline: 0 !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+      overflow: hidden !important;
+    }
+
+    .process-image img {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      border: 0 !important;
+      outline: 0 !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      border-radius: 0 !important;
+      background: #fff !important;
+    }
+  
+    /* Punch-list refinements */
+    .nav a[aria-current="page"],
+    .mobile-nav a[aria-current="page"] { background:#111 !important; color:#fff !important; }
+    .contact-reveal { appearance:none; border:0; background:transparent; color:inherit; padding:0; margin:0; font:inherit; cursor:pointer; text-decoration:none; border-bottom:1px solid currentColor; }
+    .contact-reveal:hover { color:#ff3b1f; }
+    .contact-hidden[hidden] { display:none !important; }
+    .contact-hidden { margin-left:.35em; }
+    .closing-side .contact-links .contact-row-reveal { width:100%; display:flex; justify-content:space-between; gap:18px; padding:14px 0; border-top:1px solid rgba(17,17,17,.18); border-bottom:0; text-align:left; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; }
+    .closing-side .contact-links .contact-hidden { display:block; margin:0; padding:12px 0 8px; text-align:right; font-size:clamp(1.35rem,2vw,2rem); line-height:1.1; letter-spacing:-.02em; }
+    .closing-side .contact-links .contact-hidden a { color:inherit; text-decoration:none; }
+    .closing-side .contact-links .contact-hidden.email-reveal a { color:#ff3b1f !important; }
+    /* Serious clients: restore the larger split and client-list scale */
+    .clients {
+      grid-template-columns:minmax(0,.44fr) minmax(0,1fr) !important;
+    }
+    .clients-title {
+      border-right:1px solid rgba(17,17,17,.18);
+      padding-right:clamp(28px,3.2vw,58px);
+    }
+    .clients-title h3 { color:#111 !important; }
+    .clients-head-black { color:#111 !important; }
+    .clients-head-orange { color:#ff3b1f !important; }
+    .clients-copy {
+      color:#111 !important;
+      font-size:clamp(1.75rem,2.45vw,3.15rem) !important;
+      line-height:1.08 !important;
+      letter-spacing:-.025em !important;
+    }
+    .clients-copy strong { color:#ff3b1f !important; }
+    .field-card { cursor:pointer; }
+    @media (max-width:900px) {
+      .clients { grid-template-columns:1fr !important; }
+      .clients-title { border-right:0; border-bottom:1px solid rgba(17,17,17,.18); padding-right:0; padding-bottom:28px; }
+    }
+
+    /* Landing hero: single image replaces the former three-image evidence stack */
+    .evidence-rail.hero-single {
+      display: block !important;
+      overflow: visible;
+      padding: 0 !important;
+      margin: 0 !important;
+      height: auto !important;
+      min-height: 0 !important;
+      align-self: start !important;
+    }
+
+    .evidence-rail.hero-single .hero-single-image {
+      display: block;
+      width: 100%;
+      height: auto !important;
+      min-height: 0 !important;
+      aspect-ratio: auto !important;
+      object-fit: contain !important;
+      object-position: center top;
+    }
+
+    /* Landing hero refinement: larger art + tighter copy stack */
+    .hero {
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) !important;
+      align-items: start !important;
+    }
+
+    .hero-copy {
+      justify-content: flex-start !important;
+      align-content: start !important;
+    }
+
+    .hero-bottom {
+      display: block !important;
+      grid-template-columns: none !important;
+      max-width: 42rem;
+      margin-top: clamp(64px, 6vw, 96px) !important;
+    }
+
+    .hero-bottom .intro {
+      max-width: 36rem;
+      margin: 0 !important;
+    }
+
+    .hero-contact {
+      width: min(100%, 20rem);
+      margin-top: clamp(24px, 2.2vw, 34px) !important;
+      padding-top: 12px !important;
+      border-top: 1px solid rgba(17,17,17,.55) !important;
+    }
+
+    .hero-contact .contact-hidden {
+      margin-left: 0 !important;
+    }
+
+    .evidence-rail.hero-single {
+      width: 100% !important;
+    }
+
+    .evidence-rail.hero-single .hero-single-image {
+      width: 100% !important;
+      height: auto !important;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr !important;
+      }
+
+      .hero-bottom {
+        margin-top: 48px !important;
+      }
+
+      .hero-contact {
+        width: min(100%, 22rem);
+      }
+    }
+
+
+    /* Pull the client-logo chiron up directly under the hero content */
+    .hero {
+      min-height: 0 !important;
+      height: auto !important;
+    }
+
+    .hero-copy-wrap,
+    .hero-copy {
+      min-height: 0 !important;
+      height: auto !important;
+    }
+
+    .hero-copy-wrap {
+      align-self: start !important;
+    }
+
+
+    /* Hero art inset: scale it up a bit and drop it slightly lower in the frame */
+    .evidence-rail.hero-single {
+      box-sizing: border-box !important;
+      width: calc(100% - clamp(4px, 0.45vw, 10px)) !important;
+      margin-top: clamp(36px, 3vw, 52px) !important;
+      margin-right: clamp(10px, 0.9vw, 16px) !important;
+      margin-bottom: clamp(18px, 1.5vw, 28px) !important;
+      margin-left: clamp(-42px, -2.2vw, -26px) !important;
+      border: 1px solid #111 !important;
+      overflow: hidden !important;
+      background: #fff !important;
+    }
+
+    .evidence-rail.hero-single .hero-single-image {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      margin: 0 !important;
+      border: 0 !important;
+      outline: 0 !important;
+      box-shadow: none !important;
+    }
+
+    @media (max-width: 900px) {
+      .evidence-rail.hero-single {
+        width: calc(100% - 32px) !important;
+        margin: 18px 16px 24px !important;
+      }
+    }
+
+
+
+    /* Pass 18: balance desktop copy without isolated headline fragments. */
+    @media (min-width: 901px) {
+      .hero-bottom .intro { text-wrap: balance; }
+      .hero-bottom .intro .intro-keep { white-space: nowrap; }
+    }
+
+    /* Pass 9: requested desktop line breaks in the landing-page intro copy. */
+    .desktop-copy-break { display: inline; }
+    @media (max-width: 900px) {
+      .desktop-copy-break { display: none; }
+    }
+
+    /* Pass 8 hero mutation — desktop only: larger art, slightly smaller headline. */
+    @media (min-width: 901px) {
+      .hero {
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr) !important;
+      }
+
+      .hero h1 {
+        max-width: 680px !important;
+        font-size: clamp(62px, 4.8vw, 84px) !important;
+      }
+    }
+
+    /* Chiron refinement: darker, larger grey client logos floating on white */
+    .ticker,
+    .ticker::before,
+    .ticker::after {
+      background: #fff !important;
+      background-color: #fff !important;
+      border: 0 !important;
+      border-top: 0 !important;
+      border-bottom: 0 !important;
+      outline: 0 !important;
+      box-shadow: none !important;
+    }
+
+    .ticker {
+      margin-top: 0 !important;
+      /* Drop the logo row slightly so it sits visually centered between hero art and PROOF OF WORK. */
+      padding-top: clamp(46px, 3.4vw, 62px) !important;
+      padding-bottom: clamp(8px, .7vw, 14px) !important;
+    }
+
+    .ticker-track,
+    .ticker-group {
+      background: transparent !important;
+      background-color: transparent !important;
+      align-items: center !important;
+      gap: clamp(36px, 4vw, 72px) !important;
+    }
+
+    .ticker img {
+      width: auto !important;
+      height: clamp(42px, 4.7vw, 74px) !important;
+      max-height: none !important;
+      /* Slightly lighter medium-grey logos: force source artwork to black, then use opacity for consistent grey. */
+      filter: grayscale(1) brightness(0) !important;
+      opacity: .34 !important;
+      flex: 0 0 auto !important;
+    }
+
+    .ticker img.logo-wk {
+      height: clamp(54px, 5.4vw, 90px) !important;
+    }
+
+    .ticker img.logo-tbwa {
+      height: clamp(24px, 2.8vw, 40px) !important;
+    }
+
+    .ticker img.logo-grey {
+      height: clamp(32px, 3.5vw, 52px) !important;
+    }
+
+    .ticker img.logo-vml {
+      height: clamp(38px, 4.2vw, 64px) !important;
+    }
+
+    .ticker img:hover {
+      opacity: .48 !important;
+    }
+
+    /* Kill the remaining divider above the floating logo chiron */
+    .hero {
+      border-bottom: 0 !important;
+      box-shadow: none !important;
+    }
+
+    .ticker {
+      border-top: 0 !important;
+      border-bottom: 0 !important;
+      box-shadow: none !important;
+    }
+
+    /* Ticker edge fix: remove the old white edge overlays/fades that were
+       covering logos before they actually left the viewport. */
+    .ticker {
+      overflow: hidden !important;
+      -webkit-mask-image: none !important;
+      mask-image: none !important;
+    }
+
+    .ticker::before,
+    .ticker::after {
+      content: none !important;
+      display: none !important;
+      width: 0 !important;
+      background: transparent !important;
+    }
+
+
+    /* Mutation: no portfolio filter tabs — art first */
+    #work .section-head {
+      margin-bottom: clamp(24px, 2.4vw, 42px) !important;
+    }
+
+    #work .project-grid {
+      padding-top: 0 !important;
+      margin-top: 0 !important;
+    }
+
+
+
+    /* Hero image credit/title — all existing layout preserved */
+    .evidence-rail.hero-single {
+      position: relative !important;
+      overflow: visible !important;
+    }
+
+    .hero-single-caption {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin-top: 6px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 11px;
+      line-height: 1;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      color: #111;
+    }
+
+
+    /* Landing page master gallery — same visual language as department lightboxes */
+    body.lightbox-open {
+      overflow: hidden;
+    }
+
+    [data-master-gallery] {
+      cursor: zoom-in;
+    }
+
+    [data-master-gallery]:focus-visible {
+      outline: 2px solid #111;
+      outline-offset: 4px;
+    }
+
+    .master-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+    }
+
+    .master-lightbox.is-open {
+      display: flex;
+    }
+
+    .master-lightbox .lightbox-stage {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(38px, 5vw, 76px) clamp(62px, 7vw, 110px);
+      box-sizing: border-box;
+    }
+
+    .master-lightbox .lightbox-image {
+      display: block;
+      max-width: 100%;
+      max-height: calc(100vh - 120px);
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .master-lightbox .lightbox-close,
+    .master-lightbox .lightbox-arrow {
+      position: absolute;
+      z-index: 3;
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: #111;
+      cursor: pointer;
+      font: inherit;
+      line-height: 1;
+    }
+
+    .master-lightbox .lightbox-close {
+      top: 20px;
+      right: 24px;
+      font-size: clamp(30px, 3vw, 44px);
+      padding: 8px 12px;
+    }
+
+    .master-lightbox .lightbox-arrow {
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: clamp(42px, 5vw, 72px);
+      padding: 18px;
+    }
+
+    .master-lightbox .lightbox-prev { left: 12px; }
+    .master-lightbox .lightbox-next { right: 12px; }
+
+    .master-lightbox .lightbox-arrow:disabled {
+      opacity: .22;
+      cursor: default;
+    }
+
+    .master-lightbox .lightbox-caption {
+      position: absolute;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      color: #111;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    .master-lightbox .chapter-card {
+      width: min(78vw, 980px);
+      min-height: min(62vh, 650px);
+      box-sizing: border-box;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      color: #111;
+      border: 1px solid rgba(17,17,17,.18);
+      padding: clamp(38px, 5vw, 82px);
+      text-align: center;
+    }
+
+    .master-lightbox .chapter-card.is-visible {
+      display: flex;
+    }
+
+    .master-lightbox .chapter-number {
+      color: #ff4a22;
+      font-size: clamp(.85rem, 1.2vw, 1rem);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: clamp(18px, 2vw, 28px);
+    }
+
+    .master-lightbox .chapter-title {
+      margin: 0;
+      font-size: clamp(3rem, 7.6vw, 8.5rem);
+      line-height: .87;
+      letter-spacing: -.055em;
+      text-transform: uppercase;
+      max-width: 9ch;
+    }
+
+    @media (max-width: 760px) {
+      .master-lightbox .lightbox-stage {
+        padding: 54px 44px 64px;
+      }
+
+      .master-lightbox .lightbox-arrow {
+        font-size: 42px;
+        padding: 10px;
+      }
+
+      .master-lightbox .lightbox-prev { left: 2px; }
+      .master-lightbox .lightbox-next { right: 2px; }
+
+      .master-lightbox .lightbox-caption {
+        max-width: calc(100vw - 40px);
+        white-space: normal;
+        text-align: center;
+        font-size: .72rem;
+      }
+
+      .master-lightbox .chapter-card {
+        width: min(76vw, 620px);
+        min-height: 48vh;
+        padding: 28px 22px;
+      }
+    }
+
+</style>
+
+<style id="dg-site-footer-styles">
+  .dg-site-footer {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: flex-end !important;
+    justify-content: space-between !important;
+    gap: 32px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: clamp(34px, 4.2vw, 68px) clamp(18px, 2.8vw, 46px) clamp(30px, 3.8vw, 60px) !important;
+    border-top: 1px solid rgba(17,17,17,.18) !important;
+    background: #fff !important;
+    color: #111 !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: .70rem !important;
+    line-height: 1.3 !important;
+    letter-spacing: .095em !important;
+    text-transform: uppercase !important;
+    position: relative !important;
+    z-index: 1 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  .dg-site-footer__left {
+    color: #111 !important;
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: break-word;
+    font-family: var(--display, Arial, Helvetica, sans-serif) !important;
+    font-size: clamp(2.5rem, 4vw, 5.25rem) !important;
+    font-weight: 800 !important;
+    line-height: .88 !important;
+    letter-spacing: -.05em !important;
+  }
+  .dg-site-footer__role {
+    color: #ff3b1f !important;
+    margin-left: .16em;
+  }
+  .dg-site-footer__right {
+    display:flex !important;
+    flex-wrap:wrap;
+    min-width:0;
+    max-width:100%;
+    margin-left:auto;
+    align-items:center !important;
+    justify-content:flex-end !important;
+    gap:clamp(20px,2.4vw,38px) !important;
+    white-space:nowrap;
+    padding-bottom:.25em;
+  }
+  .dg-site-footer a { color:#111 !important; text-decoration:none !important; }
+  .dg-site-footer a:hover, .dg-site-footer a:focus-visible { color:#ff3b1f !important; }
+  @media (max-width:900px) {
+    .dg-site-footer {
+      flex-direction:column !important;
+      align-items:flex-start !important;
+      gap:26px !important;
+    }
+    .dg-site-footer__left {
+      white-space:normal;
+      font-size:clamp(2.4rem,10vw,4.6rem) !important;
+    }
+    .dg-site-footer__right {
+      width:100%;
+      margin-left:0;
+      justify-content:space-between !important;
+      flex-wrap:wrap;
+    }
+  }
+</style>
+
+<!-- Responsive header: keep the complete desktop navigation at medium widths,
+     then switch cleanly to the menu button before the header gets cramped. -->
+<style id="dg-responsive-header-fix">
+  @media (min-width: 981px) and (max-width: 1280px) {
+    .topbar {
+      grid-template-columns: auto minmax(0, 1fr) auto !important;
+    }
+
+    .topbar .brand {
+      min-width: 0 !important;
+    }
+
+    .topbar .brand strong,
+    .topbar .brand span {
+      white-space: nowrap !important;
+    }
+
+    .topbar .nav {
+      display: flex !important;
+      align-items: stretch !important;
+      justify-content: flex-end !important;
+      min-width: 0 !important;
+    }
+
+    .topbar .nav > a {
+      display: flex !important;
+      align-items: center !important;
+      white-space: nowrap !important;
+      padding-left: clamp(8px, 1vw, 14px) !important;
+      padding-right: clamp(8px, 1vw, 14px) !important;
+      font-size: clamp(.62rem, .72vw, .72rem) !important;
+    }
+
+    .topbar .availability {
+      display: flex !important;
+      white-space: nowrap !important;
+      padding-left: clamp(16px, 1.6vw, 24px) !important;
+      padding-right: clamp(16px, 1.6vw, 24px) !important;
+    }
+
+    .topbar .menu-button,
+    .mobile-nav {
+      display: none !important;
+    }
+  }
+
+  @media (min-width: 761px) and (max-width: 980px) {
+    .topbar {
+      grid-template-columns: minmax(0, 1fr) auto auto !important;
+    }
+
+    .topbar .brand {
+      min-width: 0 !important;
+    }
+
+    .topbar .brand strong,
+    .topbar .brand span {
+      white-space: nowrap !important;
+    }
+
+    .topbar .nav {
+      display: none !important;
+    }
+
+    .topbar .availability {
+      display: flex !important;
+      white-space: nowrap !important;
+    }
+
+    .topbar .menu-button {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    .mobile-nav {
+      display: none !important;
+    }
+
+    .topbar:has(.menu-button[aria-expanded="true"]) + .mobile-nav {
+      display: grid !important;
+    }
+  }
+</style>
+
+
+<!-- Half-width browser: show the stacked navigation automatically (no hamburger). -->
+<style id="dg-halfwidth-stacked-nav">
+  @media (min-width: 761px) and (max-width: 980px) {
+    .topbar {
+      grid-template-columns: minmax(0, 1fr) auto !important;
+    }
+
+    .topbar .menu-button {
+      display: none !important;
+    }
+
+    .mobile-nav {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+    }
+
+    .mobile-nav a {
+      display: block !important;
+      font-family: var(--display, Arial, Helvetica, sans-serif) !important;
+      font-size: 1rem !important;
+      font-weight: 800 !important;
+      line-height: 1.15 !important;
+      letter-spacing: -0.02em !important;
+    }
+  }
+</style>
+
+
+<style id="dg-phone-hero-title-fit">
+  /* Phone only: keep HUMAN STORYBOARDS large, but give the title equal breathing room on both sides. */
+  @media (max-width: 620px) {
+    .hero-copy-wrap,
+    .hero-copy {
+      min-width: 0 !important;
+      box-sizing: border-box !important;
+    }
+
+    #hero-title {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      font-size: clamp(3.35rem, 14vw, 4.75rem) !important;
+      line-height: .86 !important;
+      letter-spacing: -.065em !important;
+      overflow-wrap: normal !important;
+    }
+  }
+</style>
+
+
+<style id="dg-phone-clients-tighten">
+  /* Phone only: preserve the section's top breathing room, remove the divider,
+     and control only the space between the heading and the client list. */
+  @media (max-width: 620px) {
+    .clients-title {
+      border-right: 0 !important;
+      border-bottom: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    .clients-copy {
+      margin-top: 0 !important;
+      padding-top: 40px !important;
+    }
+  }
+</style>
+
+
+<style id="dg-phone-eyebrow-break">
+  @media (max-width: 620px) {
+    .eyebrow .eyebrow-separator {
+      display: none !important;
+    }
+
+    .eyebrow .eyebrow-human {
+      display: block !important;
+      margin-top: 3px !important;
+    }
+  }
+</style>
+
+<link rel="canonical" href="https://www.davidgordonstoryboards.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="David Gordon Storyboards">
+<meta property="og:title" content="David Gordon — Human Storyboards">
+<meta property="og:description" content="Expressive advertising storyboards for agencies, directors, pitches and production by David Gordon.">
+<meta property="og:url" content="https://www.davidgordonstoryboards.com/">
+<meta property="og:image" content="https://www.davidgordonstoryboards.com/assets/social/index.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="932">
+<meta name="twitter:card" content="summary_large_image">
+
+<style id="dg-desktop-punch-fixes-index">
+  /* Seamless two-copy logo marquee: no extra gap on the moving track. */
+  .ticker-track {
+    gap: 0 !important;
+    display: flex !important;
+  }
+  .ticker-group {
+    gap: clamp(36px, 4vw, 72px) !important;
+    padding-right: clamp(36px, 4vw, 72px) !important;
+    flex: 0 0 auto !important;
+  }
+
+  /* Match the stacked mid-width nav to the left edge of DAVID GORDON. */
+  @media (min-width: 761px) and (max-width: 980px) {
+    .mobile-nav { padding-left: var(--pad) !important; padding-right: var(--pad) !important; }
+  }
+
+  /* A touch more air between department metadata and the large title. */
+  .department-grid .dept-name { margin-top: clamp(14px, 1.3vw, 24px) !important; }
+
+  .clients-for { font-weight: inherit; text-transform: none; }
+
+  /* Use the same lightbox controls as the department galleries. */
+  .master-lightbox .lightbox-close,
+  .master-lightbox .lightbox-arrow {
+    width: 46px !important;
+    height: 46px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    color: #111 !important;
+    background: rgba(255,255,255,.96) !important;
+    border: 1px solid rgba(17,17,17,.18) !important;
+    border-radius: 999px !important;
+    box-shadow: 0 4px 18px rgba(0,0,0,.08) !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-weight: 300 !important;
+  }
+  .master-lightbox .lightbox-close { font-size: 26px !important; }
+  .master-lightbox .lightbox-arrow { font-size: 34px !important; }
+</style>
+
+<style id="dg-departments-anchor-fix">
+  .departments-anchor { display:block; height:0; margin:0; padding:0; }
+</style>
+
+<style id="dg-hero-ticker-hardening-2026-10-07">
+  /* Pass 13: make the landing headline fit the narrower copy column reliably
+     at common desktop/laptop widths without changing the larger hero art. */
+  @media (min-width: 901px) {
+    .hero h1 {
+      max-width: 100% !important;
+      font-size: clamp(58px, 4.2vw, 76px) !important;
+    }
+  }
+
+  /* Pass 13: keep the logo marquee continuous and a little denser, so the
+     left edge never reads as a big empty patch between logos. */
+  .ticker-track {
+    gap: 0 !important;
+    width: max-content !important;
+    animation: none !important;
+    will-change: transform;
+  }
+
+  .ticker-group {
+    flex: 0 0 auto !important;
+    gap: clamp(28px, 3vw, 52px) !important;
+    padding-right: clamp(28px, 3vw, 52px) !important;
+  }
+</style>
+
+<style id="dg-mobile-polish-pass-1">
+  /* Mobile-only polish: keep iOS from coloring the hamburger like a native control. */
+  @media (max-width: 760px) {
+    .topbar .menu-button,
+    .menu-button {
+      color: #111 !important;
+      -webkit-text-fill-color: #111 !important;
+      -webkit-appearance: none !important;
+      appearance: none !important;
+      font-family: Arial, Helvetica, sans-serif !important;
+    }
+
+    /* Keep navigation/contact arrows typographic and restrained on phones. */
+    .dept-arrow {
+      font-family: Arial, Helvetica, sans-serif !important;
+      font-size: 1.75rem !important;
+      line-height: 1 !important;
+      font-weight: 400 !important;
+    }
+
+    .dept-meta-back,
+    .contact-row-arrow,
+    .contact-row-reveal,
+    .dg-site-footer__right a {
+      font-family: var(--mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace) !important;
+    }
+  }
+
+  /* Landing hero only: fit STORYBOARDS cleanly inside an iPhone viewport. */
+  @media (max-width: 620px) {
+    #hero-title {
+      font-size: clamp(2.62rem, 11vw, 3.35rem) !important;
+      line-height: .88 !important;
+      letter-spacing: -.058em !important;
+      max-width: 100% !important;
+    }
+  }
+</style>
+
 </head>
-<body>
+<body id="top">
 <a class="skip-link" href="#main">Skip to work</a>
 <div class="site-shell">
-  <header class="topbar">
-    <a class="brand" href="index.html"><strong>David Gordon</strong><span>Storyboard artist / Department of Illustration</span></a>
-    <nav class="nav" aria-label="Primary navigation">
-      <a href="#work">Work</a>
-      <a href="#department">Departments</a>
-      <a href="#process">Process</a>
-      <a href="#field-notes">Funny Drawings</a>
-      <a href="#contact">Contact</a>
+<header class="topbar">
+<a class="brand" href="index.html"><strong>David Gordon</strong><span>Storyboard artist</span></a>
+<nav class="nav" aria-label="Primary navigation">
+      <a href="index.html#work">Work</a>
+      <a href="index.html#departments-start">Departments</a>
+      <a href="board-to-spot.html">Board to Spot</a>
+      <a href="process.html">Process</a>
+      <a href="funny-art-director-drawings.html">Funny Drawings</a>
     </nav>
-    <a class="availability" href="#contact">Check availability</a>
-    <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
-  </header>
-  <nav class="mobile-nav" aria-label="Mobile navigation">
-    <a href="#work">Work</a>
-    <a href="#department">Departments</a>
-    <a href="#process">Process</a>
-    <a href="#field-notes">Funny Drawings</a>
-    <a href="#contact">Contact</a>
+<a class="availability" href="contact.html">Check availability</a>
+<button aria-expanded="false" aria-label="Open menu" class="menu-button" type="button">☰</button>
+</header>
+<nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html#work">Work</a>
+    <a href="index.html#departments-start">Departments</a>
+    <a href="board-to-spot.html">Board to Spot</a>
+    <a href="process.html">Process</a>
+    <a href="funny-art-director-drawings.html">Funny Drawings</a>
   </nav>
+<main id="main">
+<section aria-labelledby="hero-title" class="hero">
+<div class="hero-copy-wrap">
+<div class="hero-copy">
+<div>
+<div class="eyebrow"><span>COMMERCIAL / FILM / ENTERTAINMENT <span class="eyebrow-separator">|</span> <span class="eyebrow-human">DRAWN BY AN ACTUAL PERSON</span></span></div>
+<h1 id="hero-title">Human <em>storyboards.</em></h1>
+</div>
+<div class="hero-bottom">
+<p class="intro">Expressive advertising storyboards for agencies, directors, pitches and production—<span class="intro-keep">drawn by a human being</span> who understands where <span class="intro-keep">the camera goes</span> and why the joke works.</p>
+<div class="hero-contact">Direct line<br/><button class="contact-reveal" data-reveal-contact="hero-phone" type="button">CALL</button><span class="contact-hidden" hidden="" id="hero-phone"><a href="tel:+19176203089">917-620-3089</a></span><br/><a href="mailto:dave@davidgordonstoryboards.com">Email / check availability ↘︎</a></div>
+</div>
+</div>
+</div>
+<div aria-label="Featured storyboard illustration" class="evidence-rail hero-single" data-master-gallery="landing-hero" role="button" tabindex="0">
+<img class="hero-single-image" alt="Comedy storyboard scene" fetchpriority="high" src="assets/images/hero/landing/comedy-16-cropped.jpg.webp"/>
+<div class="hero-single-caption">IMAGINE/Chick-fil-A</div>
+</div>
+</section>
+<div aria-label="Selected clients and brands" class="ticker">
+<div class="ticker-track">
+<div class="ticker-group">
+<img alt="Yoplait" src="assets/images/logos/logo-yoplait.png.webp"/>
+<img alt="VML" class="logo-vml" src="assets/images/logos/vml.png.webp"/>
+<img alt="KFC" src="assets/images/logos/logo-kfc.png.webp"/>
+<img alt="Wieden+Kennedy" class="logo-wk" src="assets/images/logos/wk.png.webp"/>
+<img alt="Amtrak" src="assets/images/logos/logo-amtrak.png.webp"/>
+<img alt="BBDO" src="assets/images/logos/bbdo.png.webp"/>
+<img alt="Clorox" src="assets/images/logos/logo-clorox.png.webp"/>
+<img alt="FCB" src="assets/images/logos/fcb.png.webp"/>
+<img alt="Coca-Cola" src="assets/images/logos/logo-coke.png.webp"/>
+<img alt="Grey" class="logo-grey" src="assets/images/logos/logo-grey.png.webp"/>
+<img alt="Kraft Foods" src="assets/images/logos/logo-kraft-foods.png.webp"/>
+<img alt="TBWA\Chiat\Day\NY" class="logo-tbwa" src="assets/images/logos/logo-tbwa-chiat-day-ny.png.webp"/>
+<img alt="Sprint" src="assets/images/logos/logo-sprint.png.webp"/>
+<img alt="Droga5" src="assets/images/logos/droga.png.webp"/>
+<img alt="Supercell" src="assets/images/logos/logo-supercell.png.webp"/>
+<img alt="Hilton" src="assets/images/logos/logo-hilton.png.webp"/>
+<img alt="Kayak" src="assets/images/logos/logo-kayak.png"/>
+</div>
+<div aria-hidden="true" class="ticker-group">
+<img alt="" src="assets/images/logos/logo-yoplait.png.webp"/>
+<img alt="" class="logo-vml" src="assets/images/logos/vml.png.webp"/>
+<img alt="" src="assets/images/logos/logo-kfc.png.webp"/>
+<img alt="" class="logo-wk" src="assets/images/logos/wk.png.webp"/>
+<img alt="" src="assets/images/logos/logo-amtrak.png.webp"/>
+<img alt="" src="assets/images/logos/bbdo.png.webp"/>
+<img alt="" src="assets/images/logos/logo-clorox.png.webp"/>
+<img alt="" src="assets/images/logos/fcb.png.webp"/>
+<img alt="" src="assets/images/logos/logo-coke.png.webp"/>
+<img alt="" class="logo-grey" src="assets/images/logos/logo-grey.png.webp"/>
+<img alt="" src="assets/images/logos/logo-kraft-foods.png.webp"/>
+<img alt="" class="logo-tbwa" src="assets/images/logos/logo-tbwa-chiat-day-ny.png.webp"/>
+<img alt="" src="assets/images/logos/logo-sprint.png.webp"/>
+<img alt="" src="assets/images/logos/droga.png.webp"/>
+<img alt="" src="assets/images/logos/logo-supercell.png.webp"/>
+<img alt="" src="assets/images/logos/logo-hilton.png.webp"/>
+<img alt="" src="assets/images/logos/logo-kayak.png"/>
+</div>
+</div>
+</div>
+<section class="section" id="work">
+<header class="section-head">
+<div><div class="section-kicker">Selected assignments</div><h2>Proof of work.</h2></div>
 
-  <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-copy-wrap">
-        <div class="hero-copy">
-          <div>
-            <div class="eyebrow"><span>New York / Available worldwide</span></div>
-            <h1 id="hero-title">Human <em>storyboards.</em></h1>
-          </div>
-          <div class="hero-bottom">
-            <p class="intro">Expressive advertising storyboards for agencies, directors, pitches and production—drawn by a human being who understands where the camera goes and why the joke works.</p>
-            <div class="hero-contact">Direct line<br><a href="tel:+19176203089">917 620 3089</a><br><a href="https://www.davidgordonstoryboards.com/contact">Email / check availability ↘</a></div>
-          </div>
-        </div>
-      </div>
+</header>
+<div class="project-grid">
+<div class="featured-projects">
+<article class="project-card" data-category="pitch color">
+<a class="project-link" data-master-gallery="landing-fisher" href="index.html#work">
+<div class="project-visual">
+<img alt="Fisher-Price color pitch storyboard" src="assets/images/hero/landing/pitch-096.jpg.webp"/>
+</div>
+<div class="project-meta">
+<span class="project-title">W+K/Fisher Price</span>
+</div>
+</a>
+</article>
+<article class="project-card" data-category="pitch color">
+<a class="project-link" data-master-gallery="landing-youtube" href="index.html#work">
+<div class="project-visual">
+<img alt="YouTube color pitch storyboard" src="assets/images/hero/landing/pitch-152.jpg.webp"/>
+</div>
+<div class="project-meta">
+<span class="project-title">W+K Youtube</span>
+</div>
+</a>
+</article>
+</div>
+<article class="project-card wide full-width-project" data-category="production comedy">
+<a class="project-link" data-master-gallery="landing-bosch" href="index.html#work">
+<div class="project-visual"><img alt="Production storyboard sequence" loading="lazy" src="assets/images/hero/production/production-12.jpg" width="2560" height="962"/></div>
+<div class="project-meta"><span class="project-title">MaMa/Bosch</span><span class="project-type">Production / comedy</span></div>
+</a>
+</article>
+<div class="landing-comedy-pair">
+<article class="project-card" data-category="comedy">
+<a class="project-link" data-master-gallery="landing-midea" href="comedy.html">
+<div class="project-visual"><img alt="Production storyboard illustration" loading="lazy" src="assets/images/hero/landing/production-18.jpg.webp" width="1679" height="1440"/></div>
+<div class="project-meta"><span class="project-title">MaMa/Midea</span></div>
+</a>
+</article>
+<article class="project-card" data-category="comedy">
+<a class="project-link" data-master-gallery="landing-bread" href="comedy.html">
+<div class="project-visual"><img alt="Comedy storyboard scene" loading="lazy" src="assets/images/hero/landing/comedy-15.jpg.webp" width="3000" height="1687"/></div>
+<div class="project-meta"><span class="project-title">MaMa/Bread and Butter Wine</span></div>
+</a>
+</article>
+</div>
+</div>
+</section>
+<section class="section" id="department">
+<header class="section-head">
+<div><div class="section-kicker">Browse more in departments</div><h2>Filed by assignment.</h2></div>
 
-      <div class="evidence-rail" aria-label="Three selected storyboard images">
-        <figure class="rail-card rail-crowd">
-          <img src="assets/images/pitch/pitch-158.jpg" alt="Color storyboard illustration of a large cheering crowd" fetchpriority="high">
-        </figure>
-        <figure class="rail-card rail-action">
-          <img src="assets/images/pitch/pitch-027.jpg" alt="Storyboard frame of a person in a red cold-weather suit tumbling inside an aircraft" fetchpriority="high">
-        </figure>
-        <figure class="rail-card rail-gorilla">
-          <img src="assets/images/pitch/pitch-039.jpg" alt="Art director sketch of a gorilla at a computer">
-        </figure>
-      </div>
-    </section>
-
-    <div class="ticker" aria-label="Selected clients and brands">
-  <div class="ticker-track">
-
-    <div class="ticker-group">
-      <img src="assets/images/logos/logo-yoplait.png" alt="Yoplait">
-      <img src="assets/images/logos/logo-kfc.png" alt="KFC">
-      <img src="assets/images/logos/logo-amtrak.png" alt="Amtrak">
-      <img src="assets/images/logos/logo-clorox.png" alt="Clorox">
-      <img src="assets/images/logos/logo-coke.png" alt="Coca-Cola">
-      <img src="assets/images/logos/logo-kraft-foods.png" alt="Kraft Foods">
-      <img src="assets/images/logos/logo-sprint.png" alt="Sprint">
-      <img src="assets/images/logos/logo-supercell.png" alt="Supercell">
-      <img src="assets/images/logos/logo-hilton.png" alt="Hilton">
-      <img src="assets/images/logos/logo-kayak.png" alt="Kayak">
-    </div>
-
-    <div class="ticker-group" aria-hidden="true">
-      <img src="assets/images/logos/logo-yoplait.png" alt="">
-      <img src="assets/images/logos/logo-kfc.png" alt="">
-      <img src="assets/images/logos/logo-amtrak.png" alt="">
-      <img src="assets/images/logos/logo-clorox.png" alt="">
-      <img src="assets/images/logos/logo-coke.png" alt="">
-      <img src="assets/images/logos/logo-kraft-foods.png" alt="">
-      <img src="assets/images/logos/logo-sprint.png" alt="">
-      <img src="assets/images/logos/logo-supercell.png" alt="">
-      <img src="assets/images/logos/logo-hilton.png" alt="">
-      <img src="assets/images/logos/logo-kayak.png" alt="">
-    </div>
-
+</header>
+<span id="departments-start" class="departments-anchor" aria-hidden="true"></span>
+<div class="department-grid" id="department-grid">
+<a class="dept-link" href="pitch-boards.html"><span class="dept-top"><span>Dept. 01</span><span>Concept / sell</span></span><span class="dept-name">Pitch<br/>boards</span><span class="dept-arrow">↗︎</span></a>
+<a class="dept-link" href="production-boards.html"><span class="dept-top"><span>Dept. 02</span><span>Camera / action</span></span><span class="dept-name">Production<br/>boards</span><span class="dept-arrow">↗︎</span></a>
+<a class="dept-link" href="comedy.html"><span class="dept-top"><span>Dept. 03</span><span>Timing / behavior</span></span><span class="dept-name">Comedy</span><span class="dept-arrow">↗︎</span></a>
+<a class="dept-link" href="action.html"><span class="dept-top"><span>Dept. 04</span><span>Movement / impact</span></span><span class="dept-name">Action</span><span class="dept-arrow">↗︎</span></a>
+<a class="dept-link" href="food-product.html"><span class="dept-top"><span>Dept. 05</span><span>Appetite / product</span></span><span class="dept-name">Food +<br/>product</span><span class="dept-arrow">↗︎</span></a>
+<a class="dept-link" href="people-doing-things.html"><span class="dept-top"><span>Dept. 06</span><span>Gesture / expression</span></span><span class="dept-name">People doing<br/>things</span><span class="dept-arrow">↗︎</span></a>
+</div>
+</section>
+<section class="section process" id="process">
+<div class="process-copy">
+<div><div class="section-kicker">Production evidence</div><h3>THE BOARD SELLS THE SPOT.</h3></div>
+<p>I draw storyboards for agencies and directors — pitches, production, comedy, action, whatever needs to be figured out before somebody turns on a camera.</p>
+<div class="process-list">
+<div><span>Readable action</span><span>Fast</span></div>
+<div><span>Camera intention</span><span>Clear</span></div>
+<div><span>Human performance</span><span>Alive</span></div>
+<div><span>Revision survival</span><span>Battle-tested</span></div>
+</div>
+<p style="margin:24px 0 0"><a href="process.html" style="color:inherit;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase">See the whole process ↗︎</a></p>
+</div>
+<div class="process-image"><img alt="Storyboard and finished-frame comparison for Fisher-Price" loading="lazy" src="assets/images/hero/landing/theBoardSells-1.jpg.webp?v=2"/></div>
+</section>
+<section class="section" id="field-notes">
+<header class="section-head">
+<div><div class="section-kicker">Filed under: human behavior</div><h2><a href="funny-art-director-drawings.html" style="color:inherit;text-decoration:none">Funny art director drawings.</a></h2></div>
+</header>
+<div class="field-grid">
+<figure class="field-card"><a href="funny-art-director-drawings.html" style="color:inherit;text-decoration:none;display:block"><img alt="Funny art director drawing" loading="lazy" src="assets/images/hero/landing/ChatGPT%20Image%20Sep%206,%202026%20at%2003_59_48%20PM.png.webp"/><figcaption>The idea is clear. The anatomy has been asked not to interfere.</figcaption></a></figure>
+<figure class="field-card"><a href="funny-art-director-drawings.html" style="color:inherit;text-decoration:none;display:block"><img alt="Funny art director drawing" loading="lazy" src="assets/images/hero/landing/ChatGPT%20Image%20Sep%206,%202026%20at%2003_59_56%20PM.png.webp"/><figcaption>Dad has been located. Yogurt has been established. We can proceed.</figcaption></a></figure>
+<figure class="field-card"><a href="funny-art-director-drawings.html" style="color:inherit;text-decoration:none"><img alt="Funny art director drawing" loading="lazy" src="assets/images/hero/landing/ChatGPT%20Image%20Sep%2016,%202026%20at%2008_21_46%20PM.png.webp"/><figcaption>Somewhere between concept and execution, the gorilla acquired yogurt.</figcaption></a></figure>
+</div>
+</section>
+<section class="section clients">
+<div class="clients-title"><h3><span class="clients-head-black">Serious clients.</span><br/><span class="clients-head-orange">Very human drawings.</span></h3></div>
+<div class="clients-copy"><strong>Wieden + Kennedy, TBWA\Chiat\Day, BBDO, McCann, FCB, Saatchi, Droga5, Grey and DDB</strong><br><span class="clients-for">— For</span> brands including YouTube, McDonald’s, Samsung, Fisher-Price, Chobani, Yoplait, KFC, General Mills, Kraft, Hyundai, Skittles, ESPN, Coke, Burger King, Alaska Airlines, SAP, Clorox, Hefty, Texas Pete, State Farm, Chipotle, Airbnb and Instagram.</div>
+</section>
+<section class="closing" id="contact">
+<div class="closing-main"><h2>Brief in.<br/><em>Boards out.</em></h2></div>
+<div class="closing-side">
+<p>Pitch coming in hot? Tech scout tomorrow? Tell me what you’re making, when you need it and how finished you want the drawings to be.</p>
+<div class="contact-links">
+<button class="contact-reveal contact-row-reveal" type="button" data-reveal-contact="closing-phone"><span>Call</span><span>Reveal direct line ↗︎</span></button><span class="contact-hidden" id="closing-phone" hidden><a href="tel:+19176203089">917-620-3089 ↗︎</a></span>
+<button class="contact-reveal contact-row-reveal" type="button" data-reveal-contact="closing-email"><span>Email</span><span>Reveal email ↗︎</span></button><span class="contact-hidden email-reveal" id="closing-email" hidden><a href="mailto:dave@davidgordonstoryboards.com">dave@davidgordonstoryboards.com ↗︎</a></span>
+</div>
+</div>
+</section>
+</main>
+<div class="dg-site-footer" role="contentinfo" aria-label="Site footer">
+  <div class="dg-site-footer__left">DAVID GORDON <span class="dg-site-footer__role">STORYBOARD ARTIST</span></div>
+  <div class="dg-site-footer__right">
+    <span>© 2026 DAVID GORDON</span>
+    <a href="mailto:dave@davidgordonstoryboards.com">EMAIL ↗︎</a>
+    <a href="#top">TOP ↑︎</a>
   </div>
 </div>
-    <section class="section" id="work">
-      <header class="section-head">
-        <div><div class="section-kicker">Selected assignments</div><h2>Proof of work.</h2></div>
-        <div class="section-number">01 / Portfolio</div>
-      </header>
-      <div class="filters" aria-label="Filter portfolio">
-        <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
-        <button class="filter" type="button" data-filter="production" aria-pressed="false">Production</button>
-        <button class="filter" type="button" data-filter="pitch" aria-pressed="false">Pitch</button>
-        <button class="filter" type="button" data-filter="color" aria-pressed="false">Color</button>
-        <button class="filter" type="button" data-filter="comedy" aria-pressed="false">Comedy</button>
-      </div>
-      <div class="project-grid">
-        <div class="featured-projects">
-          <article class="project-card" data-category="pitch color">
-            <a class="project-link" href="campaigns/human-storyboards.html">
-              <div class="project-visual">
-                <img src="assets/images/pitch/pitch-096.jpg" alt="Fisher-Price color pitch storyboard">
-              </div>
-              <div class="project-meta">
-                <span class="project-title">W+K/Fisher Price</span>
-              </div>
-            </a>
-          </article>
-
-          <article class="project-card" data-category="pitch color">
-            <a class="project-link" href="campaigns/human-storyboards.html">
-              <div class="project-visual">
-                <img src="assets/images/pitch/pitch-152.jpg" alt="YouTube color pitch storyboard">
-              </div>
-              <div class="project-meta">
-                <span class="project-title">W+K Youtube</span>
-              </div>
-            </a>
-          </article>
-        </div>
-        <div class="project-pair">
-          <article class="project-card" data-category="pitch comedy">
-            <a class="project-link" href="campaigns/sketchy-storyboards.html">
-              <div class="project-visual"><img src="https://static.wixstatic.com/media/ecdb75_c07ee1bba790423799c6dd29de76c4e3~mv2.jpg/v1/fill/w_980%2Ch_558%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/comp_MaMa_YouTube-1.jpg" alt="Loose monochrome YouTube pitch storyboards" loading="lazy"></div>
-              <div class="project-meta"><span class="project-title">YouTube / W+K</span><span class="project-type">Pitch / sketch</span></div>
-            </a>
-          </article>
-
-          <article class="project-card" data-category="pitch">
-            <a class="project-link" href="campaigns/human-storyboards.html">
-              <div class="project-visual"><img src="assets/images/pitch/pitch-005.jpg" alt="KFC pitch storyboard" loading="lazy"></div>
-              <div class="project-meta"><span class="project-title">W+K KFC</span></div>
-            </a>
-          </article>
-        </div>
-        <article class="project-card wide full-width-project" data-category="production comedy">
-          <a class="project-link" href="campaigns/human-storyboards.html">
-            <div class="project-visual"><img src="assets/images/hero/production/production-12.jpg" alt="Production storyboard sequence" loading="lazy"></div>
-            <div class="project-meta"><span class="project-title">MaMa/Bosch</span><span class="project-type">Production / comedy</span></div>
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="department">
-      <header class="section-head">
-        <div><div class="section-kicker">Browse the department</div><h2>Filed by assignment.</h2></div>
-        <div class="section-number">02 / Departments</div>
-      </header>
-      <div class="department-grid">
-        <a class="dept-link" href="#work"><span class="dept-top"><span>Dept. 01</span><span>Camera / action</span></span><span class="dept-name">Production<br>boards</span><span class="dept-arrow">↗</span></a>
-        <a class="dept-link" href="#work"><span class="dept-top"><span>Dept. 02</span><span>Concept / sell</span></span><span class="dept-name">Pitch<br>boards</span><span class="dept-arrow">↗</span></a>
-        <a class="dept-link" href="#work"><span class="dept-top"><span>Dept. 03</span><span>Appetite / product</span></span><span class="dept-name">Food +<br>product</span><span class="dept-arrow">↗</span></a>
-        <a class="dept-link" href="#work"><span class="dept-top"><span>Dept. 04</span><span>People / feeling</span></span><span class="dept-name">Kids +<br>families</span><span class="dept-arrow">↗</span></a>
-      </div>
-    </section>
-
-    <section class="section process" id="process">
-      <div class="process-copy">
-        <div><div class="section-kicker">Production evidence</div><h3>The board is not decoration.</h3></div>
-        <p>It is a working document: performance, staging, lens logic, timing, clarity—and just enough life that everybody can see the commercial before the commercial exists.</p>
-        <div class="process-list">
-          <div><span>01 / Readable action</span><span>Fast</span></div>
-          <div><span>02 / Camera intention</span><span>Clear</span></div>
-          <div><span>03 / Human performance</span><span>Alive</span></div>
-          <div><span>04 / Revision survival</span><span>Battle-tested</span></div>
-        </div>
-      </div>
-      <div class="process-image"><img src="https://static.wixstatic.com/media/ecdb75_46c0280c079e48e0b3963f68ce766d5f~mv2.jpg/v1/fill/w_981%2Ch_709%2Cal_c%2Cq_85%2Cusm_0.66_1.00_0.01%2Cenc_avif%2Cquality_auto/comp_PackingUp.jpg" alt="Fisher-Price storyboard frames beside finished frames" loading="lazy"></div>
-    </section>
-
-    <section class="section" id="field-notes">
-      <header class="section-head">
-        <div><div class="section-kicker">Filed under: human behavior</div><h2>Funny art director drawings.</h2></div>
-        <div class="section-number">03 / Field notes</div>
-      </header>
-      <div class="field-grid">
-        <figure class="field-card"><img src="https://static.wixstatic.com/media/ecdb75_0c2945d6667f49fdad644faf6d92132a~mv2.jpg/v1/fill/w_322%2Ch_228%2Cq_90%2Cenc_avif%2Cquality_auto/ecdb75_0c2945d6667f49fdad644faf6d92132a~mv2.jpg" alt="Rough art director sketch about a confused father holding yogurt" loading="lazy"><figcaption>Exacting visual communication, executed under battlefield conditions.</figcaption></figure>
-        <figure class="field-card"><img src="https://static.wixstatic.com/media/ecdb75_363e1efc8b0445c783d82c5bb23d5340~mv2.jpg/v1/fill/w_250%2Ch_134%2Cq_90%2Cenc_avif%2Cquality_auto/ecdb75_363e1efc8b0445c783d82c5bb23d5340~mv2.jpg" alt="Rough art director sketch of a girl smiling at camera" loading="lazy"><figcaption>A complete emotional performance in seven blue lines.</figcaption></figure>
-        <figure class="field-card"><img src="https://static.wixstatic.com/media/ecdb75_8aac8b2e70c74842a727dc78f6f96491~mv2_d_3300_2550_s_4_2.jpg/v1/fill/w_485%2Ch_375%2Cq_90%2Cenc_avif%2Cquality_auto/ecdb75_8aac8b2e70c74842a727dc78f6f96491~mv2_d_3300_2550_s_4_2.jpg" alt="Rough drawing of a gorilla typing at a computer" loading="lazy"><figcaption>The briefing document has spoken. We now enter the gorilla-computer phase.</figcaption></figure>
-      </div>
-    </section>
-
-    <section class="section clients">
-      <div class="clients-title"><div class="section-kicker">Selected history</div><h3>Serious clients.<br>Very human drawings.</h3></div>
-      <div class="clients-copy"><strong>Wieden + Kennedy, TBWA\Chiat\Day, BBDO, McCann, FCB, Saatchi, Droga5, Grey and DDB</strong>—for brands including YouTube, McDonald’s, Samsung, Fisher-Price, Chobani, Yoplait, KFC, General Mills, Kraft, Hyundai, Skittles and ESPN.</div>
-    </section>
-
-    <section class="closing" id="contact">
-      <div class="closing-main"><div class="section-kicker">Current status: taking assignments</div><h2>Have boards.<br><em>Will travel.</em></h2></div>
-      <div class="closing-side">
-        <p>Pitch coming in hot? Production board growing tentacles? Tell me what you’re making, when you need it, and how finished the drawings need to be.</p>
-        <div class="contact-links">
-          <a href="tel:+19176203089"><span>Call</span><span>917 620 3089 ↗</span></a>
-          <a href="https://www.davidgordonstoryboards.com/contact"><span>Email</span><span>Check availability ↗</span></a>
-          <a href="campaigns/sketchy-storyboards.html"><span>Campaign page</span><span>Sketchy storyboards ↗</span></a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer><span>David Gordon / Storyboard Artist / Department of Illustration</span><span>Staging build v0.4 / <span data-current-year></span></span></footer>
 </div>
+
+
+<div class="master-lightbox" id="master-lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Master storyboard gallery">
+  <div class="lightbox-stage">
+    <button class="lightbox-close" type="button" aria-label="Close gallery">×</button>
+    <button class="lightbox-arrow lightbox-prev" type="button" aria-label="Previous image">‹</button>
+    <img class="lightbox-image" src="" alt="">
+    <div class="chapter-card" aria-live="polite">
+      <div class="chapter-number"></div>
+      <h2 class="chapter-title"></h2>
+    </div>
+    <button class="lightbox-arrow lightbox-next" type="button" aria-label="Next image">›</button>
+    <div class="lightbox-caption" aria-live="polite"></div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('click', function (event) {
+  const trigger = event.target.closest('[data-reveal-contact]');
+  if (!trigger) return;
+  const target = document.getElementById(trigger.getAttribute('data-reveal-contact'));
+  if (!target) return;
+  target.hidden = false;
+  trigger.hidden = true;
+});
+</script>
+
+<script>
+(function () {
+  function scrollToHash(behavior) {
+    if (!window.location.hash) return;
+    var id = decodeURIComponent(window.location.hash.slice(1));
+    var target = document.getElementById(id);
+    if (!target) return;
+    if (id === 'departments-start') {
+      target = document.getElementById('department-grid') || target;
+      var departmentsHeader = document.querySelector('.topbar');
+      var departmentsOffset = departmentsHeader ? departmentsHeader.getBoundingClientRect().height : 0;
+      var departmentsY = target.getBoundingClientRect().top + window.scrollY - departmentsOffset - 12;
+      window.scrollTo({ top: Math.max(0, departmentsY), behavior: behavior || 'auto' });
+      return;
+    }
+    if (id === 'work') target = target.querySelector('.section-kicker') || target.querySelector('h2') || target;
+    var header = document.querySelector('.topbar');
+    var offset;
+    offset = header ? header.getBoundingClientRect().height : 0;
+    var y = target.getBoundingClientRect().top + window.scrollY - offset - (id === 'work' ? 18 : 0);
+    window.scrollTo({ top: Math.max(0, y), behavior: behavior || 'auto' });
+  }
+
+  /* Resolve a deep link once. Do not re-scroll after images load; that was
+     capable of pulling a visitor back up while they were already browsing. */
+  window.addEventListener('load', function () {
+    if (window.location.hash) requestAnimationFrame(function () { scrollToHash('auto'); });
+  }, { once: true });
+
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest('a[href]');
+    if (!link) return;
+    var url;
+    try { url = new URL(link.href, window.location.href); } catch (e) { return; }
+    if (url.pathname === window.location.pathname && url.hash) {
+      var target = document.getElementById(decodeURIComponent(url.hash.slice(1)));
+      if (!target) return;
+      event.preventDefault();
+      history.pushState(null, '', url.hash);
+      scrollToHash('smooth');
+    }
+  });
+
+  window.addEventListener('hashchange', function () { scrollToHash('smooth'); });
+
+})();
+</script>
+
+<script>
+(function () {
+  const items = [{"id":"landing-hero","type":"image","src":"assets/images/hero/landing/comedy-16-cropped.jpg.webp","alt":"Comedy storyboard scene","title":"IMAGINE/Chick-fil-A","section":"Selected Work"},{"id":"landing-fisher","type":"image","src":"assets/images/hero/landing/pitch-096.jpg.webp","alt":"Fisher-Price color pitch storyboard","title":"W+K/Fisher Price","section":"Selected Work"},{"id":"landing-youtube","type":"image","src":"assets/images/hero/landing/pitch-152.jpg.webp","alt":"YouTube color pitch storyboard","title":"W+K Youtube","section":"Selected Work"},{"id":"landing-bosch","type":"image","src":"assets/images/hero/production/production-12.jpg","alt":"Production storyboard sequence","title":"MaMa/Bosch","section":"Selected Work"},{"id":"landing-midea","type":"image","src":"assets/images/hero/landing/production-18.jpg.webp","alt":"Production storyboard illustration","title":"MaMa/Midea","section":"Selected Work"},{"id":"landing-bread","type":"image","src":"assets/images/hero/landing/comedy-15.jpg.webp","alt":"Comedy storyboard scene","title":"MaMa/Bread and Butter Wine","section":"Selected Work"},{"id":"chapter-01","type":"chapter","number":"01","title":"PITCH BOARDS","href":"pitch-boards.html"},{"id":"01-1","type":"image","src":"assets/images/hero/pitch/pitch-110.jpg.webp","alt":"Pitch board image 110","title":"W+K/Youtube","section":"01 PITCH BOARDS","href":"pitch-boards.html"},{"id":"01-2","type":"image","src":"assets/images/hero/pitch/pitch-027.jpg.webp","alt":"W+K /Yoplait pitch board","title":"W+K /Yoplait","section":"01 PITCH BOARDS","href":"pitch-boards.html"},{"id":"01-3","type":"image","src":"assets/images/hero/pitch/pitch-039.jpg.webp","alt":"Pitch board image 039","title":"BFG/Clash Royale","section":"01 PITCH BOARDS","href":"pitch-boards.html"},{"id":"01-4","type":"image","src":"assets/images/hero/pitch/pitch-158.jpg.webp","alt":"W+K/W+K Yoplait pitch board","title":"W+K/W+K Yoplait","section":"01 PITCH BOARDS","href":"pitch-boards.html"},{"id":"01-5","type":"image","src":"assets/images/hero/pitch/pitch-075.jpg.webp","alt":"W+K/Kraft pitch board","title":"W+K/Kraft","section":"01 PITCH BOARDS","href":"pitch-boards.html"},{"id":"01-6","type":"image","src":"assets/images/hero/pitch/pitch-068.jpg.webp","alt":"TBWA/Skittles pitch board","title":"TBWA/Skittles","section":"01 PITCH BOARDS","href":"pitch-boards.html"},{"id":"01-7","type":"image","src":"assets/images/hero/pitch/pitch-067.jpg.webp","alt":"W+K/Yoplait pitch board","title":"W+K/Yoplait","section":"01 PITCH BOARDS","href":"pitch-boards.html"},{"id":"01-8","type":"image","src":"assets/images/hero/pitch/pitch-062.jpg.webp","alt":"TBWA/Skittles pitch board","title":"TBWA/Skittles","section":"01 PITCH BOARDS","href":"pitch-boards.html"},{"id":"01-9","type":"image","src":"assets/images/hero/pitch/pitch-059.jpg.webp","alt":"W+K/Yoplait pitch board","title":"W+K/Yoplait","section":"01 PITCH BOARDS","href":"pitch-boards.html"},{"id":"01-10","type":"image","src":"assets/images/hero/pitch/pitch-015.jpg.webp","alt":"W+K/KFC pitch board","title":"W+K/KFC","section":"01 PITCH BOARDS","href":"pitch-boards.html"},{"id":"01-11","type":"image","src":"assets/images/hero/pitch/pitch-016.jpg.webp","alt":"MaMa/Rocket Mortgage pitch board","title":"MaMa/Rocket Mortgage","section":"01 PITCH BOARDS","href":"pitch-boards.html"},{"id":"01-12","type":"image","src":"assets/images/hero/pitch/pitch-013.jpg.webp","alt":"Pitch board image 013","title":"Pitch-013","section":"01 PITCH BOARDS","href":"pitch-boards.html"},{"id":"01-13","type":"image","src":"assets/images/hero/pitch/pitch-010.jpg.webp","alt":"W+K/Kraft pitch board","title":"W+K/Kraft","section":"01 PITCH BOARDS","href":"pitch-boards.html"},{"id":"01-14","type":"image","src":"assets/images/hero/pitch/pitch-014.jpg.webp","alt":"W+K/Yoplait pitch board","title":"W+K/Yoplait","section":"01 PITCH BOARDS","href":"pitch-boards.html"},{"id":"01-15","type":"image","src":"assets/images/hero/pitch/pitch-004.jpg.webp","alt":"Draft FCB/Amtrak pitch board","title":"W+K/KFC","section":"01 PITCH BOARDS","href":"pitch-boards.html"},{"id":"01-16","type":"image","src":"assets/images/hero/pitch/pitch-005.jpg.webp","alt":"W+K/KFC pitch board","title":"W+K/KFC","section":"01 PITCH BOARDS","href":"pitch-boards.html"},{"id":"01-17","type":"image","src":"assets/images/hero/pitch/pitch-017.jpg.webp","alt":"Pitch board image 017","title":"BFG/Clash Royale","section":"01 PITCH BOARDS","href":"pitch-boards.html"},{"id":"01-18","type":"image","src":"assets/images/hero/pitch/pitch-019.jpg.webp","alt":"Pitch board image 019","title":"BFG/Clash Royale","section":"01 PITCH BOARDS","href":"pitch-boards.html"},{"id":"01-19","type":"image","src":"assets/images/hero/pitch/pitch-021.jpg.webp","alt":"W+K/Fisher Price pitch board","title":"W+K/Fisher Price","section":"01 PITCH BOARDS","href":"pitch-boards.html"},{"id":"01-20","type":"image","src":"assets/images/hero/pitch/pitch-028.jpg.webp","alt":"W+K/KFC pitch board","title":"W+K/KFC","section":"01 PITCH BOARDS","href":"pitch-boards.html"},{"id":"01-21","type":"image","src":"assets/images/hero/pitch/pitch-031.jpg.webp","alt":"W+K/Fisher Price pitch board","title":"W+K/Fisher Price","section":"01 PITCH BOARDS","href":"pitch-boards.html"},{"id":"01-22","type":"image","src":"assets/images/hero/pitch/pitch-046.jpg.webp","alt":"W+K/Fisher Price pitch board","title":"W+K/Fisher Price","section":"01 PITCH BOARDS","href":"pitch-boards.html"},{"id":"chapter-02","type":"chapter","number":"02","title":"PRODUCTION BOARDS","href":"production-boards.html"},{"id":"02-1","type":"image","src":"assets/images/hero/production/production-05.jpg.webp","alt":"Production storyboard image 005","title":"MaMa Rocket Mortgage","section":"02 PRODUCTION BOARDS","href":"production-boards.html"},{"id":"02-2","type":"image","src":"assets/images/hero/production/production-01.jpg","alt":"Production storyboard image 001","title":"MaMa/Youtube","section":"02 PRODUCTION BOARDS","href":"production-boards.html"},{"id":"02-3","type":"image","src":"assets/images/hero/production/production-02.jpg.webp","alt":"Production storyboard image 002","title":"MaMa/Bread and Butter Wine","section":"02 PRODUCTION BOARDS","href":"production-boards.html"},{"id":"02-4","type":"image","src":"assets/images/hero/production/production-03.jpg.webp","alt":"Production storyboard image 003","title":"WW7/Death Wish Coffee","section":"02 PRODUCTION BOARDS","href":"production-boards.html"},{"id":"02-5","type":"image","src":"assets/images/hero/production/production-04.jpg","alt":"MaMa / Michaels production storyboard","title":"MaMa/Michaels","section":"02 PRODUCTION BOARDS","href":"production-boards.html"},{"id":"02-6","type":"image","src":"assets/images/hero/production/production-18.jpg.webp","alt":"MaMa / Midea production storyboard","title":"MaMa/Midea","section":"02 PRODUCTION BOARDS","href":"production-boards.html"},{"id":"02-7","type":"image","src":"assets/images/hero/production/production-06.jpg.webp","alt":"Production storyboard image 006","title":"MaMa/FCB/Clorox","section":"02 PRODUCTION BOARDS","href":"production-boards.html"},{"id":"02-8","type":"image","src":"assets/images/hero/production/production-17.jpg.webp","alt":"Production storyboard image 017","title":"MaMa/Bread and Butter Wine","section":"02 PRODUCTION BOARDS","href":"production-boards.html"},{"id":"02-9","type":"image","src":"assets/images/hero/production/production-07.jpg.webp","alt":"Production storyboard image 007","title":"MaMa/WW7/Dave’s Hot Chicken","section":"02 PRODUCTION BOARDS","href":"production-boards.html"},{"id":"02-10","type":"image","src":"assets/images/hero/production/production-08.jpg.webp","alt":"Production storyboard image 008","title":"MaMa/WW7/Dave’s Hot Chicken","section":"02 PRODUCTION BOARDS","href":"production-boards.html"},{"id":"02-11","type":"image","src":"assets/images/hero/production/production-09.jpg.webp","alt":"Production storyboard image 009","title":"MaMa/Denim/Servpro","section":"02 PRODUCTION BOARDS","href":"production-boards.html"},{"id":"02-12","type":"image","src":"assets/images/hero/production/production-10.jpg","alt":"Production storyboard image 010","title":"MaMa/Denim/Servpro","section":"02 PRODUCTION BOARDS","href":"production-boards.html"},{"id":"02-13","type":"image","src":"assets/images/hero/production/production-11.jpg.webp","alt":"Production storyboard image 011","title":"MaMa/Denim/Servpro","section":"02 PRODUCTION BOARDS","href":"production-boards.html"},{"id":"02-14","type":"image","src":"assets/images/hero/production/production-12.jpg","alt":"Production storyboard image 012","title":"MaMa/Pizza Fist/Bosch","section":"02 PRODUCTION BOARDS","href":"production-boards.html"},{"id":"02-15","type":"image","src":"assets/images/hero/production/production-14.jpg.webp","alt":"Production storyboard image 014","title":"MaMa/Denim/Texas Pete","section":"02 PRODUCTION BOARDS","href":"production-boards.html"},{"id":"02-16","type":"image","src":"assets/images/hero/production/production-15.jpg.webp","alt":"Production storyboard image 015","title":"MaMa/Pizza Fist/SAP","section":"02 PRODUCTION BOARDS","href":"production-boards.html"},{"id":"02-17","type":"image","src":"assets/images/hero/production/production-16.jpg.webp","alt":"Production storyboard image 016","title":"MaMa/Bread and Butter Wine","section":"02 PRODUCTION BOARDS","href":"production-boards.html"},{"id":"chapter-03","type":"chapter","number":"03","title":"COMEDY","href":"comedy.html"},{"id":"03-1","type":"image","src":"assets/images/hero/comedy/comedy-3.jpg.webp","alt":"Comedy storyboard sequence 03","title":"Comedy-03","section":"03 COMEDY","href":"comedy.html"},{"id":"03-2","type":"image","src":"assets/images/hero/comedy/comedy-2.jpg.webp","alt":"Comedy storyboard sequence 02","title":"Comedy-02","section":"03 COMEDY","href":"comedy.html"},{"id":"03-3","type":"image","src":"assets/images/hero/comedy/comedy-4.jpg.webp","alt":"Comedy storyboard sequence 04","title":"Comedy-04","section":"03 COMEDY","href":"comedy.html"},{"id":"03-4","type":"image","src":"assets/images/hero/comedy/comedy-1.jpg","alt":"Comedy storyboard sequence 01","title":"Comedy-01","section":"03 COMEDY","href":"comedy.html"},{"id":"03-5","type":"image","src":"assets/images/hero/comedy/comedy-5.jpg.webp","alt":"Comedy storyboard sequence 05","title":"Comedy-05","section":"03 COMEDY","href":"comedy.html"},{"id":"03-6","type":"image","src":"assets/images/hero/comedy/comedy-8.jpg","alt":"Comedy storyboard sequence 08","title":"Comedy-08","section":"03 COMEDY","href":"comedy.html"},{"id":"03-7","type":"image","src":"assets/images/hero/comedy/comedy-6.jpg.webp","alt":"Comedy storyboard sequence 06","title":"Comedy-06","section":"03 COMEDY","href":"comedy.html"},{"id":"03-8","type":"image","src":"assets/images/hero/comedy/comedy-9.jpg.webp","alt":"Comedy storyboard sequence 09","title":"Comedy-09","section":"03 COMEDY","href":"comedy.html"},{"id":"03-9","type":"image","src":"assets/images/hero/comedy/comedy-7.jpg.webp","alt":"Comedy storyboard sequence 07","title":"Comedy-07","section":"03 COMEDY","href":"comedy.html"},{"id":"03-10","type":"image","src":"assets/images/hero/comedy/comedy-10.jpg.webp","alt":"Comedy storyboard sequence 10","title":"Comedy-10","section":"03 COMEDY","href":"comedy.html"},{"id":"03-11","type":"image","src":"assets/images/hero/comedy/comedy-11.jpg.webp","alt":"Comedy storyboard sequence 11","title":"Comedy-11","section":"03 COMEDY","href":"comedy.html"},{"id":"03-12","type":"image","src":"assets/images/hero/comedy/comedy-13.jpg.webp","alt":"Comedy storyboard sequence 13","title":"Comedy-13","section":"03 COMEDY","href":"comedy.html"},{"id":"03-13","type":"image","src":"assets/images/hero/comedy/comedy-14.jpg.webp","alt":"Comedy storyboard sequence 14","title":"Comedy-14","section":"03 COMEDY","href":"comedy.html"},{"id":"chapter-04","type":"chapter","number":"04","title":"ACTION","href":"action.html"},{"id":"04-1","type":"image","src":"assets/images/hero/action/action-5.jpg.webp","alt":"Action storyboard sequence 05","title":"Action-05","section":"04 ACTION","href":"action.html"},{"id":"04-2","type":"image","src":"assets/images/hero/action/action-8.jpg.webp","alt":"Action storyboard sequence 08","title":"Action-08","section":"04 ACTION","href":"action.html"},{"id":"04-3","type":"image","src":"assets/images/hero/action/action-1.jpg.webp","alt":"Action storyboard sequence 01","title":"Action-01","section":"04 ACTION","href":"action.html"},{"id":"04-4","type":"image","src":"assets/images/hero/action/action-13.jpg","alt":"Action storyboard sequence 13","title":"Action-13","section":"04 ACTION","href":"action.html"},{"id":"04-5","type":"image","src":"assets/images/hero/action/action-14.jpg.webp","alt":"Action storyboard sequence 14","title":"Action-14","section":"04 ACTION","href":"action.html"},{"id":"04-6","type":"image","src":"assets/images/hero/action/action-15.jpg.webp","alt":"Action storyboard sequence 15","title":"Action-15","section":"04 ACTION","href":"action.html"},{"id":"04-7","type":"image","src":"assets/images/hero/action/action-3.jpg","alt":"Action storyboard sequence 03","title":"Action-03","section":"04 ACTION","href":"action.html"},{"id":"04-8","type":"image","src":"assets/images/hero/action/action-9.jpg.webp","alt":"Action storyboard sequence 09","title":"Action-09","section":"04 ACTION","href":"action.html"},{"id":"04-9","type":"image","src":"assets/images/hero/action/action-10.jpg.webp","alt":"Action storyboard sequence 10","title":"Action-10","section":"04 ACTION","href":"action.html"},{"id":"04-10","type":"image","src":"assets/images/hero/action/action-7.jpg.webp","alt":"Action storyboard sequence 07","title":"Action-07","section":"04 ACTION","href":"action.html"},{"id":"04-11","type":"image","src":"assets/images/hero/action/action-11.jpg.webp","alt":"Action storyboard sequence 11","title":"Action-11","section":"04 ACTION","href":"action.html"},{"id":"04-12","type":"image","src":"assets/images/hero/action/action-4.jpg.webp","alt":"Action storyboard sequence 04","title":"Action-04","section":"04 ACTION","href":"action.html"},{"id":"04-13","type":"image","src":"assets/images/hero/action/action-12.jpg.webp","alt":"Action storyboard sequence 12","title":"Action-12","section":"04 ACTION","href":"action.html"},{"id":"04-14","type":"image","src":"assets/images/hero/action/action-6.jpg.webp","alt":"Action storyboard sequence 06","title":"Action-06","section":"04 ACTION","href":"action.html"},{"id":"04-new-1","type":"image","src":"assets/images/hero/action/mama-bosch-camera-swing.jpg","alt":"MaMa/Bosch action storyboard with camera swing notation","title":"MaMa/Bosch","section":"04 ACTION","href":"action.html"},{"id":"04-new-2","type":"image","src":"assets/images/hero/action/mama-texas-pete.jpg","alt":"MaMa/Texas Pete action storyboard","title":"MaMa/Texas Pete","section":"04 ACTION","href":"action.html"},{"id":"04-new-3","type":"image","src":"assets/images/hero/action/mama-bosch-camera-tilt.jpg","alt":"MaMa/Bosch action storyboard with camera tilt notation","title":"MaMa/Bosch","section":"04 ACTION","href":"action.html"},{"id":"chapter-05","type":"chapter","number":"05","title":"FOOD + PRODUCT","href":"food-product.html"},{"id":"05-1","type":"image","src":"assets/images/hero/food-product/f%2Bp-16.jpg.webp","alt":"Food and product storyboard 16","title":"W+K/KFC","section":"05 FOOD + PRODUCT","href":"food-product.html"},{"id":"05-2","type":"image","src":"assets/images/hero/food-product/f%2Bp-66.jpg.webp","alt":"Food and product storyboard 66","title":"W+K/Instagram","section":"05 FOOD + PRODUCT","href":"food-product.html"},{"id":"05-3","type":"image","src":"assets/images/hero/food-product/f%2Bp-44.jpg.webp","alt":"Food and product storyboard 44","title":"W+K/Kraft","section":"05 FOOD + PRODUCT","href":"food-product.html"},{"id":"05-4","type":"image","src":"assets/images/hero/food-product/f%2Bp-8.jpg.webp","alt":"Food and product storyboard 08","title":"W+K/Kraft","section":"05 FOOD + PRODUCT","href":"food-product.html"},{"id":"05-5","type":"image","src":"assets/images/hero/food-product/f%2Bp-9.jpg.webp","alt":"Food and product storyboard 09","title":"W+K/Kraft","section":"05 FOOD + PRODUCT","href":"food-product.html"},{"id":"05-6","type":"image","src":"assets/images/hero/food-product/f%2Bp-11.jpg.webp","alt":"Food and product storyboard 11","title":"W+K/KFC","section":"05 FOOD + PRODUCT","href":"food-product.html"},{"id":"05-7","type":"image","src":"assets/images/hero/food-product/f%2Bp-13.jpg.webp","alt":"Food and product storyboard 13","title":"W+K/KFC","section":"05 FOOD + PRODUCT","href":"food-product.html"},{"id":"05-8","type":"image","src":"assets/images/hero/food-product/f%2Bp-14.jpg.webp","alt":"Food and product storyboard 14","title":"BBDO Chi-Chis","section":"05 FOOD + PRODUCT","href":"food-product.html"},{"id":"05-9","type":"image","src":"assets/images/hero/food-product/f%2Bp-15.jpg.webp","alt":"Food and product storyboard 15","title":"Imagine Brands/Chick-fil-a","section":"05 FOOD + PRODUCT","href":"food-product.html"},{"id":"05-10","type":"image","src":"assets/images/hero/food-product/f%2Bp-17.jpg.webp","alt":"Food and product storyboard 17","title":"W+K/KFC","section":"05 FOOD + PRODUCT","href":"food-product.html"},{"id":"05-11","type":"image","src":"assets/images/hero/food-product/f%2Bp-19.jpg.webp","alt":"Food and product storyboard 19","title":"W+K/KFC","section":"05 FOOD + PRODUCT","href":"food-product.html"},{"id":"05-12","type":"image","src":"assets/images/hero/food-product/f%2Bp-20.jpg.webp","alt":"Food and product storyboard 20","title":"W+K/Yoplait","section":"05 FOOD + PRODUCT","href":"food-product.html"},{"id":"05-new-1","type":"image","src":"assets/images/hero/food-product/bbdo-chi-chis.jpg","alt":"BBDO/Chi-Chi’s food and product storyboard","title":"BBDO/Chi-Chi’s","section":"05 FOOD + PRODUCT","href":"food-product.html"},{"id":"05-new-2","type":"image","src":"assets/images/hero/food-product/chobani-chobani.jpg","alt":"Chobani/Chobani food and product storyboard","title":"Chobani/Chobani","section":"05 FOOD + PRODUCT","href":"food-product.html"},{"id":"chapter-06","type":"chapter","number":"06","title":"PEOPLE DOING THINGS","href":"people-doing-things.html"},{"id":"06-1","type":"image","src":"assets/images/hero/people-doing-things/pdt-1.jpg.webp","alt":"People doing things storyboard 01","title":"PDT-01","section":"06 PEOPLE DOING THINGS","href":"people-doing-things.html"},{"id":"06-2","type":"image","src":"assets/images/hero/people-doing-things/pdt-2.jpg","alt":"People doing things storyboard 02","title":"PDT-02","section":"06 PEOPLE DOING THINGS","href":"people-doing-things.html"},{"id":"06-3","type":"image","src":"assets/images/hero/people-doing-things/pdt-3.jpg.webp","alt":"People doing things storyboard 03","title":"PDT-03","section":"06 PEOPLE DOING THINGS","href":"people-doing-things.html"},{"id":"06-4","type":"image","src":"assets/images/hero/people-doing-things/pdt-4.jpg.webp","alt":"People doing things storyboard 04","title":"PDT-04","section":"06 PEOPLE DOING THINGS","href":"people-doing-things.html"},{"id":"06-5","type":"image","src":"assets/images/hero/people-doing-things/pdt-5.jpg.webp","alt":"People doing things storyboard 05","title":"PDT-05","section":"06 PEOPLE DOING THINGS","href":"people-doing-things.html"},{"id":"06-6","type":"image","src":"assets/images/hero/people-doing-things/pdt-6.jpg.webp","alt":"People doing things storyboard 06","title":"PDT-06","section":"06 PEOPLE DOING THINGS","href":"people-doing-things.html"},{"id":"06-7","type":"image","src":"assets/images/hero/people-doing-things/pdt-7.jpg.webp","alt":"People doing things storyboard 07","title":"PDT-07","section":"06 PEOPLE DOING THINGS","href":"people-doing-things.html"},{"id":"06-8","type":"image","src":"assets/images/hero/people-doing-things/pdt-8.jpg","alt":"People doing things storyboard 08","title":"PDT-08","section":"06 PEOPLE DOING THINGS","href":"people-doing-things.html"},{"id":"06-9","type":"image","src":"assets/images/hero/people-doing-things/pdt-9.jpg.webp","alt":"People doing things storyboard 09","title":"PDT-09","section":"06 PEOPLE DOING THINGS","href":"people-doing-things.html"},{"id":"06-10","type":"image","src":"assets/images/hero/people-doing-things/pdt-10.jpg.webp","alt":"People doing things storyboard 10","title":"PDT-10","section":"06 PEOPLE DOING THINGS","href":"people-doing-things.html"},{"id":"06-11","type":"image","src":"assets/images/hero/people-doing-things/pdt-11.jpg.webp","alt":"People doing things storyboard 11","title":"PDT-11","section":"06 PEOPLE DOING THINGS","href":"people-doing-things.html"},{"id":"06-12","type":"image","src":"assets/images/hero/people-doing-things/pdt-12.jpg","alt":"People doing things storyboard 12","title":"PDT-12","section":"06 PEOPLE DOING THINGS","href":"people-doing-things.html"},{"id":"06-13","type":"image","src":"assets/images/hero/people-doing-things/pdt-13.jpg.webp","alt":"People doing things storyboard 13","title":"PDT-13","section":"06 PEOPLE DOING THINGS","href":"people-doing-things.html"},{"id":"06-14","type":"image","src":"assets/images/hero/people-doing-things/pdt-14.jpg.webp","alt":"People doing things storyboard 14","title":"PDT-14","section":"06 PEOPLE DOING THINGS","href":"people-doing-things.html"},{"id":"06-15","type":"image","src":"assets/images/hero/people-doing-things/pdt-16.jpg.webp","alt":"People doing things storyboard 16","title":"PDT-16","section":"06 PEOPLE DOING THINGS","href":"people-doing-things.html"},{"id":"06-16","type":"image","src":"assets/images/hero/people-doing-things/pdt-17.jpg","alt":"People doing things storyboard 17","title":"PDT-17","section":"06 PEOPLE DOING THINGS","href":"people-doing-things.html"},{"id":"06-17","type":"image","src":"assets/images/hero/people-doing-things/pdt-18.jpg.webp","alt":"People doing things storyboard 18","title":"PDT-18","section":"06 PEOPLE DOING THINGS","href":"people-doing-things.html"},{"id":"06-18","type":"image","src":"assets/images/hero/people-doing-things/pdt-19.jpg.webp","alt":"People doing things storyboard 19","title":"PDT-19","section":"06 PEOPLE DOING THINGS","href":"people-doing-things.html"},{"id":"06-19","type":"image","src":"assets/images/hero/people-doing-things/pdt-20.jpg.webp","alt":"People doing things storyboard 20","title":"PDT-20","section":"06 PEOPLE DOING THINGS","href":"people-doing-things.html"},{"id":"06-20","type":"image","src":"assets/images/hero/people-doing-things/pdt-21.jpg.webp","alt":"People doing things storyboard 21","title":"PDT-21","section":"06 PEOPLE DOING THINGS","href":"people-doing-things.html"}];
+  const byId = new Map(items.map((item, index) => [item.id, index]));
+  const lightbox = document.getElementById('master-lightbox');
+  if (!lightbox || !items.length) return;
+
+  const stage = lightbox.querySelector('.lightbox-stage');
+  const image = lightbox.querySelector('.lightbox-image');
+  const chapter = lightbox.querySelector('.chapter-card');
+  const chapterNumber = lightbox.querySelector('.chapter-number');
+  const chapterTitle = lightbox.querySelector('.chapter-title');
+  const caption = lightbox.querySelector('.lightbox-caption');
+  const closeBtn = lightbox.querySelector('.lightbox-close');
+  const prevBtn = lightbox.querySelector('.lightbox-prev');
+  const nextBtn = lightbox.querySelector('.lightbox-next');
+
+  let current = 0;
+  let opener = null;
+
+  function imageCountThrough(index) {
+    let count = 0;
+    for (let i = 0; i <= index; i += 1) if (items[i].type === 'image') count += 1;
+    return count;
+  }
+
+  const totalImages = items.filter(item => item.type === 'image').length;
+
+  function show(index) {
+    current = Math.max(0, Math.min(index, items.length - 1));
+    const item = items[current];
+
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === items.length - 1;
+
+    if (item.type === 'chapter') {
+      image.style.display = 'none';
+      image.removeAttribute('src');
+      image.alt = '';
+      chapter.classList.add('is-visible');
+      chapterNumber.textContent = item.number;
+      chapterTitle.textContent = item.title;
+      caption.textContent = item.number + ' ' + item.title;
+    } else {
+      chapter.classList.remove('is-visible');
+      image.style.display = 'block';
+      image.src = item.src;
+      image.alt = item.alt || item.title || '';
+      const position = imageCountThrough(current);
+      caption.textContent = (item.title ? item.title + '  ·  ' : '') + position + ' / ' + totalImages;
+    }
+  }
+
+  function openAt(index, trigger) {
+    opener = trigger || null;
+    show(index);
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lightbox-open');
+    closeBtn.focus();
+  }
+
+  function close() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lightbox-open');
+    image.removeAttribute('src');
+    if (opener && typeof opener.focus === 'function') opener.focus();
+  }
+
+  function step(delta) {
+    const next = current + delta;
+    if (next < 0 || next >= items.length) return;
+    show(next);
+  }
+
+  document.querySelectorAll('[data-master-gallery]').forEach(trigger => {
+    trigger.addEventListener('click', function (event) {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      const id = trigger.getAttribute('data-master-gallery');
+      openAt(byId.has(id) ? byId.get(id) : 0, trigger);
+    });
+
+    trigger.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        trigger.click();
+      }
+    });
+  });
+
+  prevBtn.addEventListener('click', function (event) {
+    event.stopPropagation();
+    step(-1);
+  });
+
+  nextBtn.addEventListener('click', function (event) {
+    event.stopPropagation();
+    step(1);
+  });
+
+  closeBtn.addEventListener('click', function (event) {
+    event.stopPropagation();
+    close();
+  });
+
+  lightbox.addEventListener('click', function (event) {
+    if (event.target === lightbox || event.target === stage) close();
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (event.key === 'Escape') close();
+    if (event.key === 'ArrowLeft') step(-1);
+    if (event.key === 'ArrowRight') step(1);
+  });
+})();
+</script>
+
 <script src="assets/js/site-v0.4.js" defer></script>
+
+<script id="dg-ticker-hardening-script-2026-10-07">
+(() => {
+  const ticker = document.querySelector('.ticker');
+  const track = ticker && ticker.querySelector('.ticker-track');
+  const firstGroup = track && track.querySelector('.ticker-group');
+  if (!ticker || !track || !firstGroup) return;
+
+  let animation = null;
+  let resizeTimer = null;
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  function startTicker() {
+    if (animation) {
+      animation.cancel();
+      animation = null;
+    }
+
+    track.style.transform = 'translate3d(0,0,0)';
+    if (reducedMotion.matches) return;
+
+    const distance = firstGroup.getBoundingClientRect().width;
+    if (!distance) return;
+
+    animation = track.animate(
+      [
+        { transform: 'translate3d(0,0,0)' },
+        { transform: `translate3d(-${distance}px,0,0)` }
+      ],
+      { duration: 32000, iterations: Infinity, easing: 'linear' }
+    );
+  }
+
+  const images = Array.from(track.querySelectorAll('img'));
+  Promise.all(images.map(img => {
+    if (img.complete) return Promise.resolve();
+    return new Promise(resolve => {
+      img.addEventListener('load', resolve, { once: true });
+      img.addEventListener('error', resolve, { once: true });
+    });
+  })).then(startTicker);
+
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(startTicker, 120);
+  });
+
+  if (reducedMotion.addEventListener) reducedMotion.addEventListener('change', startTicker);
+})();
+</script>
+
 </body>
 </html>
